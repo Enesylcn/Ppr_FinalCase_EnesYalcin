@@ -4,25 +4,21 @@ using DigitalStore.Base.Token;
 using DigitalStore.Data.Domain;
 using DigitalStore.Schema;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 
 namespace DigitalStore.Business.IdentityService
 {
-    public class AuthanticationService : IAuthanticationService
+    public class AuthenticationService : IAuthenticationService
     {
         private readonly JwtConfig jwtConfig;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly ISessionContext sessionContext;
 
-        public AuthanticationService(JwtConfig jwtConfig, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ISessionContext sessionContext)
+        public AuthenticationService(JwtConfig jwtConfig, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ISessionContext sessionContext)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;

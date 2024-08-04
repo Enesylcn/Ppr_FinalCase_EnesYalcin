@@ -4,8 +4,11 @@ using DigitalStore.Base;
 using DigitalStore.Base.Token;
 using DigitalStore.Business.IdentityService;
 using DigitalStore.Data.Context;
+using DigitalStore.Data.Domain;
 using DigitalStore.Data.UnitOfWork;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -31,23 +34,27 @@ namespace DigitalStore.WebApi
             services.AddSingleton<JwtConfig>(jwtConfig);
 
             string type = Configuration.GetConnectionString("DbType");
-            if (type == "1")
+            if (type == "MsSql")
             {
                 var connectionStringSql = Configuration.GetConnectionString("MsSqlConnection");
-                services.AddDbContext<StoreDbContext> (options => options.UseSqlServer(connectionStringSql));
+                services.AddDbContext<StoreIdentityDbContext> (options => options.UseSqlServer(connectionStringSql));
             }
             else
             {
                 var connectionStringPostgre = Configuration.GetConnectionString("PostgresSqlConnection");
-                services.AddDbContext<StoreDbContext>(options => options.UseNpgsql(connectionStringPostgre));
+                services.AddDbContext<StoreIdentityDbContext>(options => options.UseNpgsql(connectionStringPostgre));
             }
 
 
-            services.AddControllers().AddJsonOptions(options =>
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<StoreIdentityDbContext>();
+            services.Configure<IdentityOptions>(options =>
             {
-                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-                options.JsonSerializerOptions.WriteIndented = true;
-                options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 5;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredUniqueChars = 1;
             });
             //services.AddControllers().AddFluentValidation(x =>
             //{
@@ -134,7 +141,7 @@ namespace DigitalStore.WebApi
             protected override void Load(ContainerBuilder builder)
             {
                 builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
-                builder.RegisterType<AuthanticationService>().As<IAuthanticationService>().InstancePerLifetimeScope();
+                builder.RegisterType<AuthenticationService>().As<IAuthenticationService>().InstancePerLifetimeScope();
             }
         }
 

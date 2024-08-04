@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DigitalStore.Business.IdentityService
 {
-    public interface IAuthanticationService
+    public interface IAuthenticationService
     {
         Task<ApiResponse<AuthResponse>> Login(AuthRequest request);
         Task<ApiResponse> Logout();
