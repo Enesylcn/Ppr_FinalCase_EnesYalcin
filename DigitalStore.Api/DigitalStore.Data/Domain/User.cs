@@ -20,8 +20,10 @@ namespace DigitalStore.Data.Domain
 
         public string Password { get; set; }
         public DateTime? LastLoginDate { get; set; }
-        public int Status { get; set; }
+        public string Status { get; set; }
 
-        public int PointCash { get; set; }
+        public decimal PointCash { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
     }
 }

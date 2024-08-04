@@ -12,9 +12,9 @@ namespace DigitalStore.Data.GenericRepository
 {
     internal class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity
     {
-        private readonly StoreDbContext dbContext;
+        private readonly StoreIdentityDbContext dbContext;
 
-        public GenericRepository(StoreDbContext dbContext)
+        public GenericRepository(StoreIdentityDbContext dbContext)
         {
             this.dbContext = dbContext;
         }

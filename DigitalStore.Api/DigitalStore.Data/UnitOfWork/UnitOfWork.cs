@@ -13,12 +13,12 @@ namespace DigitalStore.Data.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        private readonly StoreDbContext dbContext;
+        private readonly StoreIdentityDbContext dbContext;
 
         public IGenericRepository<User> UserRepository { get; }
 
 
-        public UnitOfWork(StoreDbContext dbContext)
+        public UnitOfWork(StoreIdentityDbContext dbContext)
         {
             this.dbContext = dbContext;
 

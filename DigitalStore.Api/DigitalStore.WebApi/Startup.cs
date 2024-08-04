@@ -56,6 +56,13 @@ namespace DigitalStore.WebApi
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredUniqueChars = 1;
             });
+
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                options.JsonSerializerOptions.WriteIndented = true;
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;
+            });
             //services.AddControllers().AddFluentValidation(x =>
             //{
             //    x.RegisterValidatorsFromAssemblyContaining<BaseValidator>();
@@ -177,7 +184,7 @@ namespace DigitalStore.WebApi
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseRouting();
-            app.UseAuthorization();
+            //app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
