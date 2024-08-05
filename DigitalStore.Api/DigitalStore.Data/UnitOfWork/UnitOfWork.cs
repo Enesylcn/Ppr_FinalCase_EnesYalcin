@@ -16,13 +16,22 @@ namespace DigitalStore.Data.UnitOfWork
         private readonly StoreIdentityDbContext dbContext;
 
         public IGenericRepository<User> UserRepository { get; }
-
+        public IGenericRepository<Category> CategoryRepository { get; }
+        public IGenericRepository<Product> ProductRepository { get; }
+        public IGenericRepository<Order> OrderRepository { get; }
+        public IGenericRepository<OrderDetail> OrderDetailRepository { get; }
+        public IGenericRepository<ProductCategory> ProductCategoryRepository { get; }
 
         public UnitOfWork(StoreIdentityDbContext dbContext)
         {
             this.dbContext = dbContext;
 
             UserRepository = new GenericRepository<User>(this.dbContext);
+            CategoryRepository = new GenericRepository<Category>(this.dbContext);
+            ProductRepository = new GenericRepository<Product>(this.dbContext);
+            OrderRepository = new GenericRepository<Order>(this.dbContext);
+            OrderDetailRepository = new GenericRepository<OrderDetail>(this.dbContext);
+            ProductCategoryRepository = new GenericRepository<ProductCategory>(this.dbContext);
         }
 
         public void Dispose()

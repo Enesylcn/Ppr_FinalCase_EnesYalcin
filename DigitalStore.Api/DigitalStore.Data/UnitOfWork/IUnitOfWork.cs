@@ -13,5 +13,10 @@ namespace DigitalStore.Data.UnitOfWork
         Task Complete();
         Task CompleteWithTransaction();
         IGenericRepository<User> UserRepository { get; }
+        IGenericRepository<Category> CategoryRepository { get; }
+        IGenericRepository<Product> ProductRepository { get; }
+        IGenericRepository<Order> OrderRepository { get; }
+        IGenericRepository<OrderDetail> OrderDetailRepository { get; }
+        IGenericRepository<ProductCategory> ProductCategoryRepository { get; }
     }
 }
