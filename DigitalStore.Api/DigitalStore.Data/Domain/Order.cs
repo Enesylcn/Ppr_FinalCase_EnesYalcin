@@ -14,8 +14,11 @@ namespace DigitalStore.Data.Domain
         public string CouponCode { get; set; }
         public decimal PointsAmount { get; set; }
 
-        public int UserId { get; set; }
+        public long UserId { get; set; }
         public User User { get; set; }
+
+        public string AppUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         // Navigation properties
         public ICollection<OrderDetail> OrderDetails { get; set; }

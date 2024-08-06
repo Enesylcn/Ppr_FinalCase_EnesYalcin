@@ -11,8 +11,15 @@ namespace DigitalStore.Data.Domain
 {
     public class ApplicationUser : IdentityUser
     {
-        public string IdentityNo { get; set; }
-        public string LastName { get; set; }
         public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string Gender { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public string Occupation { get; set; }
+        public decimal PointCash { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
     }
 }

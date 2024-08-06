@@ -21,7 +21,6 @@ namespace DigitalStore.WebApi.Controllers
             this.mediator = mediator;
         }
 
-
         [HttpGet]
         [Authorize(Roles = "admin")]
         public async Task<ApiResponse<List<UserResponse>>> Get()

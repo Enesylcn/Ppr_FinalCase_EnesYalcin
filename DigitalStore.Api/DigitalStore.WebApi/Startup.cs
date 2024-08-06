@@ -1,11 +1,14 @@
 ﻿using Autofac;
 using Autofac.Core;
+using AutoMapper;
 using DigitalStore.Base;
 using DigitalStore.Base.Token;
 using DigitalStore.Business.IdentityService;
+using DigitalStore.Business.Mapper;
 using DigitalStore.Data.Context;
 using DigitalStore.Data.Domain;
 using DigitalStore.Data.UnitOfWork;
+using DigitalStore.WebApi.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -49,12 +52,21 @@ namespace DigitalStore.WebApi
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<StoreIdentityDbContext>();
             services.Configure<IdentityOptions>(options =>
             {
-                options.Password.RequireDigit = false;
-                options.Password.RequiredLength = 5;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequiredUniqueChars = 1;
+                #region Password Options
+                options.Password.RequiredLength = 6;// Parola en az 6 karakter olmalı
+                options.Password.RequireDigit = true;//Parola en az 1 adet sayısal değer içermeli
+                options.Password.RequireNonAlphanumeric = true;//Parola özel karakter içermeli
+                options.Password.RequireUppercase = true;// Parola büyük harf içermeli
+                options.Password.RequireLowercase = true;// Parola küçük harf içermeli
+                                                         //options.Password.RequiredUniqueChars = // tekrar etmemesi istenilen karakterleri dizi şeklinde verip kullanılıyor. 
+                #endregion
+                #region Hesap Kilitleme Ayarları
+                options.Lockout.MaxFailedAccessAttempts = 3; // Üst üste hatalı giriş denemesi
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(15); // kilitlenmiş bir hesaba yeniden giriş yapabilmek için gereken bekleme süresi
+                                                                                   //options.Lockout.AllowedForNewUsers = true; // Yeniden kayıt olmaya imkan ver
+                #endregion
+                options.User.RequireUniqueEmail = true; //Her email 1 kere kayıt olabilir.
+                options.SignIn.RequireConfirmedEmail = false;
             });
 
             services.AddControllers().AddJsonOptions(options =>
@@ -69,8 +81,8 @@ namespace DigitalStore.WebApi
             //});
 
 
-            //var config = new MapperConfiguration(cfg => { cfg.AddProfile(new MapperConfig()); });
-            //services.AddSingleton(config.CreateMapper());
+            var config = new MapperConfiguration(cfg => { cfg.AddProfile(new MapperConfig()); });
+            services.AddSingleton(config.CreateMapper());
 
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
@@ -91,9 +103,10 @@ namespace DigitalStore.WebApi
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtConfig.Secret)),
                     ValidAudience = jwtConfig.Audience,
-                    ValidateAudience = false,
+                    ValidateAudience = true,
                     ValidateLifetime = true,
                     ClockSkew = TimeSpan.FromMinutes(2)
+
                 };
             });
 
@@ -124,15 +137,6 @@ namespace DigitalStore.WebApi
 
             services.AddMemoryCache();
 
-            //var redisConfig = new ConfigurationOptions();
-            //redisConfig.DefaultDatabase = 0;
-            //redisConfig.EndPoints.Add(Configuration["Redis:Host"], Convert.ToInt32(Configuration["Redis:Port"]));
-            //services.AddStackExchangeRedisCache(opt =>
-            //{
-            //    opt.ConfigurationOptions = redisConfig;
-            //    opt.InstanceName = Configuration["Redis:InstanceName"];
-            //});
-
             services.AddScoped<ISessionContext>(provider =>
             {
                 var context = provider.GetService<IHttpContextAccessor>();
@@ -157,7 +161,7 @@ namespace DigitalStore.WebApi
             builder.RegisterModule(new AutofacBusinessModule());
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
@@ -167,25 +171,27 @@ namespace DigitalStore.WebApi
             }
 
 
-            //app.UseMiddleware<HeartbeatMiddleware>();
-            //app.UseMiddleware<ErrorHandlerMiddleware>();
-            //Action<RequestProfilerModel> requestResponseHandler = requestProfilerModel =>
-            //{
-            //    Log.Information("-------------Request-Begin------------");
-            //    Log.Information(requestProfilerModel.Request);
-            //    Log.Information(Environment.NewLine);
-            //    Log.Information(requestProfilerModel.Response);
-            //    Log.Information("-------------Request-End------------");
-            //};
-            //app.UseMiddleware<RequestLoggingMiddleware>(requestResponseHandler);
+            app.UseMiddleware<HeartbeatMiddleware>();
+            app.UseMiddleware<ErrorHandlerMiddleware>();
+            Action<RequestProfilerModel> requestResponseHandler = requestProfilerModel =>
+            {
+                logger.LogInformation("-------------Request-Begin------------");
+                logger.LogInformation(requestProfilerModel.Request);
+                logger.LogInformation(Environment.NewLine);
+                logger.LogInformation(requestProfilerModel.Response);
+                logger.LogInformation("-------------Request-End------------");
+            };
+            app.UseMiddleware<RequestLoggingMiddleware>(requestResponseHandler);
 
             //app.UseHangfireDashboard();
 
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseRouting();
-            //app.UseAuthorization();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
+            logger.LogInformation("Application started.");
         }
     }
 }

@@ -1,9 +1,12 @@
 ﻿using DigitalStore.Data.Configurations;
 using DigitalStore.Data.Domain;
+using DigitalStore.Data.Extensions;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -11,14 +14,14 @@ using System.Threading.Tasks;
 
 namespace DigitalStore.Data.Context
 {
-    public class StoreIdentityDbContext : IdentityDbContext
+    public class StoreIdentityDbContext : IdentityDbContext<ApplicationUser,IdentityRole, string>
     {
         public StoreIdentityDbContext(DbContextOptions<StoreIdentityDbContext> options) : base(options)
         {
 
         }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<User> Users { get; set; }
-
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
@@ -27,6 +30,8 @@ namespace DigitalStore.Data.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.SeedData();
+
             modelBuilder.ApplyConfiguration(new ApplicationUserConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
