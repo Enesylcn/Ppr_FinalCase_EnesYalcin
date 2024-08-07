@@ -17,9 +17,9 @@ namespace DigitalStore.Business.Application.CategoryOperations.Queries.GetCatego
 
     public class GetCategoriesQueryHandler : IRequestHandler<GetAllCategoryQuery, ApiResponse<List<CategoryResponse>>>
     {
-        private readonly IUnitOfWork<Category> unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
-        public GetCategoriesQueryHandler(IUnitOfWork<Category> unitOfWork, IMapper mapper)
+        public GetCategoriesQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -29,7 +29,7 @@ namespace DigitalStore.Business.Application.CategoryOperations.Queries.GetCatego
         {
             //List<Category> entityList = await unitOfWork.CategoryRepository.GetAll("CategoryDetail", "CategoryAddresses", "CategoryPhones"); Tırnak içinde yazılan alarlar ile o modele ait responsa ilgiler eklenir.
 
-            List<Category> entityList = await unitOfWork.GenericRepository.GetAll("Category");
+            List<Category> entityList = await unitOfWork.CategoryRepository.GetAll("Category");
             var mappedList = mapper.Map<List<CategoryResponse>>(entityList);
             return new ApiResponse<List<CategoryResponse>>(mappedList);
         }

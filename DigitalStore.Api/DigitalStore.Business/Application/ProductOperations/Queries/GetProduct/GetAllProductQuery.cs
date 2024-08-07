@@ -17,9 +17,9 @@ namespace DigitalStore.Business.Application.ProductOperations.Queries.GetProduct
 
     public class GetAllProductQueryHandler : IRequestHandler<GetAllProductQuery, ApiResponse<List<ProductResponse>>>
     {
-        private readonly IUnitOfWork<Product> unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
-        public GetAllProductQueryHandler(IUnitOfWork<Product> unitOfWork, IMapper mapper)
+        public GetAllProductQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -27,7 +27,7 @@ namespace DigitalStore.Business.Application.ProductOperations.Queries.GetProduct
 
         public async Task<ApiResponse<List<ProductResponse>>> Handle(GetAllProductQuery request, CancellationToken cancellationToken)
         {
-            List<Product> entityList = await unitOfWork.GenericRepository.GetAll("Product");
+            List<Product> entityList = await unitOfWork.ProductRepository.GetAll("Product");
             var mappedList = mapper.Map<List<ProductResponse>>(entityList);
             return new ApiResponse<List<ProductResponse>>(mappedList);
         }

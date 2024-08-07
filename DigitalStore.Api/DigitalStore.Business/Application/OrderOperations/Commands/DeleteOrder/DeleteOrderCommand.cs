@@ -16,15 +16,15 @@ namespace DigitalStore.Business.Application.OrderOperations.Commands.DeleteOrder
     public record DeleteOrderCommand(long OrderId) : IRequest<ApiResponse>;
     public class DeleteOrderCommandHandler : IRequestHandler<DeleteOrderCommand, ApiResponse>
     {
-        private readonly IUnitOfWork<Order> unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
 
-        public DeleteOrderCommandHandler(IUnitOfWork<Order> unitOfWork, IMapper mapper)
+        public DeleteOrderCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
         }
         public async Task<ApiResponse> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
         {
-            await unitOfWork.GenericRepository.Delete(request.OrderId);
+            await unitOfWork.OrderRepository.Delete(request.OrderId);
             await unitOfWork.Complete();
             return new ApiResponse();
         }

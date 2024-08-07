@@ -17,10 +17,10 @@ namespace DigitalStore.Business.Application.UserOperations.Commands.CreateUser
 
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, ApiResponse<UserResponse>>
     {
-        private readonly IUnitOfWork<User> unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
 
-        public CreateUserCommandHandler(IUnitOfWork<User> unitOfWork, IMapper mapper)
+        public CreateUserCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -29,7 +29,7 @@ namespace DigitalStore.Business.Application.UserOperations.Commands.CreateUser
         public async Task<ApiResponse<UserResponse>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             var mapped = mapper.Map<UserRequest, User>(request.Request);
-            await unitOfWork.GenericRepository.Insert(mapped);
+            await unitOfWork.UserRepository.Insert(mapped);
             await unitOfWork.Complete();
 
             var response = mapper.Map<UserResponse>(mapped);

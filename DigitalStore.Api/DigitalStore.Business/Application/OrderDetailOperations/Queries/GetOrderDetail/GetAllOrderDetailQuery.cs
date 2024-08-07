@@ -17,9 +17,9 @@ namespace DigitalStore.Business.Application.OrderDetailOperations.Queries.GetOrd
 
     public class GetAllOrderDetailQueryHandler : IRequestHandler<GetAllOrderDetailQuery, ApiResponse<List<OrderDetailResponse>>>
     {
-        private readonly IUnitOfWork<OrderDetail> unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
-        public GetAllOrderDetailQueryHandler(IUnitOfWork<OrderDetail> unitOfWork, IMapper mapper)
+        public GetAllOrderDetailQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -27,7 +27,7 @@ namespace DigitalStore.Business.Application.OrderDetailOperations.Queries.GetOrd
 
         public async Task<ApiResponse<List<OrderDetailResponse>>> Handle(GetAllOrderDetailQuery request, CancellationToken cancellationToken)
         {
-            List<OrderDetail> entityList = await unitOfWork.GenericRepository.GetAll("OrderDetail");
+            List<OrderDetail> entityList = await unitOfWork.OrderDetailRepository.GetAll("OrderDetail");
             var mappedList = mapper.Map<List<OrderDetailResponse>>(entityList);
             return new ApiResponse<List<OrderDetailResponse>>(mappedList);
         }

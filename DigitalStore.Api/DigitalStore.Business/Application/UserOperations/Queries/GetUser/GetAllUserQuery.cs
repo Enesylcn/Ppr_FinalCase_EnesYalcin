@@ -17,9 +17,9 @@ namespace DigitalStore.Business.Application.UserOperations.Queries.GetUser
 
     public class GetAllUserQueryHandler : IRequestHandler<GetAllUserQuery, ApiResponse<List<UserResponse>>>
     {
-        private readonly IUnitOfWork<User> unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
-        public GetAllUserQueryHandler(IUnitOfWork<User> unitOfWork, IMapper mapper)
+        public GetAllUserQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -27,7 +27,7 @@ namespace DigitalStore.Business.Application.UserOperations.Queries.GetUser
 
         public async Task<ApiResponse<List<UserResponse>>> Handle(GetAllUserQuery request, CancellationToken cancellationToken)
         {
-            List<User> entityList = await unitOfWork.GenericRepository.GetAll("User");
+            List<User> entityList = await unitOfWork.UserRepository.GetAll("User");
             var mappedList = mapper.Map<List<UserResponse>>(entityList);
             return new ApiResponse<List<UserResponse>>(mappedList);
         }

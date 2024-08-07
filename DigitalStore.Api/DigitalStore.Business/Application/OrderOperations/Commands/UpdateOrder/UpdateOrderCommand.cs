@@ -16,10 +16,10 @@ namespace DigitalStore.Business.Application.OrderOperations.Commands.UpdateOrder
     public record UpdateOrderCommand(long OrderId, OrderRequest Request) : IRequest<ApiResponse>;
     public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, ApiResponse>
     {
-        private readonly IUnitOfWork<Order> unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
 
-        public UpdateOrderCommandHandler(IUnitOfWork<Order> unitOfWork, IMapper mapper)
+        public UpdateOrderCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -28,7 +28,7 @@ namespace DigitalStore.Business.Application.OrderOperations.Commands.UpdateOrder
         {
             var mapped = mapper.Map<OrderRequest, Order>(request.Request);
             mapped.Id = request.OrderId;
-            unitOfWork.GenericRepository.Update(mapped);
+            unitOfWork.OrderRepository.Update(mapped);
             await unitOfWork.Complete();
             return new ApiResponse();
         }

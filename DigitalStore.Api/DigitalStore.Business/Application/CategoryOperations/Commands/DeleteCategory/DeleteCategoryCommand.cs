@@ -9,15 +9,15 @@ namespace DigitalStore.Business.Application.CategoryOperations.Commands.DeleteCa
     public record DeleteCategoryCommand(long categoryId) : IRequest<ApiResponse>;
     public class DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryCommand, ApiResponse>
     {
-        private readonly IUnitOfWork<Category> unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
 
-        public DeleteCategoryCommandHandler(IUnitOfWork<Category> unitOfWork, IMapper mapper)
+        public DeleteCategoryCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
         }
         public async Task<ApiResponse> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
         {
-            await unitOfWork.GenericRepository.Delete(request.categoryId);
+            await unitOfWork.CategoryRepository.Delete(request.categoryId);
             await unitOfWork.Complete();
             return new ApiResponse();
         }

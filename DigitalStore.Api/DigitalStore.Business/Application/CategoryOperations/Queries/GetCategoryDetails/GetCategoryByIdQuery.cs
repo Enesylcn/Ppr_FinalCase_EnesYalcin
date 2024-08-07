@@ -18,11 +18,11 @@ namespace DigitalStore.Business.Application.CategoryOperations.Queries.GetCatego
 
     public class GetCategoryByIdQueryHandler : IRequestHandler<GetCategoryByIdQuery, ApiResponse<CategoryResponse>>
     {
-        private readonly IUnitOfWork<Category> unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
         private readonly ISessionContext sessionContext;
 
-        public GetCategoryByIdQueryHandler(IUnitOfWork<Category> unitOfWork, IMapper mapper, ISessionContext sessionContext)
+        public GetCategoryByIdQueryHandler(IUnitOfWork unitOfWork, IMapper mapper, ISessionContext sessionContext)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -32,7 +32,7 @@ namespace DigitalStore.Business.Application.CategoryOperations.Queries.GetCatego
 
         public async Task<ApiResponse<CategoryResponse>> Handle(GetCategoryByIdQuery request, CancellationToken cancellationToken)
         {
-            var entity = await unitOfWork.GenericRepository.GetById(request.categoryId);
+            var entity = await unitOfWork.CategoryRepository.GetById(request.categoryId);
             var mapped = mapper.Map<CategoryResponse>(entity);
             return new ApiResponse<CategoryResponse>(mapped);
         }

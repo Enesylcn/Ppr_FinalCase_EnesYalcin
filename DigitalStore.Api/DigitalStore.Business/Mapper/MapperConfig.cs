@@ -11,7 +11,7 @@ namespace DigitalStore.Business.Mapper
         public MapperConfig()
         {
             CreateMap<Category, CategoryResponse>();
-            CreateMap<CategoryResponse, Category>();
+            CreateMap<CategoryRequest, Category>();
 
 
             //CreateMap<CustomerAddress, CustomerAddressResponse>()
