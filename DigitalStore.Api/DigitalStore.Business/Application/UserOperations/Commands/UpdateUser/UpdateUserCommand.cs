@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DigitalStore.Base.Response;
+using DigitalStore.Business.Application.UserOperations.Commands.DeleteUser;
 using DigitalStore.Data.Domain;
 using DigitalStore.Data.UnitOfWork;
 using DigitalStore.Schema;
@@ -13,12 +14,12 @@ using System.Threading.Tasks;
 namespace DigitalStore.Business.Application.UserOperations.Commands.UpdateUser
 {
     public record UpdateUserCommand(long UserId, UserRequest Request) : IRequest<ApiResponse>;
-    public class UpdateUserCommandHandler
+    public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, ApiResponse>
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork<User> unitOfWork;
         private readonly IMapper mapper;
 
-        public UpdateUserCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public UpdateUserCommandHandler(IUnitOfWork<User> unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -27,7 +28,7 @@ namespace DigitalStore.Business.Application.UserOperations.Commands.UpdateUser
         {
             var mapped = mapper.Map<UserRequest, User>(request.Request);
             mapped.Id = request.UserId;
-            unitOfWork.UserRepository.Update(mapped);
+            unitOfWork.GenericRepository.Update(mapped);
             await unitOfWork.Complete();
             return new ApiResponse();
         }

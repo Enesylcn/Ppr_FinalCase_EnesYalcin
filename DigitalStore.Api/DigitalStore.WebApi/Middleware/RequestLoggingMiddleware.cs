@@ -1,50 +1,49 @@
 ﻿using DigitalStore.Data.Domain;
 using Microsoft.IO;
+using Serilog;
 
 namespace DigitalStore.WebApi.Middleware
 {
     public class RequestLoggingMiddleware
     {
         private readonly RequestDelegate next;
-        private readonly ILogger<ErrorHandlerMiddleware> Log;
         private readonly RecyclableMemoryStreamManager recyclableMemoryStreamManager;
-        private readonly Action<RequestProfilerModel> requestResponseHandler;
+        //private readonly Action<RequestProfilerModel> requestResponseHandler;
         private const int ReadChunkBufferLength = 4096;
-        public RequestLoggingMiddleware(RequestDelegate next, ILogger<ErrorHandlerMiddleware> log)
+        public RequestLoggingMiddleware(RequestDelegate next, Action<RequestProfilerModel> requestResponseHandler)
         {
             this.next = next;
-            this.requestResponseHandler = requestResponseHandler;
+            //this.requestResponseHandler = requestResponseHandler;
             this.recyclableMemoryStreamManager = new RecyclableMemoryStreamManager();
-            Log = log;
         }
 
         public async Task Invoke(HttpContext context)
         {
-            Log.LogInformation("LogRequestLoggingMiddleware.Invoke");
+            Log.Information("LogRequestLoggingMiddleware.Invoke");
 
-            var model = new RequestProfilerModel
-            {
-                RequestTime = new DateTimeOffset(),
-                Context = context,
-                Request = await FormatRequest(context)
-            };
+            //var model = new RequestProfilerModel
+            //{
+            //    RequestTime = new DateTimeOffset(),
+            //    Context = context,
+            //    Request = await FormatRequest(context)
+            //};
 
             Stream originalBody = context.Response.Body;
 
-            using (MemoryStream newResponseBody = recyclableMemoryStreamManager.GetStream())
-            {
-                context.Response.Body = newResponseBody;
+            //using (MemoryStream newResponseBody = recyclableMemoryStreamManager.GetStream())
+            //{
+            //    context.Response.Body = newResponseBody;
 
-                await next(context);
+            //    await next(context);
 
-                newResponseBody.Seek(0, SeekOrigin.Begin);
-                await newResponseBody.CopyToAsync(originalBody);
+            //    newResponseBody.Seek(0, SeekOrigin.Begin);
+            //    await newResponseBody.CopyToAsync(originalBody);
 
-                newResponseBody.Seek(0, SeekOrigin.Begin);
-                model.Response = FormatResponse(context, newResponseBody);
-                model.ResponseTime = new DateTimeOffset();
-                requestResponseHandler(model);
-            }
+            //    newResponseBody.Seek(0, SeekOrigin.Begin);
+            //    model.Response = FormatResponse(context, newResponseBody);
+            //    model.ResponseTime = new DateTimeOffset();
+            //    requestResponseHandler(model);
+            //}
         }
 
         private string FormatResponse(HttpContext context, MemoryStream newResponseBody)

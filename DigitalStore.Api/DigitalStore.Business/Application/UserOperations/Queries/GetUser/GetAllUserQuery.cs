@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DigitalStore.Base.Response;
+using DigitalStore.Business.Application.UserOperations.Commands.UpdateUser;
 using DigitalStore.Data.Domain;
 using DigitalStore.Data.UnitOfWork;
 using DigitalStore.Schema;
@@ -14,11 +15,11 @@ namespace DigitalStore.Business.Application.UserOperations.Queries.GetUser
 {
     public record GetAllUserQuery() : IRequest<ApiResponse<List<UserResponse>>>;
 
-    public class GetAllUserQueryHandler
+    public class GetAllUserQueryHandler : IRequestHandler<GetAllUserQuery, ApiResponse<List<UserResponse>>>
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork<User> unitOfWork;
         private readonly IMapper mapper;
-        public GetAllUserQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public GetAllUserQueryHandler(IUnitOfWork<User> unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -26,7 +27,7 @@ namespace DigitalStore.Business.Application.UserOperations.Queries.GetUser
 
         public async Task<ApiResponse<List<UserResponse>>> Handle(GetAllUserQuery request, CancellationToken cancellationToken)
         {
-            List<User> entityList = await unitOfWork.UserRepository.GetAll("User");
+            List<User> entityList = await unitOfWork.GenericRepository.GetAll("User");
             var mappedList = mapper.Map<List<UserResponse>>(entityList);
             return new ApiResponse<List<UserResponse>>(mappedList);
         }

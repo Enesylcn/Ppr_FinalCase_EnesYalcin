@@ -12,14 +12,14 @@ namespace DigitalStore.Business.Application.CategoryOperations.Commands.CreateCa
 {
     public record CreateCategoryCommand(CategoryRequest Request) : IRequest<ApiResponse<CategoryResponse>>;
 
-    public class CreateCategoryCommandHandler
+    public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, ApiResponse<CategoryResponse>>
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork<Category> unitOfWork;
         private readonly IMapper mapper;
         //private readonly IMemoryCache memoryCache;
         //private readonly IDistributedCache distributedCache;
 
-        public CreateCategoryCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public CreateCategoryCommandHandler(IUnitOfWork<Category> unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -30,7 +30,7 @@ namespace DigitalStore.Business.Application.CategoryOperations.Commands.CreateCa
         public async Task<ApiResponse<CategoryResponse>> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
             var mapped = mapper.Map<CategoryRequest, Category>(request.Request);
-            await unitOfWork.CategoryRepository.Insert(mapped);
+            await unitOfWork.GenericRepository.Insert(mapped);
             await unitOfWork.Complete();
 
             //memoryCache.Remove("CategoryList");

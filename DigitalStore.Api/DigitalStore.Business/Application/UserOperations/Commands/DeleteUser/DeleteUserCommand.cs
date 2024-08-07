@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using DigitalStore.Base.Response;
+using DigitalStore.Business.Application.UserOperations.Commands.CreateUser;
+using DigitalStore.Data.Domain;
 using DigitalStore.Data.UnitOfWork;
+using DigitalStore.Schema;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -11,17 +14,17 @@ using System.Threading.Tasks;
 namespace DigitalStore.Business.Application.UserOperations.Commands.DeleteUser
 {
     public record DeleteUserCommand(long UserId) : IRequest<ApiResponse>;
-    public class DeleteUserCommandHandler
+    public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, ApiResponse>
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork<User> unitOfWork;
 
-        public DeleteUserCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public DeleteUserCommandHandler(IUnitOfWork<User> unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
         }
         public async Task<ApiResponse> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
-            await unitOfWork.UserRepository.Delete(request.UserId);
+            await unitOfWork.GenericRepository.Delete(request.UserId);
             await unitOfWork.Complete();
             return new ApiResponse();
         }

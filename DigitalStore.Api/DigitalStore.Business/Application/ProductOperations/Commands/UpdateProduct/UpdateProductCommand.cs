@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DigitalStore.Base.Response;
+using DigitalStore.Business.Application.ProductOperations.Commands.DeleteProduct;
 using DigitalStore.Data.Domain;
 using DigitalStore.Data.UnitOfWork;
 using DigitalStore.Schema;
@@ -13,12 +14,12 @@ using System.Threading.Tasks;
 namespace DigitalStore.Business.Application.ProductOperations.Commands.UpdateProduct
 {
     public record UpdateProductCommand(long ProductId, ProductRequest Request) : IRequest<ApiResponse>;
-    public class UpdateProductCommandHandler
+    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, ApiResponse>
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork<Product> unitOfWork;
         private readonly IMapper mapper;
 
-        public UpdateProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public UpdateProductCommandHandler(IUnitOfWork<Product> unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -27,7 +28,7 @@ namespace DigitalStore.Business.Application.ProductOperations.Commands.UpdatePro
         {
             var mapped = mapper.Map<ProductRequest, Product>(request.Request);
             mapped.Id = request.ProductId;
-            unitOfWork.ProductRepository.Update(mapped);
+            unitOfWork.GenericRepository.Update(mapped);
             await unitOfWork.Complete();
             return new ApiResponse();
         }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DigitalStore.Base.Response;
+using DigitalStore.Business.Application.OrderDetailOperations.Queries.GetOrderDetail;
 using DigitalStore.Data.Domain;
 using DigitalStore.Data.UnitOfWork;
 using DigitalStore.Schema;
@@ -14,12 +15,12 @@ namespace DigitalStore.Business.Application.OrderOperations.Commands.CreateOrder
 {
     public record CreateOrderCommand(OrderRequest Request) : IRequest<ApiResponse<OrderResponse>>;
 
-    public class CreateOrderCommandHandler
+    public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, ApiResponse<OrderResponse>>
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork<Order> unitOfWork;
         private readonly IMapper mapper;
 
-        public CreateOrderCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public CreateOrderCommandHandler(IUnitOfWork<Order> unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -28,7 +29,7 @@ namespace DigitalStore.Business.Application.OrderOperations.Commands.CreateOrder
         public async Task<ApiResponse<OrderResponse>> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
             var mapped = mapper.Map<OrderRequest, Order>(request.Request);
-            await unitOfWork.OrderRepository.Insert(mapped);
+            await unitOfWork.GenericRepository.Insert(mapped);
             await unitOfWork.Complete();
 
             var response = mapper.Map<OrderResponse>(mapped);

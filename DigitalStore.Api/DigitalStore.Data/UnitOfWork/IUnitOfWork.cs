@@ -8,15 +8,10 @@ using System.Threading.Tasks;
 
 namespace DigitalStore.Data.UnitOfWork
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork<T> where T : class
     {
         Task Complete();
         Task CompleteWithTransaction();
-        IGenericRepository<User> UserRepository { get; }
-        IGenericRepository<Category> CategoryRepository { get; }
-        IGenericRepository<Product> ProductRepository { get; }
-        IGenericRepository<Order> OrderRepository { get; }
-        IGenericRepository<OrderDetail> OrderDetailRepository { get; }
-        IGenericRepository<ProductCategory> ProductCategoryRepository { get; }
+        IGenericRepository<T> GenericRepository { get; }
     }
 }

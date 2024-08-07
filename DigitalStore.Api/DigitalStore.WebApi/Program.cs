@@ -1,47 +1,34 @@
+using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using NLog.Web;
-using System.Reflection.Metadata;
+using DigitalStore.Business.RegistrationServices;
+using DigitalStore.WebApi;
+using Serilog;
 
-namespace DigitalStore.WebApi;
+namespace Para.Api;
 
 public class Program
 {
     public static void Main(string[] args)
     {
-        var logger = NLogBuilder.ConfigureNLog("Nlog.config").GetCurrentClassLogger();
-        try
-        {
-            logger.Debug("init main");
-
-            var config = new ConfigurationBuilder()
+        var config = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
-            CreateHostBuilder(args).Build().Run();
-        }
-        catch (Exception ex)
-        {
-            logger.Error(ex, ex.Message);
-            throw;
-        }
-        finally
-        {
-            NLog.LogManager.Shutdown();
-        }
+        Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(config).CreateLogger();
+        Log.Information("Application is starting...");
+
+        CreateHostBuilder(args).Build().Run();
     }
 
     public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            //.UseSerilog()
-            .UseServiceProviderFactory(new AutofacServiceProviderFactory())
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.UseStartup<Startup>();
-            })
-            .ConfigureLogging(logging =>
-            {
-                logging.ClearProviders();
-                logging.SetMinimumLevel(LogLevel.Information);
-            })
-           .UseNLog();  // NLog: Setup NLog for Dependency injection;
+       Host.CreateDefaultBuilder(args)
+           .UseServiceProviderFactory(new AutofacServiceProviderFactory()) 
+           .ConfigureContainer<ContainerBuilder>(containerBuilder =>
+           {
+               containerBuilder.RegisterModule(new AutofacBusinessModule());
+           })
+           .ConfigureWebHostDefaults(webBuilder =>
+           {
+               webBuilder.UseStartup<Startup>();
+           });
 }

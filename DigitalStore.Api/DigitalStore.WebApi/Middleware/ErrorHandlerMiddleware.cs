@@ -1,16 +1,15 @@
-﻿using System.Text.Json;
+﻿using Serilog;
+using System.Text.Json;
 
 namespace DigitalStore.WebApi.Middleware
 {
     public class ErrorHandlerMiddleware
     {
         private readonly RequestDelegate next;
-        private readonly ILogger<ErrorHandlerMiddleware> Log;
 
-        public ErrorHandlerMiddleware(RequestDelegate next, ILogger<ErrorHandlerMiddleware> log)
+        public ErrorHandlerMiddleware(RequestDelegate next)
         {
             this.next = next;
-            Log = log;
         }
 
         public async Task Invoke(HttpContext context)
@@ -24,7 +23,7 @@ namespace DigitalStore.WebApi.Middleware
             catch (Exception ex)
             {
                 // log
-                Log.LogWarning(
+                Log.Fatal(
                     $"Path={context.Request.Path} || " +
                     $"Method={context.Request.Method} || " +
                     $"Exception={ex.Message}"

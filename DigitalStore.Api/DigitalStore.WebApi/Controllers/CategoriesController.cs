@@ -24,7 +24,7 @@ namespace DigitalStore.WebApi.Controllers
 
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<ApiResponse<List<CategoryResponse>>> Get()
         {
             var operation = new GetAllCategoryQuery();
@@ -33,7 +33,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpGet("{CategoryId}")]
-        [Authorize(Roles = "Admin")]
+        ////[Authorize(Roles = "Admin")]
         public async Task<ApiResponse<CategoryResponse>> Get([FromRoute] long CategoryId)
         {
             var operation = new GetCategoryByIdQuery(CategoryId);
@@ -42,7 +42,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        ////[Authorize(Roles = "Admin")]
         public async Task<ApiResponse<CategoryResponse>> Post([FromBody] CategoryRequest value)
         {
             var operation = new CreateCategoryCommand(value);
@@ -51,7 +51,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPut("{CategoryId}")]
-        [Authorize(Roles = "Admin")]
+        ////[Authorize(Roles = "Admin")]
         public async Task<ApiResponse> Put(long CategoryId, [FromBody] CategoryRequest value)
         {
             var operation = new UpdateCategoryCommand(CategoryId, value);
@@ -60,7 +60,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpDelete("{CategoryId}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<ApiResponse> Delete(long CategoryId)
         {
             var operation = new DeleteCategoryCommand(CategoryId);
@@ -69,7 +69,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         //[HttpGet("ByParameters")]
-        //[Authorize(Roles = "Admin")]
+        ////[Authorize(Roles = "Admin")]
         //public async Task<ApiResponse<List<CategoryResponse>>> GetByParameters(
         //    [FromQuery] long? CategoryNumber,
         //    [FromQuery] string FirstName = null,
