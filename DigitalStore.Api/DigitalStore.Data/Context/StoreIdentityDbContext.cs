@@ -26,8 +26,8 @@ namespace DigitalStore.Data.Context
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
-        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+        public DbSet<ShoppingCart> Carts { get; set; }
+        public DbSet<ShoppingCartItem> CartItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -20,6 +20,25 @@ namespace DigitalStore.Business.Mapper
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId));
             CreateMap<OrderRequest, Order>();
 
+            CreateMap<Order, OrderResponse>();
+            CreateMap<OrderRequest, OrderResponse>();
+
+            CreateMap<User, UserResponse>();
+            CreateMap<UserRequest, User>();
+
+            CreateMap<OrderDetail, OrderDetailResponse>();
+            CreateMap<OrderDetailRequest, OrderDetail>();
+
+            CreateMap<ProductCategory, ProductCategoryResponse>();
+            CreateMap<ProductCategoryRequest, ProductCategory>();
+
+            CreateMap<ShoppingCart, ShoppingCartResponse>();
+            CreateMap<ShoppingCartRequest, ShoppingCart>();
+
+            CreateMap<ShoppingCartItem, ShoppingCartItemResponse>();
+            CreateMap<ShoppingCartItemRequest, ShoppingCartItem>();
+
+
             //CreateMap<CustomerAddress, CustomerAddressResponse>()
             //    .ForMember(dest => dest.CustomerIdentityNumber, opt => opt.MapFrom(src => src.Customer.IdentityNumber))
             //    .ForMember(dest => dest.CustomerNumber, opt => opt.MapFrom(src => src.Customer.CustomerNumber))

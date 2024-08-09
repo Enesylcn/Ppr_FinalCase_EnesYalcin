@@ -1,4 +1,5 @@
-﻿using DigitalStore.Base.Entity;
+﻿using DigitalStore.Base;
+using DigitalStore.Base.Entity;
 using DigitalStore.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,10 +14,12 @@ namespace DigitalStore.Data.GenericRepository
     internal class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity
     {
         private readonly StoreIdentityDbContext dbContext;
+        private readonly SessionContext session;
 
-        public GenericRepository(StoreIdentityDbContext dbContext)
+        public GenericRepository(StoreIdentityDbContext dbContext, SessionContext session)
         {
             this.dbContext = dbContext;
+            this.session = session;
         }
 
         public async Task Save()
@@ -35,7 +38,7 @@ namespace DigitalStore.Data.GenericRepository
         {
             entity.IsActive = true;
             entity.InsertDate = DateTime.UtcNow;
-            //entity.InsertUser = "System"; // BURAYI KİM TARAFINDAN EKLENDİ İSE ONUN ADINI KAYIT EDECEK ŞEKİLDE GÜNCELLE!
+            entity.InsertUser = session.Session.UserName;
             await dbContext.Set<TEntity>().AddAsync(entity);
             return entity;
         }

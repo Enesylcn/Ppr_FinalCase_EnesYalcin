@@ -10,7 +10,7 @@ namespace DigitalStore.Schema
 {
     public class OrderDetailRequest : BaseRequest
     {
-        public int ProductId { get; set; }
+        public long Id { get; set; }
 
     }
 

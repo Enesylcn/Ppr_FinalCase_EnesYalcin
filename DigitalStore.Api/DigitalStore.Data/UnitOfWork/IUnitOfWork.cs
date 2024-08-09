@@ -18,5 +18,7 @@ namespace DigitalStore.Data.UnitOfWork
         IGenericRepository<Order> OrderRepository { get; }
         IGenericRepository<OrderDetail> OrderDetailRepository { get; }
         IGenericRepository<ProductCategory> ProductCategoryRepository { get; }
+        IGenericRepository<ShoppingCart> ShoppingCartRepository { get; }
+        IGenericRepository<ShoppingCartItem> ShoppingCartItemRepository { get; }
     }
 }
