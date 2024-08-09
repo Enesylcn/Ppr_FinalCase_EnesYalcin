@@ -3,6 +3,7 @@ using DigitalStore.Business.Application.OrderOperations.Commands.CreateOrder;
 using DigitalStore.Business.Application.OrderOperations.Commands.DeleteOrder;
 using DigitalStore.Business.Application.OrderOperations.Commands.UpdateOrder;
 using DigitalStore.Business.Application.OrderOperations.Queries.GetOrder;
+using DigitalStore.Business.Application.OrderOperations.Queries.GetOrderDetails;
 using DigitalStore.Schema;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -23,19 +24,26 @@ namespace DigitalStore.WebApi.Controllers
 
 
         [HttpGet]
-        [Authorize(Roles = "admin")]
+        ////[Authorize(Roles = "admin")]
         public async Task<ApiResponse<List<OrderResponse>>> Get()
         {
             var operation = new GetAllOrderQuery();
             var result = await mediator.Send(operation);
             return result;
         }
-        /// <summary>
-        /// Require "admin" role
-        /// </summary>
-        /// <returns></returns>
+
+
+        [HttpGet("{OrderId}")]
+        //[Authorize(Roles = "admin")]
+        public async Task<ApiResponse<OrderResponse>> GetByOrderId([FromRoute] long OrderId)
+        {
+            var operation = new GetOrderByIdQuery(OrderId);
+            var result = await mediator.Send(operation);
+            return result;
+        }
+
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public async Task<ApiResponse<OrderResponse>> Post([FromBody] OrderRequest value)
         {
             var operation = new CreateOrderCommand(value);
@@ -44,7 +52,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPut("{OrderId}")]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public async Task<ApiResponse> Put(long OrderId, [FromBody] OrderRequest value)
         {
             var operation = new UpdateOrderCommand(OrderId, value);
@@ -53,7 +61,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpDelete("{OrderId}")]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public async Task<ApiResponse> Delete(long OrderId)
         {
             var operation = new DeleteOrderCommand(OrderId);
@@ -62,7 +70,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         //[HttpGet("ByParameters")]
-        //[Authorize(Roles = "admin")]
+        ////[Authorize(Roles = "admin")]
         //public async Task<ApiResponse<List<OrderResponse>>> GetByParameters(
         //    [FromQuery] long? OrderNumber,
         //    [FromQuery] string FirstName = null,
@@ -84,7 +92,7 @@ namespace DigitalStore.WebApi.Controllers
         //}
 
         //[HttpGet("{OrderId}")]
-        //[Authorize(Roles = "admin")]
+        ////[Authorize(Roles = "admin")]
         //public async Task<ApiResponse<OrderResponse>> Get([FromRoute] long OrderId)
         //{
         //    var operation = new GetAllOrderQuery(OrderId);

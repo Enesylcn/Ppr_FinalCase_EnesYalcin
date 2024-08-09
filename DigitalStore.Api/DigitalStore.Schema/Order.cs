@@ -14,8 +14,6 @@ namespace DigitalStore.Schema
         public decimal CouponAmount { get; set; }
         public string CouponCode { get; set; }
         public decimal PointsAmount { get; set; }
-
-        public int UserId { get; set; }
     }
 
 

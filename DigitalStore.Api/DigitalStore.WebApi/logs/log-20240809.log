@@ -1,0 +1,37 @@
+2024-08-09 00:00:12.295 [INF] Application is starting...
+2024-08-09 18:28:45.055 [INF] Application is starting...
+2024-08-09 18:30:00.508 [INF] Application is starting...
+2024-08-09 18:30:14.770 [INF] Application is starting...
+2024-08-09 18:31:22.119 [INF] Application is starting...
+2024-08-09 18:31:38.712 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-09 18:31:55.684 [INF] -------------Request-Begin------------
+2024-08-09 18:31:55.684 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "Enes",
+  "Password": "Qwe123."
+}
+2024-08-09 18:31:55.685 [INF] 
+
+2024-08-09 18:31:55.685 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "ExpireTime": "2024-08-09T20:01:55.6662928+03:00",
+    "AccessToken": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkVuZXMiLCJVc2VySWQiOiI1NWVmOGM4ZC01YTNmLTQ2YTktYmJlNi0xYTcyYjM0OTc1MDgiLCJFbWFpbCI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiI1NWVmOGM4ZC01YTNmLTQ2YTktYmJlNi0xYTcyYjM0OTc1MDgiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRW5lcyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImVuZXNAZ21haWwuY29tIiwiZXhwIjoxNzIzMjIyOTE1LCJpc3MiOiJFbmVzIiwiYXVkIjoiUGF0aWthIn0.yN0ECV1HUPhBvzmviDPfSKfvg6-jSaiLLCm_kL33Q7E",
+    "UserName": "Enes"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-09T15:31:55.6663898Z",
+  "ReferenceNumber": "7eb347a5-d1b3-46f7-8141-c1bc76a23919"
+}
+2024-08-09 18:31:55.685 [INF] -------------Request-End------------
+2024-08-09 19:17:51.617 [INF] Application is starting...

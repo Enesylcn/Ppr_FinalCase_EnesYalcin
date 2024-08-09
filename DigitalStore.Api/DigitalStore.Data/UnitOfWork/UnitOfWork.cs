@@ -1,14 +1,6 @@
-﻿using DigitalStore.Base.Entity;
-using DigitalStore.Data.Context;
+﻿using DigitalStore.Data.Context;
 using DigitalStore.Data.Domain;
 using DigitalStore.Data.GenericRepository;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DigitalStore.Data.UnitOfWork
 {

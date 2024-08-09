@@ -14,31 +14,33 @@ using System.Threading.Tasks;
 
 namespace DigitalStore.Data.Context
 {
-    public class StoreIdentityDbContext : IdentityDbContext<ApplicationUser,IdentityRole, string>
+    public class StoreIdentityDbContext : IdentityDbContext<User,IdentityRole, string>
     {
         public StoreIdentityDbContext(DbContextOptions<StoreIdentityDbContext> options) : base(options)
         {
 
         }
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> User { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.SeedData();
 
-            modelBuilder.ApplyConfiguration(new ApplicationUserConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new ProductCategoryConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new ShoppingCartConfiguration());
+            modelBuilder.ApplyConfiguration(new ShoppingCartItemConfiguration());
 
             base.OnModelCreating(modelBuilder);
 

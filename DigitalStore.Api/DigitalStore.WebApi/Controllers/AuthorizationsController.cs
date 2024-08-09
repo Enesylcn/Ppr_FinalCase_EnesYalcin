@@ -49,5 +49,13 @@ namespace DigitalStore.WebApi.Controllers
             return response;
         }
 
+        [HttpPost("AdminRegister")]
+        [AllowAnonymous]
+        public async Task<ApiResponse> AdminRegister([FromBody] RegisterUserRequest request)
+        {
+            var response = await authenticationService.Register(request);
+            return response;
+        }
+
     }
 }

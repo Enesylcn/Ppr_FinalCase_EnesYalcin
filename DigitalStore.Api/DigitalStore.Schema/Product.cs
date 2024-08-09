@@ -7,6 +7,10 @@ namespace DigitalStore.Schema
     public class ProductRequest : BaseRequest
     {
         public string Name { get; set; }
+        public string Features { get; set; }
+        public string Description { get; set; }
+        public decimal PointsEarningPercentage { get; set; }
+        public decimal MaxPointsAmount { get; set; }
     }
 
 

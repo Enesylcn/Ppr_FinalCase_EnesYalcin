@@ -29,7 +29,7 @@ namespace DigitalStore.Business.Application.CategoryOperations.Queries.GetCatego
         {
             //List<Category> entityList = await unitOfWork.CategoryRepository.GetAll("CategoryDetail", "CategoryAddresses", "CategoryPhones"); Tırnak içinde yazılan alarlar ile o modele ait responsa ilgiler eklenir.
 
-            List<Category> entityList = await unitOfWork.CategoryRepository.GetAll("Category");
+            List<Category> entityList = await unitOfWork.CategoryRepository.GetAll("ProductCategories");
             var mappedList = mapper.Map<List<CategoryResponse>>(entityList);
             return new ApiResponse<List<CategoryResponse>>(mappedList);
         }

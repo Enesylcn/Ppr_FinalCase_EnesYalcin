@@ -13,6 +13,12 @@ namespace DigitalStore.Business.Mapper
             CreateMap<Category, CategoryResponse>();
             CreateMap<CategoryRequest, Category>();
 
+            CreateMap<Product, ProductResponse>();
+            CreateMap<ProductRequest, Product>();
+
+            CreateMap<Order, OrderResponse>()
+                .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId));
+            CreateMap<OrderRequest, Order>();
 
             //CreateMap<CustomerAddress, CustomerAddressResponse>()
             //    .ForMember(dest => dest.CustomerIdentityNumber, opt => opt.MapFrom(src => src.Customer.IdentityNumber))

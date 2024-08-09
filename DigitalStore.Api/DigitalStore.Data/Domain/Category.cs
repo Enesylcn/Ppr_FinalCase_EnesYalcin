@@ -9,7 +9,6 @@ namespace DigitalStore.Data.Domain
 {
     public class Category : BaseEntity
     {
-        public string Name { get; set; }
         public string Url { get; set; }
         public string Tags { get; set; }
 

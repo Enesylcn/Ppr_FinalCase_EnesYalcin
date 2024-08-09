@@ -15,12 +15,12 @@ namespace DigitalStore.Business.IdentityService
     public class AuthenticationService : IAuthenticationService
     {
         private readonly JwtConfig jwtConfig;
-        private readonly UserManager<ApplicationUser> userManager;
-        private readonly SignInManager<ApplicationUser> signInManager;
+        private readonly UserManager<User> userManager;
+        private readonly SignInManager<User> signInManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly ISessionContext sessionContext;
 
-        public AuthenticationService(JwtConfig jwtConfig, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ISessionContext sessionContext, RoleManager<IdentityRole> roleManager)
+        public AuthenticationService(JwtConfig jwtConfig, UserManager<User> userManager, SignInManager<User> signInManager, ISessionContext sessionContext, RoleManager<IdentityRole> roleManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
@@ -68,12 +68,12 @@ namespace DigitalStore.Business.IdentityService
 
         public async Task<ApiResponse> ChangePassword(ChangePasswordRequest request)
         {
-            ApplicationUser applicationUser = await userManager.GetUserAsync(sessionContext.HttpContext.User);
-            if (applicationUser == null)
+            User appUser = await userManager.GetUserAsync(sessionContext.HttpContext.User);
+            if (appUser == null)
             {
                 return new ApiResponse("Login Faild");
             }
-            var user = await userManager.FindByNameAsync(applicationUser.UserName);
+            var user = await userManager.FindByNameAsync(appUser.UserName);
             if (user == null)
             {
                 return new ApiResponse("Login Faild");
@@ -85,7 +85,7 @@ namespace DigitalStore.Business.IdentityService
 
         public async Task<ApiResponse> Register(RegisterUserRequest request)
         {
-            var newUser = new ApplicationUser
+            var newUser = new User
             {
                 UserName = request.UserName,
                 Email = request.Email,
@@ -118,7 +118,42 @@ namespace DigitalStore.Business.IdentityService
             return new ApiResponse();
         }
 
-        public async Task<string> GenerateToken(ApplicationUser user)
+        public async Task<ApiResponse> AdminRegister(RegisterUserRequest request)
+        {
+            var newUser = new User
+            {
+                UserName = request.UserName,
+                Email = request.Email,
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+
+                EmailConfirmed = true,
+                TwoFactorEnabled = false
+            };
+
+            var newUserResponse = await userManager.CreateAsync(newUser, request.Password);
+            if (!newUserResponse.Succeeded)
+            {
+                foreach (var error in newUserResponse.Errors)
+                {
+                    return new ApiResponse(error.Description);
+                }
+            }
+            else
+            {
+                var roleName = "Admin";
+                if (!await roleManager.RoleExistsAsync(roleName))
+                {
+                    await roleManager.CreateAsync(new IdentityRole(roleName));
+                }
+                await userManager.AddToRoleAsync(newUser, roleName);
+
+                return new ApiResponse("User created successfully and role assigned.");
+            }
+            return new ApiResponse();
+        }
+
+        public async Task<string> GenerateToken(User user)
         {
             Claim[] claims = GetClaims(user);
             var secret = Encoding.ASCII.GetBytes(jwtConfig.Secret);
@@ -136,7 +171,7 @@ namespace DigitalStore.Business.IdentityService
             return token;
         }
 
-        private Claim[] GetClaims(ApplicationUser user)
+        private Claim[] GetClaims(User user)
         {
             List<Claim> claims = new List<Claim>()
         {

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace DigitalStore.Base.Entity
 {
     public class BaseEntity
     {
         public long Id { get; set; }
-        public DateTime InsertDate { get; set; }
-        public bool IsActive { get; set; }
+        public string Name { get; set; }
+        public string InsertUser { get; set; }
+        public DateTime InsertDate { get; set; } = DateTime.Now;
+        public bool IsActive { get; set; } = true;
     }
 }

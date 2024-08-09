@@ -44,7 +44,7 @@ namespace DigitalStore.WebApi.Controllers
 
         [HttpPut("{UserId}")]
         [Authorize(Roles = "admin")]
-        public async Task<ApiResponse> Put(long UserId, [FromBody] UserRequest value)
+        public async Task<ApiResponse> Put(string UserId, [FromBody] UserRequest value)
         {
             var operation = new UpdateUserCommand(UserId, value);
             var result = await mediator.Send(operation);

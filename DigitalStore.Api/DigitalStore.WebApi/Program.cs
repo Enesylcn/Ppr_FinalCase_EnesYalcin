@@ -60,7 +60,7 @@ namespace Papara.Api
             //	x.RegisterValidatorsFromAssemblyContaining<CustomerRequestValidator>(); // Sonra test edilmeli
             //});
 
-            builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<StoreIdentityDbContext>();
+            builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<StoreIdentityDbContext>();
             builder.Services.Configure<IdentityOptions>(options =>
             {
                 #region Password Options
@@ -103,7 +103,7 @@ namespace Papara.Api
                 option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     In = ParameterLocation.Header,
-                    Name = "DigitalStore Management for IT Company",
+                    Name = "DigitalStore Management",
                     Description = "Enter JWT Bearer token **_only_**",
                     Type = SecuritySchemeType.Http,
                     BearerFormat = "JWT",

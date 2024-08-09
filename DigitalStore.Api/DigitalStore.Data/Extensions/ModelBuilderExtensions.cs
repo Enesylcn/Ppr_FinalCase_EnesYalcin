@@ -18,14 +18,14 @@ namespace DigitalStore.Data.Extensions
             modelBuilder.Entity<IdentityRole>().HasData(roles);
             #endregion
             #region Users
-            List<ApplicationUser> users = new List<ApplicationUser>
+            List<User> users = new List<User>
             {
-                new ApplicationUser
+                new User
                 {
                     FirstName = "Enes",
                     LastName = "Yalçın",
-                    UserName = "Enes1",
-                    NormalizedUserName = "ENES1",
+                    UserName = "Enes",
+                    NormalizedUserName = "ENES",
                     Email = "enes@gmail.com",
                     NormalizedEmail = "ENES@GMAIL.COM",
                     Gender = "Erkek",
@@ -36,7 +36,7 @@ namespace DigitalStore.Data.Extensions
                     EmailConfirmed = true,
                     Occupation = "Software Dev."
                 },
-                new ApplicationUser
+                new User
                 {
                     FirstName = "customer",
                     LastName = "customer",
@@ -53,10 +53,10 @@ namespace DigitalStore.Data.Extensions
                     Occupation = "Customer"
                 }
             };
-            modelBuilder.Entity<ApplicationUser>().HasData(users);
+            modelBuilder.Entity<User>().HasData(users);
             #endregion
             #region Password
-            var passwordHasher = new PasswordHasher<ApplicationUser>();
+            var passwordHasher = new PasswordHasher<User>();
             users[0].PasswordHash = passwordHasher.HashPassword(users[0], "Qwe123.");
             users[1].PasswordHash = passwordHasher.HashPassword(users[1], "Qwe123.");
 

@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace DigitalStore.Data.Domain
 {
-    public class OrderDetail: BaseEntity
+    public class ShoppingCartItem : BaseEntity
     {
         public long ProductId { get; set; }
         public Product Product { get; set; }
-        public long OrderId { get; set; }
-        public Order Order { get; set; }
+        public long ShoppingCartId { get; set; }
+        public ShoppingCart ShoppingCart { get; set; }
         public int Stock { get; set; }
-        public decimal UnitPrice { get; set; }
-        public decimal TotalPrice { get; set; }
     }
 }

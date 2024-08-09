@@ -27,7 +27,7 @@ namespace DigitalStore.Business.Application.ProductOperations.Queries.GetProduct
 
         public async Task<ApiResponse<List<ProductResponse>>> Handle(GetAllProductQuery request, CancellationToken cancellationToken)
         {
-            List<Product> entityList = await unitOfWork.ProductRepository.GetAll("Product");
+            List<Product> entityList = await unitOfWork.ProductRepository.GetAll("ProductCategories", "OrderDetails");
             var mappedList = mapper.Map<List<ProductResponse>>(entityList);
             return new ApiResponse<List<ProductResponse>>(mappedList);
         }

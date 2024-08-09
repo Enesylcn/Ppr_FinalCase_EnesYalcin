@@ -4,6 +4,7 @@ using DigitalStore.Business.Application.CategoryOperations.Commands.DeleteCatego
 using DigitalStore.Business.Application.CategoryOperations.Commands.UpdateCategory;
 using DigitalStore.Business.Application.CategoryOperations.Queries.GetCategory;
 using DigitalStore.Business.Application.CategoryOperations.Queries.GetCategoryDetails;
+using DigitalStore.Business.Application.ProductOperations.Queries.GetProductDetails;
 using DigitalStore.Schema;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -34,9 +35,9 @@ namespace DigitalStore.WebApi.Controllers
 
         [HttpGet("{CategoryId}")]
         ////[Authorize(Roles = "Admin")]
-        public async Task<ApiResponse<CategoryResponse>> Get([FromRoute] long CategoryId)
+        public async Task<ApiResponse<CategoryResponse>> Get([FromRoute] long categoryId)
         {
-            var operation = new GetCategoryByIdQuery(CategoryId);
+            var operation = new GetCategoryByIdQuery(categoryId);
             var result = await mediator.Send(operation);
             return result;
         }

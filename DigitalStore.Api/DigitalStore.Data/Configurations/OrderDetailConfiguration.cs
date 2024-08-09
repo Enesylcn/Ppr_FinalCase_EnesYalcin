@@ -13,16 +13,21 @@ namespace DigitalStore.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<OrderDetail> builder)
         {
-            builder.HasKey(od => od.Id);
-            builder.Property(od => od.Quantity).IsRequired();
-            builder.Property(od => od.UnitPrice).HasColumnType("decimal(18,2)");
+            builder.HasKey(c => c.Id);
+            builder.Property(x => x.InsertDate).IsRequired(true);
+            builder.Property(x => x.IsActive).IsRequired(true);
+            builder.Property(c => c.Name).IsRequired().HasMaxLength(100);
+            builder.Property(c => c.InsertUser).IsRequired().HasMaxLength(50);
+            builder.Property(od => od.UnitPrice).IsRequired().HasColumnType("decimal(18,2)");
+            builder.Property(od => od.TotalPrice).IsRequired().HasColumnType("decimal(18,2)");
+            builder.Property(od => od.Stock).IsRequired().HasColumnType("int");
 
             builder.HasOne(od => od.Order)
                    .WithMany(o => o.OrderDetails)
                    .HasForeignKey(od => od.OrderId);
 
             builder.HasOne(od => od.Product)
-                   .WithMany()
+                   .WithMany(o => o.OrderDetails)
                    .HasForeignKey(od => od.ProductId);
 
             builder.ToTable("OrderDetails");

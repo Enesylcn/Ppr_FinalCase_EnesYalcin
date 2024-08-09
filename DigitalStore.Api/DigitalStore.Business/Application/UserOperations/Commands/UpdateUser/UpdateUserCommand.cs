@@ -7,7 +7,7 @@ using MediatR;
 
 namespace DigitalStore.Business.Application.UserOperations.Commands.UpdateUser
 {
-    public record UpdateUserCommand(long UserId, UserRequest Request) : IRequest<ApiResponse>;
+    public record UpdateUserCommand(string UserId, UserRequest Request) : IRequest<ApiResponse>;
     public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, ApiResponse>
     {
         private readonly IUnitOfWork unitOfWork;
