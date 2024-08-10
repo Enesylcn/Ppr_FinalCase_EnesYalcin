@@ -14,12 +14,12 @@ namespace DigitalStore.Data.GenericRepository
     internal class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity
     {
         private readonly StoreIdentityDbContext dbContext;
-        private readonly SessionContext session;
+        private readonly ISessionContext sessionContext;
 
-        public GenericRepository(StoreIdentityDbContext dbContext, SessionContext session)
+        public GenericRepository(StoreIdentityDbContext dbContext, ISessionContext sessionContext)
         {
             this.dbContext = dbContext;
-            this.session = session;
+            this.sessionContext = sessionContext;
         }
 
         public async Task Save()
@@ -38,7 +38,7 @@ namespace DigitalStore.Data.GenericRepository
         {
             entity.IsActive = true;
             entity.InsertDate = DateTime.UtcNow;
-            entity.InsertUser = session.Session.UserName;
+            entity.InsertUser = sessionContext.Session.UserName;
             await dbContext.Set<TEntity>().AddAsync(entity);
             return entity;
         }
@@ -79,6 +79,23 @@ namespace DigitalStore.Data.GenericRepository
             var query = dbContext.Set<TEntity>().AsQueryable();
             query = includes.Aggregate(query, (current, inc) => EntityFrameworkQueryableExtensions.Include(current, inc));
             return await EntityFrameworkQueryableExtensions.ToListAsync(query);
+        }
+
+        public async Task<List<TEntity>> Where(Expression<Func<TEntity, bool>> expression)
+        {
+            return await dbContext.Set<TEntity>().Where(expression).ToListAsync();
+        }
+
+        public async Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> expression, params string[] includes)
+        {
+            var query = dbContext.Set<TEntity>().AsQueryable();
+            query = includes.Aggregate(query, (current, inc) => EntityFrameworkQueryableExtensions.Include(current, inc));
+            return await query.Where(expression).FirstOrDefaultAsync();
+        }
+
+        public IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> expression)
+        {
+            return dbContext.Set<TEntity>().Where(expression).AsQueryable();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace DigitalStore.Data.UnitOfWork
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private readonly StoreIdentityDbContext dbContext;
-        private readonly SessionContext sessionContext;
+        private readonly ISessionContext sessionContext;
 
         public IGenericRepository<User> UserRepository { get; }
         public IGenericRepository<Category> CategoryRepository { get; }
@@ -19,7 +19,7 @@ namespace DigitalStore.Data.UnitOfWork
         public IGenericRepository<ShoppingCart> ShoppingCartRepository { get; }
         public IGenericRepository<ShoppingCartItem> ShoppingCartItemRepository { get; }
 
-        public UnitOfWork(StoreIdentityDbContext dbContext, SessionContext sessionContext)
+        public UnitOfWork(StoreIdentityDbContext dbContext, ISessionContext sessionContext)
         {
             this.dbContext = dbContext;
             this.sessionContext = sessionContext;

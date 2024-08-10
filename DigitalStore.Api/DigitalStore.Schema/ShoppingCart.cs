@@ -10,8 +10,11 @@ namespace DigitalStore.Schema
 {
     public class ShoppingCartRequest : BaseRequest
     {
-        public long Id { get; set; }
         public string Name { get; set; }
+        public decimal CartAmount { get; set; } //Kalkıcak Items'a ekle 
+        public decimal CouponAmount { get; set; }//Kalkıcak Items'a ekle 
+        public string CouponCode { get; set; }//Kalkıcak Items'a ekle 
+        public decimal PointsAmount { get; set; }//Kalkıcak Items'a ekle 
     }
 
     public class ShoppingCartResponse : BaseResponse
@@ -25,6 +28,6 @@ namespace DigitalStore.Schema
         public string CouponCode { get; set; }
         public decimal PointsAmount { get; set; }
 
-        public ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }
+        public List<ShoppingCartItem> ShoppingCartItems { get; set; }
     }
 }

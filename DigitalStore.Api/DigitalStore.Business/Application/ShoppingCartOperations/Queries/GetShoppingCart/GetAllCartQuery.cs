@@ -27,7 +27,7 @@ namespace DigitalStore.Business.Application.ShoppingCartOperations.Queries.GetSh
         public async Task<ApiResponse<List<ShoppingCartResponse>>> Handle(GetAllCartQuery request, CancellationToken cancellationToken)
         {
 
-            List<ShoppingCart> entityList = await unitOfWork.ShoppingCartRepository.GetAll("ShoppingCartItem");
+            List<ShoppingCart> entityList = await unitOfWork.ShoppingCartRepository.GetAll();
             var mappedList = mapper.Map<List<ShoppingCartResponse>>(entityList);
             return new ApiResponse<List<ShoppingCartResponse>>(mappedList);
         }

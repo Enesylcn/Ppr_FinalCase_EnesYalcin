@@ -31,7 +31,7 @@ namespace DigitalStore.Business.IdentityService
 
         public async Task<ApiResponse<AuthResponse>> Login(AuthRequest request)
         {
-            
+
             var user = await userManager.FindByNameAsync(request.UserName);
             if (user == null)
             {
@@ -91,7 +91,7 @@ namespace DigitalStore.Business.IdentityService
                 Email = request.Email,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
-                
+
                 EmailConfirmed = true,
                 TwoFactorEnabled = false
             };
@@ -174,14 +174,20 @@ namespace DigitalStore.Business.IdentityService
         private Claim[] GetClaims(User user)
         {
             List<Claim> claims = new List<Claim>()
-        {
-            new Claim("UserName", user.UserName),
-            new Claim("UserId", user.Id.ToString()),
-            new Claim("Email", user.Email),
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Name, user.UserName),
-            new Claim(ClaimTypes.Email, user.Email),
-        };
+            {
+                new Claim("UserName", user.UserName),
+                new Claim("UserId", user.Id.ToString()),
+                new Claim("Email", user.Email),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Email, user.Email),
+            };
+            // Kullanıcının rollerini al ve claims listesine ekle
+            var roles = userManager.GetRolesAsync(user).Result;
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
 
             return claims.ToArray();
         }

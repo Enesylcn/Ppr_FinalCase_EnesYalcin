@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DigitalStore.Data.Migrations
 {
     [DbContext(typeof(StoreIdentityDbContext))]
-    [Migration("20240809153001_InitialCreate")]
+    [Migration("20240810111110_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -220,7 +220,7 @@ namespace DigitalStore.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("MaxPointsAmount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -229,6 +229,9 @@ namespace DigitalStore.Data.Migrations
 
                     b.Property<decimal>("PointsEarningPercentage")
                         .HasColumnType("decimal(5,2)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");
@@ -460,11 +463,11 @@ namespace DigitalStore.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "55ef8c8d-5a3f-46a9-bbe6-1a72b3497508",
+                            Id = "46410a68-6610-4d1c-9ed0-db0b62e22b5f",
                             AccessFailedCount = 0,
                             Address = "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2",
                             City = "İstanbul",
-                            ConcurrencyStamp = "1c19f54b-a526-4626-b48b-72dfbdb37891",
+                            ConcurrencyStamp = "5cef0949-eaa3-4225-82c5-73c9c72f51de",
                             DateOfBirth = new DateTime(1999, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "enes@gmail.com",
                             EmailConfirmed = true,
@@ -475,20 +478,20 @@ namespace DigitalStore.Data.Migrations
                             NormalizedEmail = "ENES@GMAIL.COM",
                             NormalizedUserName = "ENES",
                             Occupation = "Software Dev.",
-                            PasswordHash = "AQAAAAIAAYagAAAAEK/guo28tDjsqJkX1Tqg3mvueyaYFUbZg1rr/Vck1L+RDzrgyJJ8bxK095ie6B0+kg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKixhGkgDi9cT23qpXHvtLlYwQ+AKlT1LL4Hvdxv6yJG90k0/EgHj/icj+ZF4jEa7Q==",
                             PhoneNumber = "05387654321",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "569a3d4f-d95f-4aad-8124-066055664268",
+                            SecurityStamp = "696c56ea-f855-49a0-a272-8e0f46f3e4e5",
                             TwoFactorEnabled = false,
                             UserName = "Enes"
                         },
                         new
                         {
-                            Id = "92273cfe-747f-4f37-8aa7-08ca855ad3d5",
+                            Id = "850bf6b8-1fce-49a6-a208-17752ccb7519",
                             AccessFailedCount = 0,
                             Address = "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2",
                             City = "İstanbul",
-                            ConcurrencyStamp = "ba8d1dc6-6c02-4b49-9a84-18851f7c87c5",
+                            ConcurrencyStamp = "07d5f9ff-e003-4612-b332-2a4691c3c63e",
                             DateOfBirth = new DateTime(1998, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "customer@gmail.com",
                             EmailConfirmed = true,
@@ -499,10 +502,10 @@ namespace DigitalStore.Data.Migrations
                             NormalizedEmail = "CUSTOMER@GMAIL.COM",
                             NormalizedUserName = "CUSTOMER",
                             Occupation = "Customer",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHc2k1xgamhs+MF4fhdz53tjh9Kfo55fQrm4hTU3nhx2YPA2u+Vy1t+Yw+40V3rfVQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBkso21e6adQYSO2n13e8QUVTQT/NhlHSSsXPgxr/ndqqFQvGFxDjPz3o2glz+zgEQ==",
                             PhoneNumber = "05687654321",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "41b14832-1e1d-4aa7-ad50-39b069cc7470",
+                            SecurityStamp = "18261330-8406-4ffc-8bda-5c30022fc190",
                             TwoFactorEnabled = false,
                             UserName = "customer"
                         });
@@ -537,12 +540,12 @@ namespace DigitalStore.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "37c2c575-85ad-425e-bad8-fad8a6f7af9b",
+                            Id = "d291eeca-ed50-4fc0-9a6a-6341714406f8",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "1d27c0ad-0351-450a-b9ce-0cff82a8d19f",
+                            Id = "3e508b91-d22e-42b1-8469-eec160242bdf",
                             Name = "Customer"
                         });
                 });
@@ -636,13 +639,13 @@ namespace DigitalStore.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "55ef8c8d-5a3f-46a9-bbe6-1a72b3497508",
-                            RoleId = "37c2c575-85ad-425e-bad8-fad8a6f7af9b"
+                            UserId = "46410a68-6610-4d1c-9ed0-db0b62e22b5f",
+                            RoleId = "d291eeca-ed50-4fc0-9a6a-6341714406f8"
                         },
                         new
                         {
-                            UserId = "92273cfe-747f-4f37-8aa7-08ca855ad3d5",
-                            RoleId = "1d27c0ad-0351-450a-b9ce-0cff82a8d19f"
+                            UserId = "850bf6b8-1fce-49a6-a208-17752ccb7519",
+                            RoleId = "3e508b91-d22e-42b1-8469-eec160242bdf"
                         });
                 });
 

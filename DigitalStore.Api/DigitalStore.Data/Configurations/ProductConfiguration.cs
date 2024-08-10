@@ -21,7 +21,8 @@ namespace DigitalStore.Data.Configurations
             builder.Property(p => p.Features).HasMaxLength(500);
             builder.Property(p => p.Description).HasMaxLength(1000);
             builder.Property(p => p.PointsEarningPercentage).HasColumnType("decimal(5,2)");
-            builder.Property(p => p.MaxPointsAmount).HasColumnType("decimal(18,2)");
+            builder.Property(p => p.MaxPointsAmount).HasColumnType("decimal(5,2)");
+            builder.Property(p => p.MaxPointsAmount).HasColumnType("decimal(5,2)");
             builder.Property(p => p.Stock).HasColumnType("int");
 
             // Configure relationships

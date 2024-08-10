@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DigitalStore.Base;
 using DigitalStore.Base.Response;
 using DigitalStore.Data.Domain;
 using DigitalStore.Data.UnitOfWork;
@@ -18,16 +19,19 @@ namespace DigitalStore.Business.Application.ShoppingCartOperations.Commands.Crea
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
+        private readonly ISessionContext sessionContext;
 
-        public CreateCartCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public CreateCartCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, ISessionContext sessionContext)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
+            this.sessionContext = sessionContext;
         }
 
         public async Task<ApiResponse<ShoppingCartResponse>> Handle(CreateCartCommand request, CancellationToken cancellationToken)
         {
             var mapped = mapper.Map<ShoppingCartRequest, ShoppingCart>(request.Request);
+            mapped.UserId = sessionContext.Session.UserId;
             await unitOfWork.ShoppingCartRepository.Insert(mapped);
             await unitOfWork.Complete();
 

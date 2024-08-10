@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DigitalStore.Base;
 using DigitalStore.Base.Response;
 using DigitalStore.Data.Domain;
 using DigitalStore.Data.UnitOfWork;
@@ -16,8 +17,6 @@ namespace DigitalStore.Business.Application.CategoryOperations.Commands.CreateCa
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
-        //private readonly IMemoryCache memoryCache;
-        //private readonly IDistributedCache distributedCache;
 
         public CreateCategoryCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {

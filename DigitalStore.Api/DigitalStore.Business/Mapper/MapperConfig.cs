@@ -16,8 +16,7 @@ namespace DigitalStore.Business.Mapper
             CreateMap<Product, ProductResponse>();
             CreateMap<ProductRequest, Product>();
 
-            CreateMap<Order, OrderResponse>()
-                .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId));
+            CreateMap<Order, OrderResponse>();
             CreateMap<OrderRequest, Order>();
 
             CreateMap<Order, OrderResponse>();

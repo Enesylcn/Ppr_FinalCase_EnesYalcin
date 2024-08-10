@@ -15,6 +15,6 @@ namespace DigitalStore.Data.Domain
         public string CouponCode { get; set; }
         public decimal PointsAmount { get; set; }
 
-        public ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }
+        public List<ShoppingCartItem> ShoppingCartItems { get; set; }
     }
 }

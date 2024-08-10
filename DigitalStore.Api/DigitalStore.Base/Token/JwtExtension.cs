@@ -21,10 +21,6 @@ namespace DigitalStore.Base
             session.UserId = GetClaimValue(claims, "UserId");
             session.Role = GetClaimValue(claims, "Role");
             session.Email = GetClaimValue(claims, "Email");
-            //session.CustomerId = Convert.ToInt64(GetClaimValue(claims, "CustomerId"));
-            //session.CustomerNumber = Convert.ToInt32(GetClaimValue(claims, "CustomerNumber"));
-            //session.CustomerName = GetClaimValue(claims, "CustomerName");
-            //session.CustomerEmail = GetClaimValue(claims, "CustomerEmail");
             return session;
         }
 

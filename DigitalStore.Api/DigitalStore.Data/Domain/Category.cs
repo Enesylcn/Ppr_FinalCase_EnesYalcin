@@ -13,6 +13,6 @@ namespace DigitalStore.Data.Domain
         public string Tags { get; set; }
 
         // Navigation properties
-        public ICollection<ProductCategory> ProductCategories { get; set; }
+        public List<ProductCategory> ProductCategories { get; set; }
     }
 }

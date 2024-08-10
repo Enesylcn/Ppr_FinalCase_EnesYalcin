@@ -27,7 +27,7 @@ namespace DigitalStore.Business.Application.OrderOperations.Queries.GetOrder
 
         public async Task<ApiResponse<List<OrderResponse>>> Handle(GetAllOrderQuery request, CancellationToken cancellationToken)
         {
-            List<Order> entityList = await unitOfWork.OrderRepository.GetAll("Order");
+            List<Order> entityList = await unitOfWork.OrderRepository.GetAll();
             var mappedList = mapper.Map<List<OrderResponse>>(entityList);
             return new ApiResponse<List<OrderResponse>>(mappedList);
         }

@@ -17,7 +17,9 @@ namespace DigitalStore.Data.GenericRepository
         Task Delete(long Id);
         Task<List<TEntity>> GetAll(params string[] includes);
         Task<List<TEntity>> Where(Expression<Func<TEntity, bool>> expression, params string[] includes);
+        Task<List<TEntity>> Where(Expression<Func<TEntity, bool>> expression);
         Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> expression, params string[] includes);
-
+        Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> expression, params string[] includes);
+        IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> expression);
     }
 }

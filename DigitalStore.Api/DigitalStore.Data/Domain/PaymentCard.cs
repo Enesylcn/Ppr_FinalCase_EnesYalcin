@@ -1,16 +1,13 @@
-﻿using DigitalStore.Base.Entity;
-using DigitalStore.Base.Schema;
-using DigitalStore.Data.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigitalStore.Schema
+namespace DigitalStore.Data.Domain
 {
-    public class OrderRequest : BaseRequest
+    public class PaymentCard
     {
         [Required(ErrorMessage = "Card name is required.")]
         [StringLength(50, ErrorMessage = "Card name cannot exceed 50 characters.")]
@@ -32,29 +29,5 @@ namespace DigitalStore.Schema
         [Required(ErrorMessage = "CVC is required.")]
         [StringLength(4, MinimumLength = 3, ErrorMessage = "CVC must be 3 or 4 digits.")]
         public string Cvc { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
-        public string Note { get; set; }
-    }
-
-
-    public class OrderResponse : BaseResponse
-    {
-        public long Id { get; set; }
-        public int UserId { get; set; }
-        public string OrderNumber { get; set; }
-        public DateTime OrderDate { get; set; } = DateTime.Now;
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
-        public string Note { get; set; }
-        public List<OrderDetail> OrderDetails { get; set; }
     }
 }
