@@ -14,5 +14,7 @@ namespace DigitalStore.Data.Domain
         public long ShoppingCartId { get; set; }
         public ShoppingCart ShoppingCart { get; set; }
         public int Stock { get; set; }
+        public int Quantity { get; set; } // Adet
+        public decimal Price { get; set; } // Adet
     }
 }

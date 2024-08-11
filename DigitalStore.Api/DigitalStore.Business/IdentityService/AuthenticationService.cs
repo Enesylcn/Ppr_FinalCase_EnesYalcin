@@ -96,6 +96,11 @@ namespace DigitalStore.Business.IdentityService
                 Email = request.Email,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
+                Address = request.Address,
+                City = request.City,
+                Gender = request.Gender,
+                Occupation = request.Occupation,
+                DateOfBirth = request.DateOfBirth,
 
                 EmailConfirmed = true,
                 TwoFactorEnabled = false
@@ -123,7 +128,7 @@ namespace DigitalStore.Business.IdentityService
             return new ApiResponse();
         }
 
-        public async Task<ApiResponse> AdminRegister(RegisterUserRequest request)
+        public async Task<ApiResponse> AdminRegister(RegisterAdminUserRequest request)
         {
             var newUser = new User
             {
@@ -131,6 +136,12 @@ namespace DigitalStore.Business.IdentityService
                 Email = request.Email,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
+                Address = request.Address,
+                City = request.City,
+                Gender = request.Gender,
+                Occupation = request.Occupation,
+                DateOfBirth = request.DateOfBirth,
+
 
                 EmailConfirmed = true,
                 TwoFactorEnabled = false
@@ -146,7 +157,7 @@ namespace DigitalStore.Business.IdentityService
             }
             else
             {
-                var roleName = "Admin";
+                var roleName = request.Role; //Admin user request ile Role ataması.
                 if (!await roleManager.RoleExistsAsync(roleName))
                 {
                     await roleManager.CreateAsync(new IdentityRole(roleName));
@@ -199,9 +210,17 @@ namespace DigitalStore.Business.IdentityService
 
         public async Task<ApiResponse<List<UserResponse>>> GetAllUsersAsync()
         {
-            List<User> entityList = await userManager.Users.ToListAsync();
-            var mappedList = mapper.Map<List<UserResponse>>(entityList);
-            return new ApiResponse<List<UserResponse>>(mappedList);
+            var users = await userManager.Users.ToListAsync();
+            var userResponses = new List<UserResponse>();
+
+            foreach (var user in users)
+            {
+                var roles = await userManager.GetRolesAsync(user);
+                var mappedUser = mapper.Map<UserResponse>(user);
+                mappedUser.Role = roles.FirstOrDefault(); // Assuming a user has only one role
+                userResponses.Add(mappedUser);
+            }
+            return new ApiResponse<List<UserResponse>>(userResponses);
         }
 
 

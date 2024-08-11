@@ -32,11 +32,39 @@ namespace DigitalStore.Business.Application.ShoppingCartOperations.Commands.Crea
         {
             var mapped = mapper.Map<ShoppingCartRequest, ShoppingCart>(request.Request);
             mapped.UserId = sessionContext.Session.UserId;
+            mapped.ShoppingCartItems = new List<ShoppingCartItem>();
+
+            foreach (var productId in request.Request.ProductIds)
+            {
+                var product = await unitOfWork.ProductRepository.GetById(productId);
+                if (product != null)
+                {
+                    var cartItem = new ShoppingCartItem
+                    {
+                        ProductId = product.Id,
+                        Product = product,
+                        Quantity = 1, // Ürün adedi, isterseniz request'ten de alabilirsiniz
+                        Price = product.Price
+                    };
+                    mapped.ShoppingCartItems.Add(cartItem);
+                }
+            }
+
             await unitOfWork.ShoppingCartRepository.Insert(mapped);
             await unitOfWork.Complete();
 
             var response = mapper.Map<ShoppingCartResponse>(mapped);
             return new ApiResponse<ShoppingCartResponse>(response);
         }
+        //public async Task<ApiResponse<ShoppingCartResponse>> Handle(CreateCartCommand request, CancellationToken cancellationToken)
+        //{
+        //    var mapped = mapper.Map<ShoppingCartRequest, ShoppingCart>(request.Request);
+        //    mapped.UserId = sessionContext.Session.UserId;
+        //    await unitOfWork.ShoppingCartRepository.Insert(mapped);
+        //    await unitOfWork.Complete();
+
+        //    var response = mapper.Map<ShoppingCartResponse>(mapped);
+        //    return new ApiResponse<ShoppingCartResponse>(response);
+        //}
     }
 }

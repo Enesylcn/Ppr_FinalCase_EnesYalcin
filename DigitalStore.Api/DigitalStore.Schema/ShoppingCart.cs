@@ -10,7 +10,7 @@ namespace DigitalStore.Schema
 {
     public class ShoppingCartRequest : BaseRequest
     {
-        public string Name { get; set; }
+        public List<long> ProductIds { get; set; } // Birden fazla ürün ID'si
         public string CouponCode { get; set; }
     }
 

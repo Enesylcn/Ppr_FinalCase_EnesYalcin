@@ -14,7 +14,8 @@ namespace DigitalStore.Business.Mapper
             CreateMap<Category, CategoryResponse>();
             CreateMap<CategoryRequest, Category>();
 
-            CreateMap<Product, ProductResponse>();
+            CreateMap<Product, ProductResponse>()
+                     .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.ProductCategories.Select(pc => pc.Category)));
             CreateMap<ProductRequest, Product>();
 
             CreateMap<Order, OrderResponse>();
@@ -23,8 +24,8 @@ namespace DigitalStore.Business.Mapper
             CreateMap<Order, OrderResponse>();
             CreateMap<OrderRequest, OrderResponse>();
 
-            CreateMap<User, AuthRequest>();
-            CreateMap<AuthResponse, User>();
+            CreateMap<User, UserResponse>();
+            CreateMap<UserRequest, User>();
 
             CreateMap<OrderDetail, OrderDetailResponse>();
             CreateMap<OrderDetailRequest, OrderDetail>();

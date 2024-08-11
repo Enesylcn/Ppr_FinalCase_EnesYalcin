@@ -5,6 +5,7 @@ using DigitalStore.Data.Domain;
 using DigitalStore.Data.UnitOfWork;
 using DigitalStore.Schema;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,8 @@ namespace DigitalStore.Business.Application.ProductOperations.Queries.GetProduct
 
         public async Task<ApiResponse<List<ProductResponse>>> Handle(GetAllProductQuery request, CancellationToken cancellationToken)
         {
-            List<Product> entityList = await unitOfWork.ProductRepository.GetAll("ProductCategories", "OrderDetails");
+            var entityList = await unitOfWork.ProductRepository.GetAll(include: q => q.Include(p => p.ProductCategories)
+                                                                                      .ThenInclude(pc => pc.Category));
             var mappedList = mapper.Map<List<ProductResponse>>(entityList);
             return new ApiResponse<List<ProductResponse>>(mappedList);
         }

@@ -21,6 +21,9 @@ namespace DigitalStore.Data.Configurations
             builder.Property(c => c.Url).IsRequired().HasMaxLength(100);
             builder.Property(c => c.Tags).HasMaxLength(200);
 
+            builder.HasIndex(c => c.Name)
+                    .IsUnique();
+
             builder.HasMany(x => x.ProductCategories)
            .WithOne(x => x.Category)
            .HasForeignKey(x => x.CategoryId)

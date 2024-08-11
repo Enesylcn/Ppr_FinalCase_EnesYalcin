@@ -2,6 +2,8 @@
 using DigitalStore.Base.Entity;
 using DigitalStore.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +35,7 @@ namespace DigitalStore.Data.GenericRepository
             query = includes.Aggregate(query, (current, inc) => EntityFrameworkQueryableExtensions.Include(current, inc));
             return await EntityFrameworkQueryableExtensions.FirstOrDefaultAsync(query, x => x.Id == Id);
         }
-
+       
         public async Task<TEntity> Insert(TEntity entity)
         {
             entity.IsActive = true;
@@ -80,7 +82,6 @@ namespace DigitalStore.Data.GenericRepository
             query = includes.Aggregate(query, (current, inc) => EntityFrameworkQueryableExtensions.Include(current, inc));
             return await EntityFrameworkQueryableExtensions.ToListAsync(query);
         }
-
         public async Task<List<TEntity>> Where(Expression<Func<TEntity, bool>> expression)
         {
             return await dbContext.Set<TEntity>().Where(expression).ToListAsync();
@@ -96,6 +97,24 @@ namespace DigitalStore.Data.GenericRepository
         public IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> expression)
         {
             return dbContext.Set<TEntity>().Where(expression).AsQueryable();
+        }
+
+        public async Task<List<TEntity>> Where(IEnumerable<long> Id)
+        {
+            var query = dbContext.Set<TEntity>().Where(c => Id.Contains(c.Id)).AsQueryable();
+            return await EntityFrameworkQueryableExtensions.ToListAsync(query);
+        }
+
+        public async Task<List<TEntity>> GetAll(Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null)
+        {
+            IQueryable<TEntity> query = dbContext.Set<TEntity>();
+
+            if (include != null)
+            {
+                query = include(query);
+            }
+
+            return await query.ToListAsync();
         }
     }
 }

@@ -12,6 +12,9 @@ namespace DigitalStore.Schema
         public decimal PointsEarningPercentage { get; set; }
         public decimal Price { get; set; }
         public int Stock { get; set; } = 0;
+
+        // Kategori ID'lerinin listesi
+        public List<long> CategoryIds { get; set; }
     }
 
 
@@ -26,5 +29,8 @@ namespace DigitalStore.Schema
         public decimal Price { get; set; }
 
         public int Stock { get; set; }
+
+        // Added to include category information in the response
+        public List<CategoryResponse> Categories { get; set; }
     }
 }

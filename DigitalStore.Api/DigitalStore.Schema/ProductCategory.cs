@@ -14,7 +14,7 @@ namespace DigitalStore.Schema
     public class ProductCategoryResponse : BaseResponse
     {
         public long Id { get; set; }
-        public Product Product { get; set; }
-        public Category Category { get; set; }
+        public ProductResponse Product { get; set; }
+        public CategoryResponse Category { get; set; }
     }
 }

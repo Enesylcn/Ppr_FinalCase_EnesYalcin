@@ -51,9 +51,9 @@ namespace DigitalStore.WebApi.Controllers
 
         [HttpPost("AdminRegister")]
         [AllowAnonymous]
-        public async Task<ApiResponse> AdminRegister([FromBody] RegisterUserRequest request)
+        public async Task<ApiResponse> AdminRegister([FromBody] RegisterAdminUserRequest request)
         {
-            var response = await authenticationService.Register(request);
+            var response = await authenticationService.AdminRegister(request);
             return response;
         }
 

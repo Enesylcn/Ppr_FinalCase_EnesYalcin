@@ -2,6 +2,7 @@
 using DigitalStore.Business.Application.ProductOperations.Commands.CreateProduct;
 using DigitalStore.Business.Application.ProductOperations.Commands.DeleteProduct;
 using DigitalStore.Business.Application.ProductOperations.Commands.UpdateProduct;
+using DigitalStore.Business.Application.ProductOperations.Queries.GetOnsaleProduct;
 using DigitalStore.Business.Application.ProductOperations.Queries.GetProduct;
 using DigitalStore.Business.Application.ProductOperations.Queries.GetProductDetails;
 using DigitalStore.Schema;
@@ -40,7 +41,16 @@ namespace DigitalStore.WebApi.Controllers
             var result = await mediator.Send(operation);
             return result;
         }
-      
+
+        [HttpGet("onsale/{onSale}")]
+        //[Authorize(Roles = "admin")]
+        public async Task<ApiResponse<List<ProductResponse>>> Get([FromRoute] bool onSale)
+        {
+            var operation = new GetOnSaleProductQuery(onSale);
+            var result = await mediator.Send(operation);
+            return result;
+        }
+
         [HttpPost]
         //[Authorize(Roles = "admin")]
         public async Task<ApiResponse<ProductResponse>> Post([FromBody] ProductRequest value)
