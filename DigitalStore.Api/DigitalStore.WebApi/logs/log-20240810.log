@@ -5150,3 +5150,38 @@ Object name: 'The stream with Id 227c4a22-dc10-4af7-8015-0be22e7b25bd and Tag  i
    at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
    at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
    at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-10 23:14:50.448 [INF] Application is starting...
+2024-08-10 23:15:13.570 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-10 23:15:15.914 [INF] -------------Request-Begin------------
+2024-08-10 23:15:15.915 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "Enes",
+  "Password": "Qwe123."
+}
+2024-08-10 23:15:15.915 [INF] 
+
+2024-08-10 23:15:15.915 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "ExpireTime": "2024-08-11T00:45:15.8966136+03:00",
+    "AccessToken": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkVuZXMiLCJVc2VySWQiOiI0NjQxMGE2OC02NjEwLTRkMWMtOWVkMC1kYjBiNjJlMjJiNWYiLCJFbWFpbCI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiI0NjQxMGE2OC02NjEwLTRkMWMtOWVkMC1kYjBiNjJlMjJiNWYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRW5lcyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MjMzMjYzMTUsImlzcyI6IkVuZXMiLCJhdWQiOiJQYXRpa2EifQ.YzncoeQpq9w5j7paFKkCA6l9gaJ9E6YSrjIuclHktvA",
+    "UserName": "Enes"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T20:15:15.8967632Z",
+  "ReferenceNumber": "3bf5fac1-5201-4263-a057-eeafec77c65d"
+}
+2024-08-10 23:15:15.915 [INF] -------------Request-End------------
+2024-08-10 23:35:31.402 [INF] Application is starting...
+2024-08-10 23:35:50.125 [INF] Application is starting...
+2024-08-10 23:37:19.747 [INF] Application is starting...

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DigitalStore.Base;
 using DigitalStore.Base.Response;
 using DigitalStore.Business.Application.OrderOperations.Commands.DeleteOrder;
 using DigitalStore.Data.Domain;
@@ -26,9 +27,14 @@ namespace DigitalStore.Business.Application.OrderOperations.Commands.UpdateOrder
         }
         public async Task<ApiResponse> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
         {
-            var mapped = mapper.Map<OrderRequest, Order>(request.Request);
-            mapped.Id = request.OrderId;
-            unitOfWork.OrderRepository.Update(mapped);
+            var entity = await unitOfWork.OrderRepository.GetById(request.OrderId);
+            if (entity == null)
+            {
+                return new ApiResponse("No related Order found.");
+            }
+
+            mapper.Map(request.Request, entity);
+            unitOfWork.OrderRepository.Update(entity);
             await unitOfWork.Complete();
             return new ApiResponse();
         }

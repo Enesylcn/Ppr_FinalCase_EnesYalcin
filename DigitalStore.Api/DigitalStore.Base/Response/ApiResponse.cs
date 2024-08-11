@@ -33,7 +33,12 @@ namespace DigitalStore.Base.Response
         public bool IsSuccess { get; set; }
         public DateTime ServerDate { get; set; } = DateTime.UtcNow;
         public Guid ReferenceNumber { get; set; } = Guid.NewGuid();
+        public List<string> Errors { get; set; } = new List<string>();
 
+
+        public ApiResponse()
+        {
+        }
 
         public ApiResponse(T data)
         {
@@ -54,6 +59,11 @@ namespace DigitalStore.Base.Response
             IsSuccess = true;
             Data = default;
             Message = error;
+        }
+
+        public static ApiResponse<T> Fail(List<string> errors)
+        {
+            return new ApiResponse<T> { Errors = errors };
         }
     }
 }

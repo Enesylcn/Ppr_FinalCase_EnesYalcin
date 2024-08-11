@@ -1,0 +1,1711 @@
+2024-08-11 00:44:30.878 [INF] Application is starting...
+2024-08-11 00:44:47.452 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 00:44:49.424 [INF] -------------Request-Begin------------
+2024-08-11 00:44:49.424 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "Enes",
+  "Password": "Qwe123."
+}
+2024-08-11 00:44:49.424 [INF] 
+
+2024-08-11 00:44:49.424 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "ExpireTime": "2024-08-11T02:14:49.3976365+03:00",
+    "AccessToken": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkVuZXMiLCJVc2VySWQiOiI5YjgwNzJiZS02Y2I3LTRkN2MtYjU5NS00M2EyM2JjZDQ0ZGIiLCJFbWFpbCI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiI5YjgwNzJiZS02Y2I3LTRkN2MtYjU5NS00M2EyM2JjZDQ0ZGIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRW5lcyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MjMzMzE2ODksImlzcyI6IkVuZXMiLCJhdWQiOiJQYXRpa2EifQ.8e0BEN4iQbmjZV1oPEhAM6WVw0t826kUeraOH76hJWQ",
+    "UserName": "Enes"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T21:44:49.3980087Z",
+  "ReferenceNumber": "092c802c-2bc0-4a41-8366-7f902d085e83"
+}
+2024-08-11 00:44:49.425 [INF] -------------Request-End------------
+2024-08-11 00:45:13.098 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 00:45:25.435 [INF] -------------Request-Begin------------
+2024-08-11 00:45:25.435 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: 
+2024-08-11 00:45:25.435 [INF] 
+
+2024-08-11 00:45:25.435 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T21:45:23.6563195Z",
+  "ReferenceNumber": "f0b60448-7c19-42ea-9355-abe5cd1ec1fb"
+}
+2024-08-11 00:45:25.435 [INF] -------------Request-End------------
+2024-08-11 00:47:26.282 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 00:47:28.897 [FTL] Path=/api/Orders || Method=POST || Exception=Error mapping types.
+
+Mapping types:
+Order -> OrderResponse
+DigitalStore.Data.Domain.Order -> DigitalStore.Schema.OrderResponse
+
+Type Map configuration:
+Order -> OrderResponse
+DigitalStore.Data.Domain.Order -> DigitalStore.Schema.OrderResponse
+
+Destination Member:
+UserId
+
+2024-08-11 00:47:28.956 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 50231ed1-e2ea-46cb-91a2-2b2823109709 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 00:47:29.076 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 50231ed1-e2ea-46cb-91a2-2b2823109709 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 00:47:29.081 [ERR] Connection ID "18374686540606472252", Request ID "4000003d-000e-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 50231ed1-e2ea-46cb-91a2-2b2823109709 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 00:47:50.063 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 00:48:12.013 [FTL] Path=/api/Orders || Method=POST || Exception=Error mapping types.
+
+Mapping types:
+Order -> OrderResponse
+DigitalStore.Data.Domain.Order -> DigitalStore.Schema.OrderResponse
+
+Type Map configuration:
+Order -> OrderResponse
+DigitalStore.Data.Domain.Order -> DigitalStore.Schema.OrderResponse
+
+Destination Member:
+UserId
+
+2024-08-11 00:48:12.062 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id d4016333-da9f-4458-b09d-95b07c27e56f and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 00:48:12.065 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id d4016333-da9f-4458-b09d-95b07c27e56f and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 00:48:12.067 [ERR] Connection ID "18302628955158478929", Request ID "40000052-0010-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id d4016333-da9f-4458-b09d-95b07c27e56f and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 00:49:45.233 [INF] Application is starting...
+2024-08-11 00:50:18.637 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 00:50:20.691 [INF] -------------Request-Begin------------
+2024-08-11 00:50:20.692 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "Enes",
+  "Password": "Qwe123."
+}
+2024-08-11 00:50:20.692 [INF] 
+
+2024-08-11 00:50:20.692 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "ExpireTime": "2024-08-11T02:20:20.671591+03:00",
+    "AccessToken": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkVuZXMiLCJVc2VySWQiOiI5YjgwNzJiZS02Y2I3LTRkN2MtYjU5NS00M2EyM2JjZDQ0ZGIiLCJFbWFpbCI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiI5YjgwNzJiZS02Y2I3LTRkN2MtYjU5NS00M2EyM2JjZDQ0ZGIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRW5lcyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MjMzMzIwMjAsImlzcyI6IkVuZXMiLCJhdWQiOiJQYXRpa2EifQ.9_KnAa8Gp1h4JKsoRoHIBDvQ7mmUx0mcOoCMYUsGKb8",
+    "UserName": "Enes"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T21:50:20.6717264Z",
+  "ReferenceNumber": "7d4c7019-0f0d-4ba6-aa76-6f6c6cfefd3b"
+}
+2024-08-11 00:50:20.692 [INF] -------------Request-End------------
+2024-08-11 00:50:52.576 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 00:51:05.728 [INF] -------------Request-Begin------------
+2024-08-11 00:51:05.728 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "1231456478977536",
+  "ExpirationMonth": "09",
+  "ExpirationYear": "2028",
+  "Cvc": "036",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "qwerqwerqwe qweqrqweqweqwer qweqw rwq eqwe ",
+  "City": "İstanbul",
+  "PhoneNumber": "5350723764",
+  "Email": "enesylcn57@outlook.com",
+  "Note": "Bu bir test kayıttır."
+}
+2024-08-11 00:51:05.728 [INF] 
+
+2024-08-11 00:51:05.728 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 10,
+    "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+    "OrderNumber": "3799941",
+    "OrderDate": "2024-08-11T00:50:57.3140006+03:00",
+    "FirstName": "Enes",
+    "LastName": "Yalçın",
+    "Address": "qwerqwerqwe qweqrqweqweqwer qweqw rwq eqwe ",
+    "City": "İstanbul",
+    "PhoneNumber": "5350723764",
+    "Email": "enesylcn57@outlook.com",
+    "Note": "Bu bir test kayıttır.",
+    "OrderDetails": []
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T21:51:05.7139374Z",
+  "ReferenceNumber": "569897e6-2ebc-41e2-97b3-7e051fe09bf4"
+}
+2024-08-11 00:51:05.728 [INF] -------------Request-End------------
+2024-08-11 00:51:17.814 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 00:51:19.857 [INF] -------------Request-Begin------------
+2024-08-11 00:51:19.857 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: 
+2024-08-11 00:51:19.857 [INF] 
+
+2024-08-11 00:51:19.857 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 8,
+      "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+      "OrderNumber": "5820480",
+      "OrderDate": "2024-08-11T00:47:28.4288298",
+      "FirstName": "Enes",
+      "LastName": "Yalçın",
+      "Address": "qwerqwerqwe qweqrqweqweqwer qweqw rwq eqwe ",
+      "City": "İstanbul",
+      "PhoneNumber": "5350723764",
+      "Email": "enesylcn57@outlook.com",
+      "Note": "Bu bir test kayıttır.",
+      "OrderDetails": []
+    },
+    {
+      "Id": 9,
+      "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+      "OrderNumber": "7198954",
+      "OrderDate": "2024-08-11T00:47:52.09673",
+      "FirstName": "Enes",
+      "LastName": "Yalçın",
+      "Address": "qwerqwerqwe qweqrqweqweqwer qweqw rwq eqwe ",
+      "City": "İstanbul",
+      "PhoneNumber": "5350723764",
+      "Email": "enesylcn57@outlook.com",
+      "Note": "Bu bir test kayıttır.",
+      "OrderDetails": []
+    },
+    {
+      "Id": 10,
+      "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+      "OrderNumber": "3799941",
+      "OrderDate": "2024-08-11T00:50:57.3140006",
+      "FirstName": "Enes",
+      "LastName": "Yalçın",
+      "Address": "qwerqwerqwe qweqrqweqweqwer qweqw rwq eqwe ",
+      "City": "İstanbul",
+      "PhoneNumber": "5350723764",
+      "Email": "enesylcn57@outlook.com",
+      "Note": "Bu bir test kayıttır.",
+      "OrderDetails": []
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T21:51:19.855126Z",
+  "ReferenceNumber": "1f3462c7-53f4-4f43-938c-5eb059feb800"
+}
+2024-08-11 00:51:19.857 [INF] -------------Request-End------------
+2024-08-11 01:06:00.157 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:06:32.207 [INF] Application is starting...
+2024-08-11 01:06:51.313 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:06:53.211 [INF] -------------Request-Begin------------
+2024-08-11 01:06:53.212 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders/8 
+QueryString:  
+Request Body: 
+2024-08-11 01:06:53.212 [INF] 
+
+2024-08-11 01:06:53.212 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders/8 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 8,
+    "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+    "OrderNumber": "5820480",
+    "OrderDate": "2024-08-11T00:47:28.4288298",
+    "FirstName": "Enes",
+    "LastName": "Yalçın",
+    "Address": "qwerqwerqwe qweqrqweqweqwer qweqw rwq eqwe ",
+    "City": "İstanbul",
+    "PhoneNumber": "5350723764",
+    "Email": "enesylcn57@outlook.com",
+    "Note": "Bu bir test kayıttır.",
+    "OrderDetails": []
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T22:06:53.1793057Z",
+  "ReferenceNumber": "a9f11a51-1bc5-4937-be88-eab45ee27106"
+}
+2024-08-11 01:06:53.212 [INF] -------------Request-End------------
+2024-08-11 01:08:25.026 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:08:25.490 [FTL] Path=/api/Orders/8 || Method=PUT || Exception=An error occurred while saving the entity changes. See the inner exception for details.
+2024-08-11 01:08:25.552 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id ccecfa4d-fad1-47be-a3c3-09a72680b270 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:08:25.594 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id ccecfa4d-fad1-47be-a3c3-09a72680b270 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:08:25.599 [ERR] Connection ID "17870283347981238334", Request ID "4000003f-0006-f800-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id ccecfa4d-fad1-47be-a3c3-09a72680b270 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 01:09:09.432 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:09:35.512 [FTL] Path=/api/Orders/8 || Method=PUT || Exception=An error occurred while saving the entity changes. See the inner exception for details.
+2024-08-11 01:09:35.562 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 5d14f961-9714-4a3e-8e1c-3aaaf7c59007 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:09:35.565 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 5d14f961-9714-4a3e-8e1c-3aaaf7c59007 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:09:35.567 [ERR] Connection ID "18230571309580943442", Request ID "40000053-0004-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 5d14f961-9714-4a3e-8e1c-3aaaf7c59007 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 01:12:57.541 [INF] Application is starting...
+2024-08-11 01:13:23.685 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:13:25.084 [INF] -------------Request-Begin------------
+2024-08-11 01:13:25.084 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: 
+2024-08-11 01:13:25.084 [INF] 
+
+2024-08-11 01:13:25.084 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 8,
+      "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+      "OrderNumber": "5820480",
+      "OrderDate": "2024-08-11T00:47:28.4288298",
+      "FirstName": "Enes",
+      "LastName": "Yalçın",
+      "Address": "qwerqwerqwe qweqrqweqweqwer qweqw rwq eqwe ",
+      "City": "İstanbul",
+      "PhoneNumber": "5350723764",
+      "Email": "enesylcn57@outlook.com",
+      "Note": "Bu bir test kayıttır.",
+      "OrderDetails": []
+    },
+    {
+      "Id": 9,
+      "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+      "OrderNumber": "7198954",
+      "OrderDate": "2024-08-11T00:47:52.09673",
+      "FirstName": "Enes",
+      "LastName": "Yalçın",
+      "Address": "qwerqwerqwe qweqrqweqweqwer qweqw rwq eqwe ",
+      "City": "İstanbul",
+      "PhoneNumber": "5350723764",
+      "Email": "enesylcn57@outlook.com",
+      "Note": "Bu bir test kayıttır.",
+      "OrderDetails": []
+    },
+    {
+      "Id": 10,
+      "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+      "OrderNumber": "3799941",
+      "OrderDate": "2024-08-11T00:50:57.3140006",
+      "FirstName": "Enes",
+      "LastName": "Yalçın",
+      "Address": "qwerqwerqwe qweqrqweqweqwer qweqw rwq eqwe ",
+      "City": "İstanbul",
+      "PhoneNumber": "5350723764",
+      "Email": "enesylcn57@outlook.com",
+      "Note": "Bu bir test kayıttır.",
+      "OrderDetails": []
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T22:13:25.0567562Z",
+  "ReferenceNumber": "8d1bf817-bc8b-41da-9c82-0aadee2310d3"
+}
+2024-08-11 01:13:25.084 [INF] -------------Request-End------------
+2024-08-11 01:13:38.244 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:13:58.333 [INF] -------------Request-Begin------------
+2024-08-11 01:13:58.333 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders/8 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "1233123312331233",
+  "ExpirationMonth": "09",
+  "ExpirationYear": "2029",
+  "Cvc": "554",
+  "FirstName": "Yalçın",
+  "LastName": "string",
+  "Address": "string",
+  "City": "string",
+  "PhoneNumber": "5555555555",
+  "Email": "qwert@qwerty.com",
+  "Note": "string"
+}
+2024-08-11 01:13:58.333 [INF] 
+
+2024-08-11 01:13:58.333 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders/8 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": null,
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T22:13:56.4358522Z",
+  "ReferenceNumber": "fde49013-3c1b-444c-9daf-fbc84bf062ab"
+}
+2024-08-11 01:13:58.334 [INF] -------------Request-End------------
+2024-08-11 01:14:09.529 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:14:09.574 [INF] -------------Request-Begin------------
+2024-08-11 01:14:09.574 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders/8 
+QueryString:  
+Request Body: 
+2024-08-11 01:14:09.575 [INF] 
+
+2024-08-11 01:14:09.575 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders/8 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 8,
+    "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+    "OrderNumber": "5820480",
+    "OrderDate": "2024-08-11T00:47:28.4288298",
+    "FirstName": "Yalçın",
+    "LastName": "string",
+    "Address": "string",
+    "City": "string",
+    "PhoneNumber": "5555555555",
+    "Email": "qwert@qwerty.com",
+    "Note": "string",
+    "OrderDetails": []
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T22:14:09.5734084Z",
+  "ReferenceNumber": "7022337c-1430-486a-ac0d-eb2f498138aa"
+}
+2024-08-11 01:14:09.575 [INF] -------------Request-End------------
+2024-08-11 01:14:13.952 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:14:13.979 [INF] -------------Request-Begin------------
+2024-08-11 01:14:13.980 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: 
+2024-08-11 01:14:13.980 [INF] 
+
+2024-08-11 01:14:13.980 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 8,
+      "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+      "OrderNumber": "5820480",
+      "OrderDate": "2024-08-11T00:47:28.4288298",
+      "FirstName": "Yalçın",
+      "LastName": "string",
+      "Address": "string",
+      "City": "string",
+      "PhoneNumber": "5555555555",
+      "Email": "qwert@qwerty.com",
+      "Note": "string",
+      "OrderDetails": []
+    },
+    {
+      "Id": 9,
+      "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+      "OrderNumber": "7198954",
+      "OrderDate": "2024-08-11T00:47:52.09673",
+      "FirstName": "Enes",
+      "LastName": "Yalçın",
+      "Address": "qwerqwerqwe qweqrqweqweqwer qweqw rwq eqwe ",
+      "City": "İstanbul",
+      "PhoneNumber": "5350723764",
+      "Email": "enesylcn57@outlook.com",
+      "Note": "Bu bir test kayıttır.",
+      "OrderDetails": []
+    },
+    {
+      "Id": 10,
+      "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+      "OrderNumber": "3799941",
+      "OrderDate": "2024-08-11T00:50:57.3140006",
+      "FirstName": "Enes",
+      "LastName": "Yalçın",
+      "Address": "qwerqwerqwe qweqrqweqweqwer qweqw rwq eqwe ",
+      "City": "İstanbul",
+      "PhoneNumber": "5350723764",
+      "Email": "enesylcn57@outlook.com",
+      "Note": "Bu bir test kayıttır.",
+      "OrderDetails": []
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T22:14:13.9786678Z",
+  "ReferenceNumber": "394707ce-8fa4-429f-9a41-306389a96899"
+}
+2024-08-11 01:14:13.980 [INF] -------------Request-End------------
+2024-08-11 01:14:30.833 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:14:30.899 [INF] -------------Request-Begin------------
+2024-08-11 01:14:30.899 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders/8 
+QueryString:  
+Request Body: 
+2024-08-11 01:14:30.899 [INF] 
+
+2024-08-11 01:14:30.899 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders/8 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": null,
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T22:14:30.8982085Z",
+  "ReferenceNumber": "fc7ff95e-3204-4c42-907c-6b0d12184f51"
+}
+2024-08-11 01:14:30.899 [INF] -------------Request-End------------
+2024-08-11 01:14:36.100 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:14:36.122 [INF] -------------Request-Begin------------
+2024-08-11 01:14:36.122 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: 
+2024-08-11 01:14:36.122 [INF] 
+
+2024-08-11 01:14:36.122 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 9,
+      "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+      "OrderNumber": "7198954",
+      "OrderDate": "2024-08-11T00:47:52.09673",
+      "FirstName": "Enes",
+      "LastName": "Yalçın",
+      "Address": "qwerqwerqwe qweqrqweqweqwer qweqw rwq eqwe ",
+      "City": "İstanbul",
+      "PhoneNumber": "5350723764",
+      "Email": "enesylcn57@outlook.com",
+      "Note": "Bu bir test kayıttır.",
+      "OrderDetails": []
+    },
+    {
+      "Id": 10,
+      "UserId": "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+      "OrderNumber": "3799941",
+      "OrderDate": "2024-08-11T00:50:57.3140006",
+      "FirstName": "Enes",
+      "LastName": "Yalçın",
+      "Address": "qwerqwerqwe qweqrqweqweqwer qweqw rwq eqwe ",
+      "City": "İstanbul",
+      "PhoneNumber": "5350723764",
+      "Email": "enesylcn57@outlook.com",
+      "Note": "Bu bir test kayıttır.",
+      "OrderDetails": []
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T22:14:36.1217313Z",
+  "ReferenceNumber": "c398c83b-4de8-46fe-86bf-2dfc35c3d23a"
+}
+2024-08-11 01:14:36.123 [INF] -------------Request-End------------
+2024-08-11 01:15:27.948 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:15:27.991 [INF] -------------Request-Begin------------
+2024-08-11 01:15:27.991 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Users 
+QueryString:  
+Request Body: 
+2024-08-11 01:15:27.991 [INF] 
+
+2024-08-11 01:15:27.991 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Users 
+QueryString:  
+StatusCode: 401 
+Response Body: 
+2024-08-11 01:15:27.991 [INF] -------------Request-End------------
+2024-08-11 01:28:54.508 [INF] Application is starting...
+2024-08-11 01:28:55.998 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - DigitalStore.WebApi.Controllers.UsersController.GetAllUsersAsync (DigitalStore.WebApi). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:30:04.408 [INF] Application is starting...
+2024-08-11 01:30:06.374 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - DigitalStore.WebApi.Controllers.UsersController.GetAllUsersAsync (DigitalStore.WebApi). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:34:31.879 [INF] Application is starting...
+2024-08-11 01:34:33.365 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - DigitalStore.WebApi.Controllers.UsersController.GetAllUsersAsync (DigitalStore.WebApi). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:35:22.414 [INF] Application is starting...
+2024-08-11 01:44:15.807 [INF] Application is starting...
+2024-08-11 01:44:29.130 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:44:31.099 [INF] -------------Request-Begin------------
+2024-08-11 01:44:31.099 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "Enes",
+  "Password": "Qwe123."
+}
+2024-08-11 01:44:31.099 [INF] 
+
+2024-08-11 01:44:31.099 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "ExpireTime": "2024-08-11T03:14:31.0784122+03:00",
+    "AccessToken": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkVuZXMiLCJVc2VySWQiOiI5YjgwNzJiZS02Y2I3LTRkN2MtYjU5NS00M2EyM2JjZDQ0ZGIiLCJFbWFpbCI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiI5YjgwNzJiZS02Y2I3LTRkN2MtYjU5NS00M2EyM2JjZDQ0ZGIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRW5lcyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MjMzMzUyNzEsImlzcyI6IkVuZXMiLCJhdWQiOiJQYXRpa2EifQ.8XuflG7inurIiu7p7oloypymCd6iSf3kqG1tODCK01o",
+    "UserName": "Enes"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-10T22:44:31.0785558Z",
+  "ReferenceNumber": "be00041a-76e5-423a-99d9-784ceaf76c27"
+}
+2024-08-11 01:44:31.099 [INF] -------------Request-End------------
+2024-08-11 01:44:55.923 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:45:31.169 [INF] Application is starting...
+2024-08-11 01:45:40.035 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:47:31.314 [FTL] Path=/api/Users || Method=GET || Exception=Object reference not set to an instance of an object.
+2024-08-11 01:47:31.374 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id a0a95290-2998-474d-bae6-26057d1ff771 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:47:31.419 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id a0a95290-2998-474d-bae6-26057d1ff771 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:47:31.424 [ERR] Connection ID "18014398518877224977", Request ID "40000012-0002-fa00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id a0a95290-2998-474d-bae6-26057d1ff771 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 01:47:34.618 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:53:57.695 [INF] Application is starting...
+2024-08-11 01:54:04.969 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:54:06.639 [FTL] Path=/api/identity/Authorization/GetAllUsersAsync || Method=POST || Exception=Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[DigitalStore.Data.Domain.User, DigitalStore.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[DigitalStore.Schema.AuthResponse, DigitalStore.Schema, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-08-11 01:54:06.686 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 1a6bcd4b-0f2c-4a93-8980-f28112dc4c6b and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:54:06.715 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 1a6bcd4b-0f2c-4a93-8980-f28112dc4c6b and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:54:06.719 [ERR] Connection ID "18230571326760812691", Request ID "40000094-0008-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 1a6bcd4b-0f2c-4a93-8980-f28112dc4c6b and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 01:54:22.776 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:54:23.135 [FTL] Path=/api/identity/Authorization/GetAllUsersAsync || Method=POST || Exception=Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[DigitalStore.Data.Domain.User, DigitalStore.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[DigitalStore.Schema.AuthResponse, DigitalStore.Schema, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-08-11 01:54:23.181 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 8f6bb271-6491-4b25-902b-f79e586833a8 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:54:23.184 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 8f6bb271-6491-4b25-902b-f79e586833a8 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:54:23.185 [ERR] Connection ID "18230571292401074202", Request ID "4000001b-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 8f6bb271-6491-4b25-902b-f79e586833a8 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 01:54:55.300 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:55:13.783 [FTL] Path=/api/identity/Authorization/GetAllUsersAsync || Method=POST || Exception=Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[DigitalStore.Data.Domain.User, DigitalStore.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[DigitalStore.Schema.AuthResponse, DigitalStore.Schema, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-08-11 01:55:13.827 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 8644e0f3-b67e-4a32-b780-84c7ead27b13 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:55:13.829 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 8644e0f3-b67e-4a32-b780-84c7ead27b13 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:55:13.830 [ERR] Connection ID "18158513724132950080", Request ID "40000041-0006-fc00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 8644e0f3-b67e-4a32-b780-84c7ead27b13 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 01:56:33.292 [INF] Application is starting...
+2024-08-11 01:56:40.123 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:56:49.293 [FTL] Path=/api/identity/Authorization/GetAllUsersAsync || Method=POST || Exception=Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[DigitalStore.Data.Domain.User, DigitalStore.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[DigitalStore.Schema.AuthResponse, DigitalStore.Schema, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-08-11 01:56:49.385 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 115d3561-9585-4346-afb9-7d2614d09a7f and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:56:49.415 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 115d3561-9585-4346-afb9-7d2614d09a7f and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:56:49.420 [ERR] Connection ID "18230571335350747176", Request ID "40000029-000a-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 115d3561-9585-4346-afb9-7d2614d09a7f and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 01:56:51.764 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:58:35.480 [INF] Application is starting...
+2024-08-11 01:58:45.719 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:58:53.517 [FTL] Path=/api/identity/Authorization/GetAllUsersAsync || Method=POST || Exception=Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[DigitalStore.Data.Domain.User, DigitalStore.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[DigitalStore.Schema.UserResponse, DigitalStore.Schema, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-08-11 01:58:53.569 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id fd9b048c-cb17-42ec-b73a-2e1a83369ce8 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:58:53.598 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id fd9b048c-cb17-42ec-b73a-2e1a83369ce8 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:58:53.602 [ERR] Connection ID "18158513724132950084", Request ID "40000045-0006-fc00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id fd9b048c-cb17-42ec-b73a-2e1a83369ce8 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 01:58:56.823 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 01:58:57.091 [FTL] Path=/api/identity/Authorization/GetAllUsersAsync || Method=POST || Exception=Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[DigitalStore.Data.Domain.User, DigitalStore.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[DigitalStore.Schema.UserResponse, DigitalStore.Schema, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-08-11 01:58:57.139 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id eb2215ea-457e-44a3-81f4-5ac4e1035bb0 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:58:57.142 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id eb2215ea-457e-44a3-81f4-5ac4e1035bb0 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 01:58:57.143 [ERR] Connection ID "18158513724132950086", Request ID "40000047-0006-fc00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id eb2215ea-457e-44a3-81f4-5ac4e1035bb0 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 10:44:40.381 [INF] Application is starting...
+2024-08-11 10:51:14.431 [INF] Application is starting...
+2024-08-11 10:51:29.386 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 10:51:31.964 [INF] -------------Request-Begin------------
+2024-08-11 10:51:31.964 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "qw",
+  "Password": "qw"
+}
+2024-08-11 10:51:31.964 [INF] 
+
+2024-08-11 10:51:31.964 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": null,
+  "Message": "Kullanıcı adı veya şifre hatalı!",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-11T07:51:31.9504368Z",
+  "ReferenceNumber": "2ea94d89-5725-4954-88d5-f953917dd98c"
+}
+2024-08-11 10:51:31.964 [INF] -------------Request-End------------
+2024-08-11 10:52:44.860 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 10:53:02.928 [FTL] Path=/api/identity/Authorization/Login || Method=POST || Exception=Object reference not set to an instance of an object.
+2024-08-11 10:53:02.961 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 240495c2-ede1-42a0-a568-2145087d530d and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 10:53:03.081 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 240495c2-ede1-42a0-a568-2145087d530d and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 10:53:03.085 [ERR] Connection ID "18374686519131635741", Request ID "4000001e-0009-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 240495c2-ede1-42a0-a568-2145087d530d and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 10:53:19.526 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 10:53:31.354 [INF] Application is starting...
+2024-08-11 10:53:45.569 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 10:53:47.479 [INF] -------------Request-Begin------------
+2024-08-11 10:53:47.480 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "Enes",
+  "Password": "Qwe123."
+}
+2024-08-11 10:53:47.480 [INF] 
+
+2024-08-11 10:53:47.480 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "ExpireTime": "2024-08-11T12:23:47.4457947+03:00",
+    "AccessToken": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkVuZXMiLCJVc2VySWQiOiI5YjgwNzJiZS02Y2I3LTRkN2MtYjU5NS00M2EyM2JjZDQ0ZGIiLCJFbWFpbCI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiI5YjgwNzJiZS02Y2I3LTRkN2MtYjU5NS00M2EyM2JjZDQ0ZGIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRW5lcyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MjMzNjgyMjcsImlzcyI6IkVuZXMiLCJhdWQiOiJQYXRpa2EifQ.QHcH2gc0tvgSg9_tc-i_GX32QCMWhqIQ4bp00B-Wjy4",
+    "UserName": "Enes"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-11T07:53:47.4459724Z",
+  "ReferenceNumber": "a674e70a-2670-4f95-8a65-94d1404e1a4f"
+}
+2024-08-11 10:53:47.481 [INF] -------------Request-End------------
+2024-08-11 10:54:21.097 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 10:54:21.437 [FTL] Path=/api/Products || Method=GET || Exception=An error was generated for warning 'Microsoft.EntityFrameworkCore.Query.InvalidIncludePathError': Unable to find navigation 'OrderDetails' specified in string based include path 'OrderDetails'. This exception can be suppressed or logged by passing event ID 'CoreEventId.InvalidIncludePathError' to the 'ConfigureWarnings' method in 'DbContext.OnConfiguring' or 'AddDbContext'.
+2024-08-11 10:54:21.478 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 7a2f9acc-cabb-4cda-80e4-4c1542c0a137 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 10:54:21.519 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 7a2f9acc-cabb-4cda-80e4-4c1542c0a137 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 10:54:21.525 [ERR] Connection ID "18086456112915152958", Request ID "4000003f-0002-fb00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 7a2f9acc-cabb-4cda-80e4-4c1542c0a137 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 10:54:30.277 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 10:54:30.453 [INF] -------------Request-Begin------------
+2024-08-11 10:54:30.453 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+Request Body: 
+2024-08-11 10:54:30.453 [INF] 
+
+2024-08-11 10:54:30.453 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 1,
+      "Name": "Smartphones",
+      "Url": "smartphones",
+      "Tags": "mobile, phone, tech"
+    },
+    {
+      "Id": 2,
+      "Name": "Laptops",
+      "Url": "laptops",
+      "Tags": "computer, tech, portable"
+    },
+    {
+      "Id": 3,
+      "Name": "Tablets",
+      "Url": "tablets",
+      "Tags": "tablet, tech, mobile"
+    },
+    {
+      "Id": 4,
+      "Name": "Smartwatches",
+      "Url": "smartwatches",
+      "Tags": "wearable, tech, watch"
+    },
+    {
+      "Id": 5,
+      "Name": "Accessories",
+      "Url": "accessories",
+      "Tags": "tech, accessories, gear"
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-11T07:54:30.442379Z",
+  "ReferenceNumber": "37ccbd2f-b513-4848-ba35-1666db6c85b8"
+}
+2024-08-11 10:54:30.453 [INF] -------------Request-End------------
+2024-08-11 10:55:10.245 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 10:55:10.443 [INF] -------------Request-Begin------------
+2024-08-11 10:55:10.444 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+Request Body: {
+  "Name": "",
+  "Url": "",
+  "Tags": ""
+}
+2024-08-11 10:55:10.444 [INF] 
+
+2024-08-11 10:55:10.444 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 6,
+    "Name": "",
+    "Url": "",
+    "Tags": ""
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-11T07:55:10.4421837Z",
+  "ReferenceNumber": "e48f6a4d-0b52-4e34-be16-7c734ed68d70"
+}
+2024-08-11 10:55:10.444 [INF] -------------Request-End------------
+2024-08-11 11:04:53.069 [INF] Application is starting...
+2024-08-11 11:05:21.935 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 11:05:24.458 [INF] -------------Request-Begin------------
+2024-08-11 11:05:24.458 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "qqqqq",
+  "Password": "wewe"
+}
+2024-08-11 11:05:24.459 [INF] 
+
+2024-08-11 11:05:24.459 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": null,
+  "Message": "Kullanıcı adı veya şifre hatalı!",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-11T08:05:24.4430113Z",
+  "ReferenceNumber": "413fb530-6796-4b40-945b-ace8f24a3fa5"
+}
+2024-08-11 11:05:24.459 [INF] -------------Request-End------------
+2024-08-11 11:05:49.803 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 11:05:50.158 [INF] -------------Request-Begin------------
+2024-08-11 11:05:50.158 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+Request Body: {
+  "Name": "",
+  "Url": "",
+  "Tags": ""
+}
+2024-08-11 11:05:50.158 [INF] 
+
+2024-08-11 11:05:50.158 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 7,
+    "Name": "",
+    "Url": "",
+    "Tags": ""
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-11T08:05:50.1500772Z",
+  "ReferenceNumber": "bbe54313-cf44-4a73-96ab-89a266d71358"
+}
+2024-08-11 11:05:50.158 [INF] -------------Request-End------------
+2024-08-11 11:09:25.254 [INF] Application is starting...
+2024-08-11 11:09:41.947 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 11:09:43.512 [INF] -------------Request-Begin------------
+2024-08-11 11:09:43.513 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "",
+  "Password": ""
+}
+2024-08-11 11:09:43.513 [INF] 
+
+2024-08-11 11:09:43.513 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": null,
+  "Message": "Kullanıcı adı veya şifre hatalı!",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-11T08:09:43.4923386Z",
+  "ReferenceNumber": "e03ae30b-fbfa-4e00-ab10-be0ea8028545"
+}
+2024-08-11 11:09:43.513 [INF] -------------Request-End------------
+2024-08-11 11:09:55.472 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 11:09:56.046 [FTL] Path=/api/Categories || Method=POST || Exception=An error occurred while saving the entity changes. See the inner exception for details.
+2024-08-11 11:09:56.109 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id b78b065a-6580-4308-851a-963878201f52 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 11:09:56.271 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id b78b065a-6580-4308-851a-963878201f52 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-11 11:09:56.274 [ERR] Connection ID "18302628916503773258", Request ID "4000004b-0007-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id b78b065a-6580-4308-851a-963878201f52 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-11 11:10:12.729 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 11:10:12.881 [INF] -------------Request-Begin------------
+2024-08-11 11:10:12.881 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+Request Body: {
+  "Name": "",
+  "Url": "",
+  "Tags": ""
+}
+2024-08-11 11:10:12.882 [INF] 
+
+2024-08-11 11:10:12.882 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 9,
+    "Name": "",
+    "Url": "",
+    "Tags": ""
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-11T08:10:12.8735896Z",
+  "ReferenceNumber": "d441e4a2-d49c-4b50-b851-1dbbff117bae"
+}
+2024-08-11 11:10:12.882 [INF] -------------Request-End------------
+2024-08-11 11:13:28.998 [INF] Application is starting...
+2024-08-11 11:13:38.468 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 11:13:40.003 [INF] -------------Request-Begin------------
+2024-08-11 11:13:40.004 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "qwe",
+  "Password": "qwe"
+}
+2024-08-11 11:13:40.004 [INF] 
+
+2024-08-11 11:13:40.004 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": null,
+  "Message": "Kullanıcı adı veya şifre hatalı!",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-11T08:13:39.9810879Z",
+  "ReferenceNumber": "b4541fde-682b-4301-87d9-3088dfa5f138"
+}
+2024-08-11 11:13:40.004 [INF] -------------Request-End------------
+2024-08-11 11:14:04.425 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 11:14:04.803 [INF] -------------Request-Begin------------
+2024-08-11 11:14:04.803 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+Request Body: {
+  "Name": "",
+  "Url": "",
+  "Tags": ""
+}
+2024-08-11 11:14:04.803 [INF] 
+
+2024-08-11 11:14:04.803 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 10,
+    "Name": "",
+    "Url": "",
+    "Tags": ""
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-11T08:14:04.7972986Z",
+  "ReferenceNumber": "05c9bfa9-17f4-48ae-a071-6195f1f1b2a4"
+}
+2024-08-11 11:14:04.803 [INF] -------------Request-End------------
+2024-08-11 11:24:57.859 [INF] Application is starting...
+2024-08-11 11:25:09.374 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-11 11:25:09.715 [INF] -------------Request-Begin------------
+2024-08-11 11:25:09.716 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "qwe",
+  "Password": "q"we
+}
+2024-08-11 11:25:09.716 [INF] 
+
+2024-08-11 11:25:09.716 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 400 
+Response Body: {
+  "Data": null,
+  "Message": null,
+  "IsSuccess": false,
+  "ServerDate": "2024-08-11T08:25:09.6964414Z",
+  "ReferenceNumber": "6eddd156-77b1-4d8a-8858-9abfab2627c7",
+  "Errors": [
+    "'w' is invalid after a value. Expected either ',', '}', or ']'. Path: $ | LineNumber: 2 | BytePositionInLine: 17."
+  ]
+}
+2024-08-11 11:25:09.716 [INF] -------------Request-End------------

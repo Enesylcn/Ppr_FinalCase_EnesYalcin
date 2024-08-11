@@ -57,5 +57,13 @@ namespace DigitalStore.WebApi.Controllers
             return response;
         }
 
+        [HttpPost("GetAllUsersAsync")]
+        [AllowAnonymous]
+        public async Task<ApiResponse<List<UserResponse>>> GetAllUsersAsync()
+        {
+            var loginResult = await authenticationService.GetAllUsersAsync();
+            return loginResult;
+        }
+
     }
 }

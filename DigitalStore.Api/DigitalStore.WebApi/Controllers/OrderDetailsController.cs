@@ -23,7 +23,7 @@ namespace DigitalStore.WebApi.Controllers
 
 
         [HttpGet]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<ApiResponse<List<OrderDetailResponse>>> Get()
         {
             var operation = new GetAllOrderDetailQuery();
@@ -35,7 +35,7 @@ namespace DigitalStore.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<ApiResponse<OrderDetailResponse>> Post([FromBody] OrderDetailRequest value)
         {
             var operation = new CreateOrderDetailCommand(value);
@@ -44,7 +44,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPut("{OrderDetailId}")]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<ApiResponse> Put(long OrderDetailId, [FromBody] OrderDetailRequest value)
         {
             var operation = new UpdateOrderDetailCommand(OrderDetailId, value);
@@ -53,7 +53,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpDelete("{OrderDetailId}")]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<ApiResponse> Delete(long OrderDetailId)
         {
             var operation = new DeleteOrderDetailCommand(OrderDetailId);
@@ -62,7 +62,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         //[HttpGet("ByParameters")]
-        //[Authorize(Roles = "admin")]
+        ////[Authorize(Roles = "Admin")]
         //public async Task<ApiResponse<List<OrderDetailResponse>>> GetByParameters(
         //    [FromQuery] long? OrderDetailNumber,
         //    [FromQuery] string FirstName = null,
@@ -84,7 +84,7 @@ namespace DigitalStore.WebApi.Controllers
         //}
 
         //[HttpGet("{OrderDetailId}")]
-        //[Authorize(Roles = "admin")]
+        ////[Authorize(Roles = "Admin")]
         //public async Task<ApiResponse<OrderDetailResponse>> Get([FromRoute] long OrderDetailId)
         //{
         //    var operation = new GetAllOrderDetailQuery(OrderDetailId);

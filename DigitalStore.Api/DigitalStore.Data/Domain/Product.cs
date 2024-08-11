@@ -14,6 +14,5 @@ namespace DigitalStore.Data.Domain
         
 
         public List<ProductCategory> ProductCategories { get; set; }
-        public List<OrderDetail> OrderDetails { get; set; }
     }
 }

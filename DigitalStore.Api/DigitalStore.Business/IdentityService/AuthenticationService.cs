@@ -9,6 +9,9 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using DigitalStore.Data.UnitOfWork;
 
 namespace DigitalStore.Business.IdentityService
 {
@@ -19,14 +22,16 @@ namespace DigitalStore.Business.IdentityService
         private readonly SignInManager<User> signInManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly ISessionContext sessionContext;
+        private readonly IMapper mapper;
 
-        public AuthenticationService(JwtConfig jwtConfig, UserManager<User> userManager, SignInManager<User> signInManager, ISessionContext sessionContext, RoleManager<IdentityRole> roleManager)
+        public AuthenticationService(JwtConfig jwtConfig, UserManager<User> userManager, SignInManager<User> signInManager, ISessionContext sessionContext, RoleManager<IdentityRole> roleManager, IMapper mapper)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.jwtConfig = jwtConfig;
             this.sessionContext = sessionContext;
             this.roleManager = roleManager;
+            this.mapper = mapper;
         }
 
         public async Task<ApiResponse<AuthResponse>> Login(AuthRequest request)
@@ -191,5 +196,14 @@ namespace DigitalStore.Business.IdentityService
 
             return claims.ToArray();
         }
+
+        public async Task<ApiResponse<List<UserResponse>>> GetAllUsersAsync()
+        {
+            List<User> entityList = await userManager.Users.ToListAsync();
+            var mappedList = mapper.Map<List<UserResponse>>(entityList);
+            return new ApiResponse<List<UserResponse>>(mappedList);
+        }
+
+
     }
 }

@@ -30,9 +30,6 @@ namespace DigitalStore.Data.Configurations
                 .WithOne(pc => pc.Product)
                 .HasForeignKey(pc => pc.ProductId);
 
-            builder.HasMany(p => p.OrderDetails)
-                .WithOne(od => od.Product)
-                .HasForeignKey(od => od.ProductId);
 
             builder.ToTable("Products");
         }

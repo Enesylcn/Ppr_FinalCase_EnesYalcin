@@ -18,5 +18,6 @@ namespace DigitalStore.Data.Domain
         public string Gender { get; set; }
         public string Occupation { get; set; }
         public DateTime? DateOfBirth { get; set; }
+        public List<Order> Orders { get; set; }
     }
 }

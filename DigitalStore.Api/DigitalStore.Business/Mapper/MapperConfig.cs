@@ -2,6 +2,7 @@
 using AutoMapper;
 using DigitalStore.Data.Domain;
 using DigitalStore.Schema;
+using Microsoft.AspNetCore.Builder;
 using System.Diagnostics.Metrics;
 
 namespace DigitalStore.Business.Mapper
@@ -22,8 +23,8 @@ namespace DigitalStore.Business.Mapper
             CreateMap<Order, OrderResponse>();
             CreateMap<OrderRequest, OrderResponse>();
 
-            CreateMap<User, UserResponse>();
-            CreateMap<UserRequest, User>();
+            CreateMap<User, AuthRequest>();
+            CreateMap<AuthResponse, User>();
 
             CreateMap<OrderDetail, OrderDetailResponse>();
             CreateMap<OrderDetailRequest, OrderDetail>();

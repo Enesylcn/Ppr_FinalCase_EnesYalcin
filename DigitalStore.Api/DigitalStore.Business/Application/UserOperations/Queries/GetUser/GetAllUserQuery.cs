@@ -27,7 +27,7 @@ namespace DigitalStore.Business.Application.UserOperations.Queries.GetUser
 
         public async Task<ApiResponse<List<UserResponse>>> Handle(GetAllUserQuery request, CancellationToken cancellationToken)
         {
-            List<User> entityList = await unitOfWork.UserRepository.GetAll("User");
+            List<User> entityList = await unitOfWork.UserRepository.GetAll();
             var mappedList = mapper.Map<List<UserResponse>>(entityList);
             return new ApiResponse<List<UserResponse>>(mappedList);
         }

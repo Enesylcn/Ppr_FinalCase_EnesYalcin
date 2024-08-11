@@ -33,11 +33,11 @@ namespace DigitalStore.WebApi.Controllers
         }
 
 
-        [HttpGet("{OrderId}")]
+        [HttpGet("{orderId}")]
         //[Authorize(Roles = "admin")]
-        public async Task<ApiResponse<OrderResponse>> GetByOrderId([FromRoute] long OrderId)
+        public async Task<ApiResponse<OrderResponse>> GetByOrderId([FromRoute] long orderId)
         {
-            var operation = new GetOrderByIdQuery(OrderId);
+            var operation = new GetOrderByIdQuery(orderId);
             var result = await mediator.Send(operation);
             return result;
         }
@@ -51,20 +51,20 @@ namespace DigitalStore.WebApi.Controllers
             return result;
         }
 
-        [HttpPut("{OrderId}")]
+        [HttpPut("{orderId}")]
         //[Authorize(Roles = "admin")]
-        public async Task<ApiResponse> Put(long OrderId, [FromBody] OrderRequest value)
+        public async Task<ApiResponse> Put(long orderId, [FromBody] OrderRequest value)
         {
-            var operation = new UpdateOrderCommand(OrderId, value);
+            var operation = new UpdateOrderCommand(orderId, value);
             var result = await mediator.Send(operation);
             return result;
         }
 
-        [HttpDelete("{OrderId}")]
+        [HttpDelete("{orderId}")]
         //[Authorize(Roles = "admin")]
-        public async Task<ApiResponse> Delete(long OrderId)
+        public async Task<ApiResponse> Delete(long orderId)
         {
-            var operation = new DeleteOrderCommand(OrderId);
+            var operation = new DeleteOrderCommand(orderId);
             var result = await mediator.Send(operation);
             return result;
         }

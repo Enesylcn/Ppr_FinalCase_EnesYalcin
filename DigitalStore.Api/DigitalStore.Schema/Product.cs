@@ -10,7 +10,6 @@ namespace DigitalStore.Schema
         public string Features { get; set; }
         public string Description { get; set; }
         public decimal PointsEarningPercentage { get; set; }
-        public decimal MaxPointsAmount { get; set; }
         public decimal Price { get; set; }
         public int Stock { get; set; } = 0;
     }

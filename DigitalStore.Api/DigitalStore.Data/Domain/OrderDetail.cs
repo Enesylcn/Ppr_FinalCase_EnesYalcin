@@ -14,6 +14,7 @@ namespace DigitalStore.Data.Domain
         public long OrderId { get; set; }
         public Order Order { get; set; }
         public int Stock { get; set; }
+        public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal TotalPrice { get; set; }
     }

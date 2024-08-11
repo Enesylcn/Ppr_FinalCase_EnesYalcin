@@ -20,14 +20,15 @@ namespace DigitalStore.Data.Configurations
             builder.Property(c => c.InsertUser).IsRequired().HasMaxLength(50);
             builder.Property(od => od.UnitPrice).IsRequired().HasColumnType("decimal(18,2)");
             builder.Property(od => od.TotalPrice).IsRequired().HasColumnType("decimal(18,2)");
-            builder.Property(od => od.Stock).IsRequired().HasColumnType("int");
+            builder.Property(od => od.Stock).IsRequired().HasColumnType("smallint");
+            builder.Property(od => od.Quantity).IsRequired().HasColumnType("smallint");
 
             builder.HasOne(od => od.Order)
                    .WithMany(o => o.OrderDetails)
                    .HasForeignKey(od => od.OrderId);
 
             builder.HasOne(od => od.Product)
-                   .WithMany(o => o.OrderDetails)
+                   .WithMany()
                    .HasForeignKey(od => od.ProductId);
 
             builder.ToTable("OrderDetails");

@@ -14,5 +14,7 @@ namespace DigitalStore.Business.IdentityService
         Task<ApiResponse> Logout();
         Task<ApiResponse> ChangePassword(ChangePasswordRequest request);
         Task<ApiResponse> Register(RegisterUserRequest request);
+        Task<ApiResponse<List<UserResponse>>> GetAllUsersAsync();
+
     }
 }

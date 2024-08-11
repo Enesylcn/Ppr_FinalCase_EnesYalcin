@@ -59,7 +59,7 @@ namespace DigitalStore.Data.Context
 
             modelBuilder.Entity<OrderDetail>()
                 .HasOne(od => od.Product)
-                .WithMany(p => p.OrderDetails)
+                .WithMany()
                 .HasForeignKey(od => od.ProductId);
 
             modelBuilder.Entity<OrderDetail>()

@@ -11,10 +11,7 @@ namespace DigitalStore.Schema
     public class ShoppingCartRequest : BaseRequest
     {
         public string Name { get; set; }
-        public decimal CartAmount { get; set; } //Kalkıcak Items'a ekle 
-        public decimal CouponAmount { get; set; }//Kalkıcak Items'a ekle 
-        public string CouponCode { get; set; }//Kalkıcak Items'a ekle 
-        public decimal PointsAmount { get; set; }//Kalkıcak Items'a ekle 
+        public string CouponCode { get; set; }
     }
 
     public class ShoppingCartResponse : BaseResponse

@@ -31,12 +31,9 @@ namespace DigitalStore.Business.RegistrationServices
                 return new StoreIdentityDbContext(optionsBuilder.Options);
             }).AsSelf().InstancePerLifetimeScope();
 
-            // UnitOfWork
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
             builder.RegisterType<AuthenticationService>().As<IAuthenticationService>().InstancePerLifetimeScope();
 
-
-            // AutoMapper
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new MapperConfig());
@@ -48,29 +45,10 @@ namespace DigitalStore.Business.RegistrationServices
               .AsImplementedInterfaces()
               .InstancePerLifetimeScope(); 
 
-            // MediatR
             builder.RegisterType<Mediator>().As<IMediator>().InstancePerLifetimeScope();
-
-            //builder.Register<ServiceFactory>(context =>
-            //{
-            //    var c = context.Resolve<IComponentContext>();
-            //    return t => c.Resolve(t);
-            //}).InstancePerLifetimeScope(); 
 
 
         }
     }
-    //// Tüm servislerin register edildimesi.
-    //protected override void Load(ContainerBuilder builder)
-    //{
-    //    builder.RegisterType<AuthenticationService>().As<IAuthenticationService>().InstancePerLifetimeScope();
-    //    builder.RegisterType<UnitOfWork<Product>>().As<IUnitOfWork<Product>>().SingleInstance();
-    //    builder.RegisterType<UnitOfWork<Order>>().As<IUnitOfWork<Order>>().SingleInstance();
-    //    builder.RegisterType<UnitOfWork<OrderDetail>>().As<IUnitOfWork<OrderDetail>>().SingleInstance();
-    //    builder.RegisterType<UnitOfWork<User>>().As<IUnitOfWork<User>>().SingleInstance();
-    //    builder.RegisterType<UnitOfWork<Category>>().As<IUnitOfWork<Category>>().SingleInstance();
-    //    builder.RegisterType<UnitOfWork<ProductCategory>>().As<IUnitOfWork<ProductCategory>>().SingleInstance();
-
-    //}
 }
 

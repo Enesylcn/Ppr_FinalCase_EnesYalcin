@@ -16,6 +16,12 @@ using Autofac.Core;
 using DigitalStore.Data.Context;
 using Microsoft.AspNetCore.Identity;
 using System.Text.Json.Serialization;
+using DigitalStore.Business.Validation;
+using FluentValidation.AspNetCore;
+using System;
+using FluentValidation;
+using Microsoft.AspNetCore.Hosting;
+using DigitalStore.WebApi.Filters;
 
 namespace Papara.Api
 {
@@ -40,26 +46,6 @@ namespace Papara.Api
             builder.Services.AddSingleton(jwtConfig);
 
 
-
-            //builder.Services.AddControllers(options => options.Filters.Add(new ValidateFilterAttribute()))
-            //        .AddFluentValidation(fv =>
-            //        {
-            //            fv.RegisterValidatorsFromAssemblyContaining<CustomerRequestValidator>();
-            //            fv.DisableDataAnnotationsValidation = true; // 
-            //        })
-            //        .AddJsonOptions(options =>
-            //        {
-            //            options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-            //            options.JsonSerializerOptions.WriteIndented = true;
-            //            options.JsonSerializerOptions.PropertyNamingPolicy = null;
-            //        });
-
-
-            //builder.Services.AddControllers().AddFluentValidation(x =>
-            //{
-            //	x.RegisterValidatorsFromAssemblyContaining<CustomerRequestValidator>(); // Sonra test edilmeli
-            //});
-
             builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<StoreIdentityDbContext>();
             builder.Services.Configure<IdentityOptions>(options =>
             {
@@ -80,12 +66,28 @@ namespace Papara.Api
                 options.SignIn.RequireConfirmedEmail = false;
             });
 
-            builder.Services.AddControllers().AddJsonOptions(options =>
-             {
-                 options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-                 options.JsonSerializerOptions.WriteIndented = true;
-                 options.JsonSerializerOptions.PropertyNamingPolicy = null;
-             });
+
+            builder.Services.AddControllers(options => options.Filters.Add(new ValidateFilterAttribute()))
+                    .AddFluentValidation(fv =>
+                    {
+                        fv.RegisterValidatorsFromAssemblyContaining<BaseValidator>();
+                        fv.DisableDataAnnotationsValidation = true; 
+                    })
+                    .AddJsonOptions(options =>
+                    {
+                        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                        options.JsonSerializerOptions.WriteIndented = true;
+                        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                    });
+
+            //builder.Services.AddControllers().AddJsonOptions(options =>
+            // {
+            //     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+            //     options.JsonSerializerOptions.WriteIndented = true;
+            //     options.JsonSerializerOptions.PropertyNamingPolicy = null;
+            // });
+            //builder.Services.AddControllers().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<BaseValidator>());
+
 
 
             builder.Services.Configure<ApiBehaviorOptions>(options =>

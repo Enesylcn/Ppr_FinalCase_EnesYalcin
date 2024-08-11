@@ -34,7 +34,8 @@ namespace DigitalStore.Business.Application.OrderOperations.Commands.CreateOrder
             var mapped = mapper.Map<OrderRequest, Order>(request.Request);
             mapped.OrderNumber = new Random().Next(1000000, 9999999).ToString();
             mapped.UserId = sessionContext.Session.UserId;
-            mapped.Name = $"{mapped.Id + 1 }.Order";
+            mapped.Name = $"{mapped.OrderNumber}.Order";
+
             await unitOfWork.OrderRepository.Insert(mapped);
             await unitOfWork.Complete();
 
