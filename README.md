@@ -11,11 +11,9 @@ This project is an e-commerce WebAPI built using ASP.NET Core 8.0, showcasing a 
 3. [Technologies Used](#technologies-used)
 4. [Architecture](#architecture)
 5. [Setup & Installation](#setup--installation)
-6. [Usage](#usage)
-7. [API Documentation](#api-documentation)
-8. [Testing](#testing)
-9. [Contributing](#contributing)
-10. [Contact](#contact)
+6. [API Documentation](#api-documentation)
+7. [Contact](#contact)
+8. [Images](#ımages)
 
 ---
 
@@ -48,6 +46,7 @@ The **DigitalStore WebAPI** project is a comprehensive solution for managing pro
 - **AutoMapper**: For object mapping.
 - **Serilog**: Logging framework.
 - **JWT**: For secure authentication and authorization.
+- **İyzico**: For order process.
 - **Swagger**: For API documentation.
 
 ---
@@ -78,3 +77,34 @@ The project follows a clean architecture approach, dividing the solution into mu
    ```bash
    git clone https://github.com/Enesylcn/Ppr_FinalCase_EnesYalcin
    cd Ppr_FinalCase_EnesYalcin
+
+2. Configure the database connection string in appsettings.json:
+   ```bash
+   "ConnectionStrings": {
+       "DefaultConnection": "Server=your-server;Database=your-database;User Id=your-username;Password=your-password;"
+   }
+
+3. Apply the migrations:
+   ```bash
+   dotnet ef database update
+
+3. Run the project:
+   ```bash
+   dotnet run
+
+## API Documentation
+
+-  https://localhost:44311/swagger/index.html (Swagger)
+-  https://documenter.getpostman.com/view/23429044/2sA3s4mVkx (Postman)
+
+## Contact
+For any questions, feel free to reach out:
+
+ - Email: enesylcn57@outlook.com
+ - LinkedIn: [LinkedIn](https://www.linkedin.com/in/enesyalcin57/)
+ - GitHub: [GitHub](https://github.com/Enesylcn)
+
+## Images
+![Project View](DigitalStore.Apı_Image.png)
+
+![Iyzipay](DigitalStore.Apı_Iyzipay_Image.png)
