@@ -7892,3 +7892,616 @@ Response Body: {
   "ReferenceNumber": "5068f22c-5dca-4a58-8b73-294ecef3d115"
 }
 2024-08-12 21:35:24.312 [INF] -------------Request-End------------
+2024-08-12 21:40:38.382 [INF] Application is starting...
+2024-08-12 21:41:02.278 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:41:44.267 [INF] -------------Request-Begin------------
+2024-08-12 21:41:44.267 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "qweqweqwe",
+  "City": "qweqweqw",
+  "PhoneNumber": "5555555555",
+  "Email": "enes@gmail.com",
+  "Note": "qweqweqweqweqwe"
+}
+
+2024-08-12 21:41:44.267 [INF] 
+
+2024-08-12 21:41:44.267 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:41:44.2160166Z",
+  "ReferenceNumber": "78526f50-74f0-491d-8a51-33723f77f55e"
+}
+2024-08-12 21:41:44.267 [INF] -------------Request-End------------
+2024-08-12 21:41:55.077 [INF] Application is starting...
+2024-08-12 21:42:17.448 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:42:27.361 [INF] -------------Request-Begin------------
+2024-08-12 21:42:27.361 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "qweqweqwe",
+  "City": "qweqweqw",
+  "PhoneNumber": "5555555555",
+  "Email": "enes@gmail.com",
+  "Note": "qweqweqweqweqwe"
+}
+
+2024-08-12 21:42:27.362 [INF] 
+
+2024-08-12 21:42:27.362 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:42:27.340129Z",
+  "ReferenceNumber": "bf37234a-5fd6-422c-95d7-97ed4059170b"
+}
+2024-08-12 21:42:27.362 [INF] -------------Request-End------------
+2024-08-12 21:44:20.275 [INF] Application is starting...
+2024-08-12 21:44:42.010 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:44:43.066 [INF] -------------Request-Begin------------
+2024-08-12 21:44:43.066 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "qweqweqwe",
+  "City": "qweqweqw",
+  "PhoneNumber": "5555555555",
+  "Email": "enes@gmail.com",
+  "Note": "qweqweqweqweqwe"
+}
+
+2024-08-12 21:44:43.066 [INF] 
+
+2024-08-12 21:44:43.066 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:44:43.0486523Z",
+  "ReferenceNumber": "a4287933-3e16-4f25-b173-ac001803bffe"
+}
+2024-08-12 21:44:43.066 [INF] -------------Request-End------------
+2024-08-12 21:46:25.829 [INF] Application is starting...
+2024-08-12 21:46:58.413 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:46:59.695 [INF] -------------Request-Begin------------
+2024-08-12 21:46:59.695 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "qweqweqwe",
+  "City": "qweqweqw",
+  "PhoneNumber": "5555555555",
+  "Email": "enes@gmail.com",
+  "Note": "qweqweqweqweqwe"
+}
+2024-08-12 21:46:59.695 [INF] 
+
+2024-08-12 21:46:59.695 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:46:59.6781967Z",
+  "ReferenceNumber": "b18d33af-6b2e-4037-b5bd-62d62b4b6b1c"
+}
+2024-08-12 21:46:59.695 [INF] -------------Request-End------------
+2024-08-12 21:48:12.314 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:49:38.431 [INF] -------------Request-Begin------------
+2024-08-12 21:49:38.431 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "qweqweqwe",
+  "City": "qweqweqw",
+  "PhoneNumber": "5555555555",
+  "Email": "enes@gmail.com",
+  "Note": "qweqweqweqweqwe"
+}
+2024-08-12 21:49:38.431 [INF] 
+
+2024-08-12 21:49:38.431 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:49:38.4290561Z",
+  "ReferenceNumber": "e4706e55-1602-4d66-b899-6fa329cb37f0"
+}
+2024-08-12 21:49:38.431 [INF] -------------Request-End------------
+2024-08-12 21:51:10.186 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:51:14.924 [INF] -------------Request-Begin------------
+2024-08-12 21:51:14.925 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "İstanbul",
+  "City": "İstanbul",
+  "PhoneNumber": "5350723764",
+  "Email": "enesylcn57@outlook.com",
+  "Note": "lütfen hızlı gelsin !"
+}
+2024-08-12 21:51:14.925 [INF] 
+
+2024-08-12 21:51:14.925 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:51:14.9238531Z",
+  "ReferenceNumber": "1e24fa91-cc46-4968-94c0-d4a4c74cdca4"
+}
+2024-08-12 21:51:14.925 [INF] -------------Request-End------------
+2024-08-12 21:51:41.944 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:53:07.572 [INF] -------------Request-Begin------------
+2024-08-12 21:53:07.573 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "08",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "İstanbul",
+  "City": "İstanbul",
+  "PhoneNumber": "5350723764",
+  "Email": "enesylcn57@outlook.com",
+  "Note": "lütfen hızlı gelsin !"
+}
+2024-08-12 21:53:07.573 [INF] 
+
+2024-08-12 21:53:07.573 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:53:07.5648087Z",
+  "ReferenceNumber": "92b8f0c3-a1cc-448b-ab82-440f0f19a294"
+}
+2024-08-12 21:53:07.573 [INF] -------------Request-End------------
+2024-08-12 21:54:13.454 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:55:48.522 [INF] -------------Request-Begin------------
+2024-08-12 21:55:48.522 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "08",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "İstanbul",
+  "City": "İstanbul",
+  "PhoneNumber": "5350723764",
+  "Email": "enesylcn57@outlook.com",
+  "Note": "lütfen hızlı gelsin !"
+}
+2024-08-12 21:55:48.525 [INF] 
+
+2024-08-12 21:55:48.525 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:55:48.5084332Z",
+  "ReferenceNumber": "43ebb3eb-b779-414a-969a-b1780a3bb9ed"
+}
+2024-08-12 21:55:48.525 [INF] -------------Request-End------------
+2024-08-12 21:55:51.800 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:57:28.690 [INF] Application is starting...
+2024-08-12 21:57:44.924 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:58:25.806 [INF] Application is starting...
+2024-08-12 22:02:25.293 [INF] Application is starting...
+2024-08-12 22:02:49.373 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:03:53.526 [INF] Application is starting...
+2024-08-12 22:04:09.005 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:06:45.605 [INF] Application is starting...
+2024-08-12 22:07:03.190 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:07:04.295 [INF] -------------Request-Begin------------
+2024-08-12 22:07:04.295 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "İstanbul",
+  "City": "İstanbul",
+  "PhoneNumber": "5350723764",
+  "Email": "enesylcn57@outlook.com",
+  "Note": "lütfen hızlı gelsin !"
+}
+
+2024-08-12 22:07:04.296 [INF] 
+
+2024-08-12 22:07:04.296 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T19:07:04.2757204Z",
+  "ReferenceNumber": "78dba2dd-0a99-41fe-94bd-dac898b1c129"
+}
+2024-08-12 22:07:04.296 [INF] -------------Request-End------------
+2024-08-12 22:07:34.290 [INF] Application is starting...
+2024-08-12 22:07:53.176 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:12:08.607 [INF] Application is starting...
+2024-08-12 22:12:38.913 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:12:42.228 [INF] -------------Request-Begin------------
+2024-08-12 22:12:42.228 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "İstanbul",
+  "City": "İstanbul",
+  "PhoneNumber": "5350723764",
+  "Email": "enesylcn57@outlook.com",
+  "Note": "lütfen hızlı gelsin !"
+}
+
+2024-08-12 22:12:42.228 [INF] 
+
+2024-08-12 22:12:42.229 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T19:12:42.2127975Z",
+  "ReferenceNumber": "c887daf6-9490-446a-bb06-4dc404f58220"
+}
+2024-08-12 22:12:42.229 [INF] -------------Request-End------------
+2024-08-12 22:13:03.056 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:14:03.251 [INF] Application is starting...
+2024-08-12 22:14:42.971 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:14:48.015 [INF] -------------Request-Begin------------
+2024-08-12 22:14:48.015 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "İstanbul",
+  "City": "İstanbul",
+  "PhoneNumber": "5350723764",
+  "Email": "enesylcn57@outlook.com",
+  "Note": "lütfen hızlı gelsin !"
+}
+
+2024-08-12 22:14:48.015 [INF] 
+
+2024-08-12 22:14:48.015 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T19:14:47.9948839Z",
+  "ReferenceNumber": "613747dc-004f-4eeb-97bd-c6439d9ddbd3"
+}
+2024-08-12 22:14:48.015 [INF] -------------Request-End------------
+2024-08-12 22:15:15.384 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:17:22.652 [INF] Application is starting...
+2024-08-12 22:17:48.723 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:19:10.290 [INF] -------------Request-Begin------------
+2024-08-12 22:19:10.291 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "İstanbul",
+  "City": "İstanbul",
+  "PhoneNumber": "5350723764",
+  "Email": "enesylcn57@outlook.com",
+  "Note": "lütfen hızlı gelsin !"
+}
+
+2024-08-12 22:19:10.291 [INF] 
+
+2024-08-12 22:19:10.291 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T19:19:10.2087238Z",
+  "ReferenceNumber": "15716159-8fbe-480f-9a94-62b909f5ba09"
+}
+2024-08-12 22:19:10.291 [INF] -------------Request-End------------
+2024-08-12 22:19:39.720 [INF] Application is starting...
+2024-08-12 22:20:10.277 [INF] Application is starting...
+2024-08-12 22:20:31.604 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:20:41.275 [INF] -------------Request-Begin------------
+2024-08-12 22:20:41.275 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "İstanbul",
+  "City": "İstanbul",
+  "PhoneNumber": "5350723764",
+  "Email": "enesylcn57@outlook.com",
+  "Note": "lütfen hızlı gelsin !"
+}
+
+2024-08-12 22:20:41.275 [INF] 
+
+2024-08-12 22:20:41.275 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T19:20:41.2402151Z",
+  "ReferenceNumber": "1c4362e7-1dc4-4126-90f1-8f12253530b2"
+}
+2024-08-12 22:20:41.275 [INF] -------------Request-End------------
+2024-08-12 22:21:00.784 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:21:01.194 [INF] -------------Request-Begin------------
+2024-08-12 22:21:01.194 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "Enes",
+  "Password": "Qwe123."
+}
+2024-08-12 22:21:01.194 [INF] 
+
+2024-08-12 22:21:01.194 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "ExpireTime": "2024-08-12T23:51:01.1895702+03:00",
+    "AccessToken": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkVuZXMiLCJVc2VySWQiOiI4MDU1YWEwOS0yMmM3LTQzN2MtODNhZC0yYTIzY2NiNzdjNmUiLCJFbWFpbCI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiI4MDU1YWEwOS0yMmM3LTQzN2MtODNhZC0yYTIzY2NiNzdjNmUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRW5lcyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MjM0OTU4NjEsImlzcyI6IkVuZXMiLCJhdWQiOiJQYXRpa2EifQ.-Bh1BjNpkieP6SWOFmbTKwFf_EQ3zdDcH6jzHH1wca0",
+    "UserName": "Enes"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T19:21:01.1897308Z",
+  "ReferenceNumber": "808b55c4-e107-4be7-9b71-ba4c3de33ad7",
+  "Errors": []
+}
+2024-08-12 22:21:01.194 [INF] -------------Request-End------------
+2024-08-12 22:21:23.613 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:23:09.319 [INF] Application is starting...
+2024-08-12 22:23:29.659 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:23:58.523 [INF] Application is starting...
+2024-08-12 22:24:19.493 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:24:39.944 [INF] Application is starting...
+2024-08-12 22:25:19.255 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:26:16.278 [INF] -------------Request-Begin------------
+2024-08-12 22:26:16.279 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "İstanbul",
+  "City": "İstanbul",
+  "PhoneNumber": "5350723764",
+  "Email": "enesylcn57@outlook.com",
+  "Note": "lütfen hızlı gelsin !"
+}
+
+2024-08-12 22:26:16.279 [INF] 
+
+2024-08-12 22:26:16.279 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "success",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T19:26:16.2495622Z",
+  "ReferenceNumber": "12ac9d98-5fd7-4483-a3f2-99e9985f4228"
+}
+2024-08-12 22:26:16.279 [INF] -------------Request-End------------
+2024-08-12 22:30:53.121 [INF] Application is starting...
+2024-08-12 22:31:13.786 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:32:54.790 [INF] Application is starting...
+2024-08-12 22:33:21.958 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 22:33:29.098 [INF] -------------Request-Begin------------
+2024-08-12 22:33:29.099 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "İstanbul",
+  "City": "İstanbul",
+  "PhoneNumber": "5350723764",
+  "Email": "enesylcn57@outlook.com",
+  "Note": "lütfen hızlı gelsin !"
+}
+
+2024-08-12 22:33:29.099 [INF] 
+
+2024-08-12 22:33:29.099 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "success",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T19:33:29.07616Z",
+  "ReferenceNumber": "3ff66b1f-bc36-4841-809e-bf93d88a2a71"
+}
+2024-08-12 22:33:29.099 [INF] -------------Request-End------------
