@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DigitalStore.WebApi.Controllers
 {
-    //[Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class ShoppingCartController : ControllerBase
@@ -25,7 +24,7 @@ namespace DigitalStore.WebApi.Controllers
 
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Customer")]
         public async Task<ApiResponse<List<ShoppingCartResponse>>> Get()
         {
             var operation = new GetAllCartQuery();
@@ -34,7 +33,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpGet("{shoppingCartId}")]
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<ApiResponse<ShoppingCartResponse>> Get([FromRoute] long shoppingCartId)
         {
             var operation = new GetCartByIdQuery(shoppingCartId);
@@ -52,7 +51,8 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPut("{shoppingCartId}")]
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "Admin")]
+
         public async Task<ApiResponse> Put(long shoppingCartId, [FromBody] ShoppingCartRequest value)
         {
             var operation = new UpdateCartCommand(shoppingCartId, value);
@@ -61,44 +61,13 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpDelete("{shoppingCartId}")]
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "Admin")]
+
         public async Task<ApiResponse> Delete(long shoppingCartId)
         {
             var operation = new DeleteCartCommand(shoppingCartId);
             var result = await mediator.Send(operation);
             return result;
         }
-
-        //[HttpGet("ByParameters")]
-        ////[Authorize(Roles = "admin")]
-        //public async Task<ApiResponse<List<ShoppingCartResponse>>> GetByParameters(
-        //    [FromQuery] long? ShoppingCartNumber,
-        //    [FromQuery] string FirstName = null,
-        //    [FromQuery] string LastName = null,
-        //    [FromQuery] string IdentityNumber = null)
-        //{
-        //    var operation = new GetShoppingCartByParametersQuery(ShoppingCartNumber, FirstName, LastName, IdentityNumber);
-        //    var result = await mediator.Send(operation);
-        //    return result;
-        //}
-
-        //[HttpGet("ByShoppingCart")]
-        //[Authorize(Roles = "ShoppingCart")]
-        //public async Task<ApiResponse<ShoppingCartResponse>> GetByShoppingCartId()
-        //{
-        //    var operation = new GetShoppingCartByShoppingCartIdQuery();
-        //    var result = await mediator.Send(operation);
-        //    return result;
-        //}
-
-        //[HttpGet("{ShoppingCartId}")]
-        ////[Authorize(Roles = "admin")]
-        //public async Task<ApiResponse<ShoppingCartResponse>> Get([FromRoute] long ShoppingCartId)
-        //{
-        //    var operation = new GetAllShoppingCartQuery(ShoppingCartId);
-        //    var result = await mediator.Send(operation);
-        //    return result;
-        //}
-
     }
 }

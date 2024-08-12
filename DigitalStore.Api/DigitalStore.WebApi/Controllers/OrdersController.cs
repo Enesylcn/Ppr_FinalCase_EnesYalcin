@@ -13,6 +13,7 @@ namespace DigitalStore.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class OrdersController : ControllerBase
     {
         private readonly IMediator mediator;
@@ -24,7 +25,6 @@ namespace DigitalStore.WebApi.Controllers
 
 
         [HttpGet]
-        ////[Authorize(Roles = "admin")]
         public async Task<ApiResponse<List<OrderResponse>>> Get()
         {
             var operation = new GetAllOrderQuery();
@@ -34,7 +34,6 @@ namespace DigitalStore.WebApi.Controllers
 
 
         [HttpGet("{orderId}")]
-        //[Authorize(Roles = "admin")]
         public async Task<ApiResponse<OrderResponse>> GetByOrderId([FromRoute] long orderId)
         {
             var operation = new GetOrderByIdQuery(orderId);
@@ -43,8 +42,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "admin")]
-        public async Task<ApiResponse<OrderResponse>> Post([FromBody] OrderRequest value)
+        public async Task<ApiResponse> Post([FromBody] OrderRequest value)
         {
             var operation = new CreateOrderCommand(value);
             var result = await mediator.Send(operation);
@@ -52,7 +50,6 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPut("{orderId}")]
-        //[Authorize(Roles = "admin")]
         public async Task<ApiResponse> Put(long orderId, [FromBody] OrderRequest value)
         {
             var operation = new UpdateOrderCommand(orderId, value);
@@ -61,44 +58,12 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpDelete("{orderId}")]
-        //[Authorize(Roles = "admin")]
         public async Task<ApiResponse> Delete(long orderId)
         {
             var operation = new DeleteOrderCommand(orderId);
             var result = await mediator.Send(operation);
             return result;
         }
-
-        //[HttpGet("ByParameters")]
-        ////[Authorize(Roles = "admin")]
-        //public async Task<ApiResponse<List<OrderResponse>>> GetByParameters(
-        //    [FromQuery] long? OrderNumber,
-        //    [FromQuery] string FirstName = null,
-        //    [FromQuery] string LastName = null,
-        //    [FromQuery] string IdentityNumber = null)
-        //{
-        //    var operation = new GetOrderByParametersQuery(OrderNumber, FirstName, LastName, IdentityNumber);
-        //    var result = await mediator.Send(operation);
-        //    return result;
-        //}
-
-        //[HttpGet("ByOrder")]
-        //[Authorize(Roles = "Order")]
-        //public async Task<ApiResponse<OrderResponse>> GetByOrderId()
-        //{
-        //    var operation = new GetOrderByOrderIdQuery();
-        //    var result = await mediator.Send(operation);
-        //    return result;
-        //}
-
-        //[HttpGet("{OrderId}")]
-        ////[Authorize(Roles = "admin")]
-        //public async Task<ApiResponse<OrderResponse>> Get([FromRoute] long OrderId)
-        //{
-        //    var operation = new GetAllOrderQuery(OrderId);
-        //    var result = await mediator.Send(operation);
-        //    return result;
-        //}
 
     }
 }

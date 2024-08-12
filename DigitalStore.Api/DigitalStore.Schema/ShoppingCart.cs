@@ -21,6 +21,7 @@ namespace DigitalStore.Schema
         public string Name { get; set; }
 
         public string UserId { get; set; }
+        public float TotalAmount { get; set; }
         public float CartAmount { get; set; }
         public string CouponCode { get; set; }
         public float PointsAmount { get; set; }

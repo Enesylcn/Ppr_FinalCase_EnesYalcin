@@ -34,7 +34,8 @@ namespace DigitalStore.Data.Extensions
                     City = "İstanbul",
                     PhoneNumber = "05387654321",
                     EmailConfirmed = true,
-                    Occupation = "Software Dev."
+                    Occupation = "Software Dev.",
+                    PointsWallet = 0
                 },
                 new User
                 {
@@ -50,7 +51,8 @@ namespace DigitalStore.Data.Extensions
                     City = "İstanbul",
                     PhoneNumber = "05687654321",
                     EmailConfirmed = true,
-                    Occupation = "Customer"
+                    Occupation = "Customer",
+                    PointsWallet = 0
                 }
             };
             modelBuilder.Entity<User>().HasData(users);

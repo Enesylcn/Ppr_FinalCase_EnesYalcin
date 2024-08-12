@@ -10,6 +10,7 @@ namespace DigitalStore.Data.Domain
     public class ShoppingCart : BaseEntity
     {
         public string UserId { get; set; }
+        public float TotalAmount { get; set; }
         public float CartAmount { get; set; }
         public string CouponCode { get; set; }
         public float PointsAmount { get; set; }

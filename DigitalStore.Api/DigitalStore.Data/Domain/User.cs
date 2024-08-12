@@ -13,12 +13,13 @@ namespace DigitalStore.Data.Domain
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string Gender { get; set; }
         public string Occupation { get; set; }
         public DateTime? DateOfBirth { get; set; }
-        public float? PointsWallet { get; set; }
+        public float? PointsWallet { get; set; } = 0;
 
         public List<Order> Orders { get; set; }
     }

@@ -67,11 +67,12 @@ namespace DigitalStore.Data.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TotalAmount = table.Column<double>(type: "float", nullable: false),
                     CartAmount = table.Column<double>(type: "float", nullable: false),
                     CouponCode = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PointsAmount = table.Column<double>(type: "float", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    InsertUser = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    InsertUser = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     InsertDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -379,8 +380,8 @@ namespace DigitalStore.Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "1a36af47-d141-4d1b-a096-4818462e1049", null, "Customer", null },
-                    { "40180e9d-bdd6-49d1-8eb7-63881502372b", null, "Admin", null }
+                    { "89448201-5eed-4ce7-9960-bca6c285f537", null, "Customer", null },
+                    { "a815313e-1b52-427d-a4cc-3240c6ce6208", null, "Admin", null }
                 });
 
             migrationBuilder.InsertData(
@@ -388,8 +389,8 @@ namespace DigitalStore.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Address", "City", "ConcurrencyStamp", "DateOfBirth", "Email", "EmailConfirmed", "FirstName", "Gender", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "Occupation", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PointsWallet", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "4879afb6-1809-4a3c-b5b6-61c8b6c7f6c5", 0, "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2", "İstanbul", "edaaaaf6-ca39-4ee8-88b3-161479e19cc3", new DateTime(1998, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "customer@gmail.com", true, "customer", "Unisex", "customer", false, null, "CUSTOMER@GMAIL.COM", "CUSTOMER", "Customer", "AQAAAAIAAYagAAAAEFct7+dckNu9Rtw2p965/OnafowL/hqaFURfL+uFlwGmFSKspn35/3VzylOmcAa4Vw==", "05687654321", false, null, "0403fa7c-b145-4494-adae-9e3574970c2a", false, "customer" },
-                    { "61193c9c-01b2-41d7-854c-6b7e1dce2589", 0, "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2", "İstanbul", "818c978e-6954-41af-8e78-b675412ae4d3", new DateTime(1999, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "enes@gmail.com", true, "Enes", "Erkek", "Yalçın", false, null, "ENES@GMAIL.COM", "ENES", "Software Dev.", "AQAAAAIAAYagAAAAEFFFr2NGCWQpqjn2U7SHUvFKEbwyB6TFE+ahpJ5UZU9MV84cpciDq3NYxIVOq8RT8A==", "05387654321", false, null, "d96293f4-939c-4666-b93d-970fa124887d", false, "Enes" }
+                    { "3f2f8047-5bac-43fd-814a-cb541cc25d13", 0, "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2", "İstanbul", "f2054938-7f26-4548-a674-b39e0bf692d8", new DateTime(1999, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "enes@gmail.com", true, "Enes", "Erkek", "Yalçın", false, null, "ENES@GMAIL.COM", "ENES", "Software Dev.", "AQAAAAIAAYagAAAAEPjVyaatAXILHEfRmmiUiZe6Iu9EKNmdFdcnT3og8ZC++j4RbCLQ2qvuAwus5G1KIQ==", "05387654321", false, 0f, "988dd9b5-f4d6-429c-864f-1add1684ec75", false, "Enes" },
+                    { "fea3bdfc-b2d5-4413-8875-c1ccee766b25", 0, "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2", "İstanbul", "504d74f5-4b43-472c-bf84-986d117a3ac0", new DateTime(1998, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "customer@gmail.com", true, "customer", "Unisex", "customer", false, null, "CUSTOMER@GMAIL.COM", "CUSTOMER", "Customer", "AQAAAAIAAYagAAAAEJUkf2zRSWSohwZ283w2oyyiQDli1ukGfPuCAYjoqiHTqHJnzoy/T//a0hVcReR+Ag==", "05687654321", false, 0f, "340d691d-3cdc-4c1f-a016-c89b2516c4a4", false, "customer" }
                 });
 
             migrationBuilder.InsertData(
@@ -397,8 +398,8 @@ namespace DigitalStore.Data.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "1a36af47-d141-4d1b-a096-4818462e1049", "4879afb6-1809-4a3c-b5b6-61c8b6c7f6c5" },
-                    { "40180e9d-bdd6-49d1-8eb7-63881502372b", "61193c9c-01b2-41d7-854c-6b7e1dce2589" }
+                    { "a815313e-1b52-427d-a4cc-3240c6ce6208", "3f2f8047-5bac-43fd-814a-cb541cc25d13" },
+                    { "89448201-5eed-4ce7-9960-bca6c285f537", "fea3bdfc-b2d5-4413-8875-c1ccee766b25" }
                 });
 
             migrationBuilder.CreateIndex(

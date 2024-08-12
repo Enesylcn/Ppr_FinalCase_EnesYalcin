@@ -72,6 +72,9 @@ namespace DigitalStore.Business.Application.ShoppingCartOperations.Commands.Crea
                 }
             }
 
+            mapped.TotalAmount = totalAmount;
+
+
             // Kupon uygulanması
             if (!string.IsNullOrEmpty(request.Request.CouponCode))
             {
@@ -94,7 +97,7 @@ namespace DigitalStore.Business.Application.ShoppingCartOperations.Commands.Crea
             if (user != null)
             {
                 user.PointsWallet += totalPointsEarned;
-                await unitOfWork.Complete();
+                await userManager.UpdateAsync(user);
             }
 
             var response = mapper.Map<ShoppingCartResponse>(mapped);

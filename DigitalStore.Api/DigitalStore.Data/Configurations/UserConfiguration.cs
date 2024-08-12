@@ -16,6 +16,7 @@ namespace DigitalStore.Data.Configurations
             builder.HasKey(u => u.Id);
             builder.Property(u => u.FirstName).IsRequired().HasMaxLength(50);
             builder.Property(u => u.LastName).IsRequired().HasMaxLength(50);
+            builder.Property(o => o.PhoneNumber).IsRequired().HasMaxLength(11);
             builder.Property(u => u.Address).HasMaxLength(300);
             builder.Property(u => u.City).HasMaxLength(50);
             builder.Property(u => u.Gender).HasMaxLength(10);

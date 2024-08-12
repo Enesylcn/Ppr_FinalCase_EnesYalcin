@@ -14,7 +14,7 @@ namespace DigitalStore.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
 
     public class CategoriesController : ControllerBase
     {
@@ -27,7 +27,6 @@ namespace DigitalStore.WebApi.Controllers
 
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
         public async Task<ApiResponse<List<CategoryResponse>>> Get()
         {
             var operation = new GetAllCategoryQuery();
@@ -36,7 +35,6 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpGet("{CategoryId}")]
-        ////[Authorize(Roles = "Admin")]
         public async Task<ApiResponse<CategoryResponse>> Get([FromRoute] long categoryId)
         {
             var operation = new GetCategoryByIdQuery(categoryId);
@@ -45,7 +43,6 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPost]
-        ////[Authorize(Roles = "Admin")]
         public async Task<ApiResponse<CategoryResponse>> Post([FromBody] CategoryRequest value)
         {
             var operation = new CreateCategoryCommand(value);
@@ -54,7 +51,6 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPut("{CategoryId}")]
-        ////[Authorize(Roles = "Admin")]
         public async Task<ApiResponse> Put(long CategoryId, [FromBody] CategoryRequest value)
         {
             var operation = new UpdateCategoryCommand(CategoryId, value);
@@ -63,35 +59,11 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpDelete("{CategoryId}")]
-        //[Authorize(Roles = "Admin")]
         public async Task<ApiResponse> Delete(long CategoryId)
         {
             var operation = new DeleteCategoryCommand(CategoryId);
             var result = await mediator.Send(operation);
             return result;
         }
-
-        //[HttpGet("ByParameters")]
-        ////[Authorize(Roles = "Admin")]
-        //public async Task<ApiResponse<List<CategoryResponse>>> GetByParameters(
-        //    [FromQuery] long? CategoryNumber,
-        //    [FromQuery] string FirstName = null,
-        //    [FromQuery] string LastName = null,
-        //    [FromQuery] string IdentityNumber = null)
-        //{
-        //    var operation = new GetCategoryByParametersQuery(CategoryNumber, FirstName, LastName, IdentityNumber);
-        //    var result = await mediator.Send(operation);
-        //    return result;
-        //}
-
-        //[HttpGet("ByCategory")]
-        //[Authorize(Roles = "Category")]
-        //public async Task<ApiResponse<CategoryResponse>> GetByCategoryId()
-        //{
-        //    var operation = new GetCategoryByCategoryIdQuery();
-        //    var result = await mediator.Send(operation);
-        //    return result;
-        //}
-
     }
 }

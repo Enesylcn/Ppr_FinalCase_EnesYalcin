@@ -23,8 +23,9 @@ namespace DigitalStore.Business.IdentityService
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly ISessionContext sessionContext;
         private readonly IMapper mapper;
+        private readonly IUnitOfWork unitOfWork;
 
-        public AuthenticationService(JwtConfig jwtConfig, UserManager<User> userManager, SignInManager<User> signInManager, ISessionContext sessionContext, RoleManager<IdentityRole> roleManager, IMapper mapper)
+        public AuthenticationService(JwtConfig jwtConfig, UserManager<User> userManager, SignInManager<User> signInManager, ISessionContext sessionContext, RoleManager<IdentityRole> roleManager, IMapper mapper, IUnitOfWork unitOfWork)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
@@ -32,6 +33,7 @@ namespace DigitalStore.Business.IdentityService
             this.sessionContext = sessionContext;
             this.roleManager = roleManager;
             this.mapper = mapper;
+            this.unitOfWork = unitOfWork;
         }
 
         public async Task<ApiResponse<AuthResponse>> Login(AuthRequest request)
@@ -123,6 +125,16 @@ namespace DigitalStore.Business.IdentityService
                 }
                 await userManager.AddToRoleAsync(newUser, roleName);
 
+                await unitOfWork.ShoppingCartRepository.Insert(new ShoppingCart 
+                { 
+                    UserId = newUser.Id,
+                    TotalAmount = 0,
+                    CartAmount = 0,
+                    CouponCode="",
+                    PointsAmount= 0
+                });
+                await unitOfWork.Complete();
+
                 return new ApiResponse("User created successfully and role assigned.");
             }
             return new ApiResponse();
@@ -163,6 +175,16 @@ namespace DigitalStore.Business.IdentityService
                     await roleManager.CreateAsync(new IdentityRole(roleName));
                 }
                 await userManager.AddToRoleAsync(newUser, roleName);
+
+                await unitOfWork.ShoppingCartRepository.Insert(new ShoppingCart
+                {
+                    UserId = newUser.Id,
+                    TotalAmount = 0,
+                    CartAmount = 0,
+                    CouponCode = "",
+                    PointsAmount = 0
+                });
+                await unitOfWork.Complete();
 
                 return new ApiResponse("User created successfully and role assigned.");
             }

@@ -50,7 +50,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPost("AdminRegister")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         public async Task<ApiResponse> AdminRegister([FromBody] RegisterAdminUserRequest request)
         {
             var response = await authenticationService.AdminRegister(request);
@@ -58,7 +58,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPost("GetAllUsersAsync")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         public async Task<ApiResponse<List<UserResponse>>> GetAllUsersAsync()
         {
             var loginResult = await authenticationService.GetAllUsersAsync();

@@ -22,8 +22,6 @@ namespace DigitalStore.Business.Application.CategoryOperations.Commands.CreateCa
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
-            //this.memoryCache = memoryCache;
-            //this.distributedCache = distributedCache;
         }
 
         public async Task<ApiResponse<CategoryResponse>> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
@@ -31,9 +29,6 @@ namespace DigitalStore.Business.Application.CategoryOperations.Commands.CreateCa
             var mapped = mapper.Map<CategoryRequest, Category>(request.Request);
             await unitOfWork.CategoryRepository.Insert(mapped);
             await unitOfWork.Complete();
-
-            //memoryCache.Remove("CategoryList");
-            //await distributedCache.RemoveAsync("CategoryList");
 
             var response = mapper.Map<CategoryResponse>(mapped);
             return new ApiResponse<CategoryResponse>(response);

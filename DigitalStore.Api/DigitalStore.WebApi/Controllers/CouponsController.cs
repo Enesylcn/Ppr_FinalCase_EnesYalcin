@@ -5,12 +5,14 @@ using DigitalStore.Business.Application.CouponOperations.Commands.UpdateCoupon;
 using DigitalStore.Business.Application.CouponOperations.Queries.GetCoupon;
 using DigitalStore.Schema;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DigitalStore.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class CouponsController : ControllerBase
     {
         private readonly IMediator mediator;
@@ -22,7 +24,6 @@ namespace DigitalStore.WebApi.Controllers
 
 
         [HttpGet]
-        ////[Authorize(Roles = "admin")]
         public async Task<ApiResponse<List<CouponResponse>>> Get()
         {
             var operation = new GetAllCouponQuery();
@@ -31,7 +32,6 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "admin")]
         public async Task<ApiResponse<CouponResponse>> Post([FromBody] CouponRequest value)
         {
             var operation = new CreateCouponCommand(value);
@@ -40,7 +40,6 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPut("{CouponId}")]
-        //[Authorize(Roles = "admin")]
         public async Task<ApiResponse> Put(long CouponId, [FromBody] CouponRequest value)
         {
             var operation = new UpdateCouponCommand(CouponId, value);
@@ -49,7 +48,6 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpDelete("{CouponId}")]
-        //[Authorize(Roles = "admin")]
         public async Task<ApiResponse> Delete(long CouponId)
         {
             var operation = new DeleteCouponCommand(CouponId);

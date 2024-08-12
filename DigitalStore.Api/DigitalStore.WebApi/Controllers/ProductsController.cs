@@ -25,7 +25,7 @@ namespace DigitalStore.WebApi.Controllers
 
 
         [HttpGet]
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "Admin,Customer")]
         public async Task<ApiResponse<List<ProductResponse>>> Get()
         {
             var operation = new GetAllProductQuery();
@@ -34,7 +34,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpGet("{productId}")]
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "Admin,Customer")]
         public async Task<ApiResponse<ProductResponse>> Get([FromRoute] long productId)
         {
             var operation = new GetProductByIdQuery(productId);
@@ -43,7 +43,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpGet("onsale/{onSale}")]
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "Admin,Customer")]
         public async Task<ApiResponse<List<ProductResponse>>> Get([FromRoute] bool onSale)
         {
             var operation = new GetOnSaleProductQuery(onSale);
@@ -52,7 +52,7 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<ApiResponse<ProductResponse>> Post([FromBody] ProductRequest value)
         {
             var operation = new CreateProductCommand(value);
@@ -61,7 +61,8 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpPut("{ProductId}")]
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "Admin")]
+
         public async Task<ApiResponse> Put(long ProductId, [FromBody] ProductRequest value)
         {
             var operation = new UpdateProductCommand(ProductId, value);
@@ -70,44 +71,13 @@ namespace DigitalStore.WebApi.Controllers
         }
 
         [HttpDelete("{ProductId}")]
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "Admin")]
+
         public async Task<ApiResponse> Delete(long ProductId)
         {
             var operation = new DeleteProductCommand(ProductId);
             var result = await mediator.Send(operation);
             return result;
         }
-
-        //[HttpGet("ByParameters")]
-        ////[Authorize(Roles = "admin")]
-        //public async Task<ApiResponse<List<ProductResponse>>> GetByParameters(
-        //    [FromQuery] long? ProductNumber,
-        //    [FromQuery] string FirstName = null,
-        //    [FromQuery] string LastName = null,
-        //    [FromQuery] string IdentityNumber = null)
-        //{
-        //    var operation = new GetProductByParametersQuery(ProductNumber, FirstName, LastName, IdentityNumber);
-        //    var result = await mediator.Send(operation);
-        //    return result;
-        //}
-
-        //[HttpGet("ByProduct")]
-        //[Authorize(Roles = "Product")]
-        //public async Task<ApiResponse<ProductResponse>> GetByProductId()
-        //{
-        //    var operation = new GetProductByProductIdQuery();
-        //    var result = await mediator.Send(operation);
-        //    return result;
-        //}
-
-        //[HttpGet("{ProductId}")]
-        ////[Authorize(Roles = "admin")]
-        //public async Task<ApiResponse<ProductResponse>> Get([FromRoute] long ProductId)
-        //{
-        //    var operation = new GetAllProductQuery(ProductId);
-        //    var result = await mediator.Send(operation);
-        //    return result;
-        //}
-
     }
 }

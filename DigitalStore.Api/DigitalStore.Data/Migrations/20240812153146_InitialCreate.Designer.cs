@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DigitalStore.Data.Migrations
 {
     [DbContext(typeof(StoreIdentityDbContext))]
-    [Migration("20240812120135_InitialCreate")]
+    [Migration("20240812153146_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -342,7 +342,6 @@ namespace DigitalStore.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("InsertUser")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -350,11 +349,13 @@ namespace DigitalStore.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<double>("PointsAmount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TotalAmount")
                         .HasColumnType("float");
 
                     b.Property<string>("UserId")
@@ -518,11 +519,11 @@ namespace DigitalStore.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "61193c9c-01b2-41d7-854c-6b7e1dce2589",
+                            Id = "3f2f8047-5bac-43fd-814a-cb541cc25d13",
                             AccessFailedCount = 0,
                             Address = "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2",
                             City = "İstanbul",
-                            ConcurrencyStamp = "818c978e-6954-41af-8e78-b675412ae4d3",
+                            ConcurrencyStamp = "f2054938-7f26-4548-a674-b39e0bf692d8",
                             DateOfBirth = new DateTime(1999, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "enes@gmail.com",
                             EmailConfirmed = true,
@@ -533,20 +534,21 @@ namespace DigitalStore.Data.Migrations
                             NormalizedEmail = "ENES@GMAIL.COM",
                             NormalizedUserName = "ENES",
                             Occupation = "Software Dev.",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFFFr2NGCWQpqjn2U7SHUvFKEbwyB6TFE+ahpJ5UZU9MV84cpciDq3NYxIVOq8RT8A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPjVyaatAXILHEfRmmiUiZe6Iu9EKNmdFdcnT3og8ZC++j4RbCLQ2qvuAwus5G1KIQ==",
                             PhoneNumber = "05387654321",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d96293f4-939c-4666-b93d-970fa124887d",
+                            PointsWallet = 0f,
+                            SecurityStamp = "988dd9b5-f4d6-429c-864f-1add1684ec75",
                             TwoFactorEnabled = false,
                             UserName = "Enes"
                         },
                         new
                         {
-                            Id = "4879afb6-1809-4a3c-b5b6-61c8b6c7f6c5",
+                            Id = "fea3bdfc-b2d5-4413-8875-c1ccee766b25",
                             AccessFailedCount = 0,
                             Address = "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2",
                             City = "İstanbul",
-                            ConcurrencyStamp = "edaaaaf6-ca39-4ee8-88b3-161479e19cc3",
+                            ConcurrencyStamp = "504d74f5-4b43-472c-bf84-986d117a3ac0",
                             DateOfBirth = new DateTime(1998, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "customer@gmail.com",
                             EmailConfirmed = true,
@@ -557,10 +559,11 @@ namespace DigitalStore.Data.Migrations
                             NormalizedEmail = "CUSTOMER@GMAIL.COM",
                             NormalizedUserName = "CUSTOMER",
                             Occupation = "Customer",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFct7+dckNu9Rtw2p965/OnafowL/hqaFURfL+uFlwGmFSKspn35/3VzylOmcAa4Vw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJUkf2zRSWSohwZ283w2oyyiQDli1ukGfPuCAYjoqiHTqHJnzoy/T//a0hVcReR+Ag==",
                             PhoneNumber = "05687654321",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0403fa7c-b145-4494-adae-9e3574970c2a",
+                            PointsWallet = 0f,
+                            SecurityStamp = "340d691d-3cdc-4c1f-a016-c89b2516c4a4",
                             TwoFactorEnabled = false,
                             UserName = "customer"
                         });
@@ -595,12 +598,12 @@ namespace DigitalStore.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "40180e9d-bdd6-49d1-8eb7-63881502372b",
+                            Id = "a815313e-1b52-427d-a4cc-3240c6ce6208",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "1a36af47-d141-4d1b-a096-4818462e1049",
+                            Id = "89448201-5eed-4ce7-9960-bca6c285f537",
                             Name = "Customer"
                         });
                 });
@@ -694,13 +697,13 @@ namespace DigitalStore.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "61193c9c-01b2-41d7-854c-6b7e1dce2589",
-                            RoleId = "40180e9d-bdd6-49d1-8eb7-63881502372b"
+                            UserId = "3f2f8047-5bac-43fd-814a-cb541cc25d13",
+                            RoleId = "a815313e-1b52-427d-a4cc-3240c6ce6208"
                         },
                         new
                         {
-                            UserId = "4879afb6-1809-4a3c-b5b6-61c8b6c7f6c5",
-                            RoleId = "1a36af47-d141-4d1b-a096-4818462e1049"
+                            UserId = "fea3bdfc-b2d5-4413-8875-c1ccee766b25",
+                            RoleId = "89448201-5eed-4ce7-9960-bca6c285f537"
                         });
                 });
 

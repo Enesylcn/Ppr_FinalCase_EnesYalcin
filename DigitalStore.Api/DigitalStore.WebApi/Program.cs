@@ -22,6 +22,8 @@ using System;
 using FluentValidation;
 using Microsoft.AspNetCore.Hosting;
 using DigitalStore.WebApi.Filters;
+using Microsoft.Extensions.Hosting;
+using DigitalStore.WebApi.Extensions;
 
 namespace Papara.Api
 {
@@ -79,15 +81,6 @@ namespace Papara.Api
                         options.JsonSerializerOptions.WriteIndented = true;
                         options.JsonSerializerOptions.PropertyNamingPolicy = null;
                     });
-
-            //builder.Services.AddControllers().AddJsonOptions(options =>
-            // {
-            //     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-            //     options.JsonSerializerOptions.WriteIndented = true;
-            //     options.JsonSerializerOptions.PropertyNamingPolicy = null;
-            // });
-            //builder.Services.AddControllers().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<BaseValidator>());
-
 
 
             builder.Services.Configure<ApiBehaviorOptions>(options =>
@@ -151,16 +144,6 @@ namespace Papara.Api
                });
 
 
-            //var redisConfig = new ConfigurationOptions();
-            //redisConfig.DefaultDatabase = 0;
-            //redisConfig.EndPoints.Add(builder.Configuration["Redis:Host"], Convert.ToInt32(builder.Configuration["Redis:Port"]));
-            //builder.Services.AddStackExchangeRedisCache(opt =>
-            //{
-            //    opt.ConfigurationOptions = redisConfig;
-            //    opt.InstanceName = builder.Configuration["Redis:InstanceName"];
-            //});
-
-
             builder.Services.AddScoped<ISessionContext>(provider =>
             {
                 var context = provider.GetService<IHttpContextAccessor>();
@@ -169,17 +152,6 @@ namespace Papara.Api
                 sessionContext.HttpContext = context.HttpContext;
                 return sessionContext;
             });
-
-
-            //// RabbitMQ and EmailJobService
-            //builder.Services.AddSingleton<EmailJobService>();
-            //builder.Services.AddSingleton<INotificationService, NotificationService>();
-            //builder.Services.AddSingleton<RabbitMQPublisher>();
-
-            //builder.Services.AddHangfire(configuration => configuration
-            //    .UseSqlServerStorage(builder.Configuration.GetConnectionString("HangfireConnection")));
-            //builder.Services.AddHangfireServer();
-
 
             builder.Services.AddSingleton<Action<RequestProfilerModel>>(model =>
             {
@@ -190,16 +162,10 @@ namespace Papara.Api
                 Log.Information("-------------Request-End------------");
             });
 
-
-
             builder.Services.AddMemoryCache();
-
-
             builder.Host.UseSerilog();
-            //builder.Services.AddScoped<ITokenService, TokenService>();
 
             var app = builder.Build();
-
 
             if (app.Environment.IsDevelopment())
             {
@@ -210,11 +176,6 @@ namespace Papara.Api
                 });
             }
 
-            //app.UseHangfireDashboard();
-            //app.Services.GetService<IRecurringJobManager>()?.AddOrUpdate<EmailJobService>(
-            //    "email-processing-job",
-            //    service => service.ProcessEmailQueue(),
-            //    "*/5 * * * * *");
             app.UseMiddleware<ErrorHandlerMiddleware>();
             app.UseMiddleware<HeartbeatMiddleware>();
             app.UseMiddleware<RequestLoggingMiddleware>();
@@ -226,7 +187,7 @@ namespace Papara.Api
 
 
             app.MapControllers();
-
+            app.UpdateDatabase();
             app.Run();
         }
     }

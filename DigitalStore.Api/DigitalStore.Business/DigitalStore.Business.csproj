@@ -7,15 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Application\ProductCategoryOperations\Commands\" />
-    <Folder Include="Application\ProductCategoryOperations\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Autofac" Version="8.0.0" />
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="AWSSDK.Core" Version="3.7.400.3" />
     <PackageReference Include="FluentValidation" Version="11.9.2" />
+    <PackageReference Include="Iyzipay" Version="2.1.61" />
     <PackageReference Include="MediatR" Version="12.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.1" />

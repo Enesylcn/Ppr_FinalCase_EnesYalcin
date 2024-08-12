@@ -33,8 +33,6 @@ namespace DigitalStore.Business.Application.ProductOperations.Queries.GetProduct
 
         public async Task<ApiResponse<ProductResponse>> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
-        //    var entityList = await unitOfWork.ProductRepository.GetAll(include: q => q.Include(p => p.ProductCategories)
-        //                                                                             .ThenInclude(pc => pc.Category));
             var entity = await unitOfWork.ProductRepository.GetById(request.productId, "ProductCategories.Category");
             var mapped = mapper.Map<ProductResponse>(entity);
             return new ApiResponse<ProductResponse>(mapped);
