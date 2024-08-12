@@ -21,9 +21,14 @@ namespace DigitalStore.Business.Application.CategoryOperations.Commands.UpdateCa
         }
         public async Task<ApiResponse> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
-            var mapped = mapper.Map<CategoryRequest, Category>(request.Request);
-            mapped.Id = request.categoryId;
-            unitOfWork.CategoryRepository.Update(mapped);
+            var entity = await unitOfWork.CategoryRepository.GetById(request.categoryId);
+            if (entity == null)
+            {
+                return new ApiResponse("No related Category found.");
+            }
+
+            mapper.Map(request.Request, entity);
+            unitOfWork.CategoryRepository.Update(entity);
             await unitOfWork.Complete();
             return new ApiResponse();
         }

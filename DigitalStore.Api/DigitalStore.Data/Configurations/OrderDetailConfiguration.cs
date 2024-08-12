@@ -18,8 +18,8 @@ namespace DigitalStore.Data.Configurations
             builder.Property(x => x.IsActive).IsRequired(true);
             builder.Property(c => c.Name).IsRequired().HasMaxLength(100);
             builder.Property(c => c.InsertUser).IsRequired().HasMaxLength(50);
-            builder.Property(od => od.UnitPrice).IsRequired().HasColumnType("decimal(18,2)");
-            builder.Property(od => od.TotalPrice).IsRequired().HasColumnType("decimal(18,2)");
+            builder.Property(od => od.UnitPrice).IsRequired().HasColumnType("float");
+            builder.Property(od => od.TotalPrice).IsRequired().HasColumnType("float");
             builder.Property(od => od.Stock).IsRequired().HasColumnType("smallint");
             builder.Property(od => od.Quantity).IsRequired().HasColumnType("smallint");
 

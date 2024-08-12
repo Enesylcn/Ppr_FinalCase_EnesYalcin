@@ -39,6 +39,7 @@ namespace DigitalStore.Data.Migrations
                     Gender = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Occupation = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    PointsWallet = table.Column<float>(type: "real", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
@@ -66,10 +67,9 @@ namespace DigitalStore.Data.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CartAmount = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
-                    CouponAmount = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
+                    CartAmount = table.Column<double>(type: "float", nullable: false),
                     CouponCode = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    PointsAmount = table.Column<int>(type: "int", nullable: false),
+                    PointsAmount = table.Column<double>(type: "float", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     InsertUser = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     InsertDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -99,6 +99,26 @@ namespace DigitalStore.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Coupons",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Code = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    DiscountPercentage = table.Column<float>(type: "real", nullable: false),
+                    ValidFrom = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ValidUntil = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    InsertUser = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    InsertDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Coupons", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -106,9 +126,9 @@ namespace DigitalStore.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Features = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
-                    PointsEarningPercentage = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
-                    MaxPointsAmount = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PointsEarningPercentage = table.Column<double>(type: "float", nullable: false),
+                    MaxPointsAmount = table.Column<double>(type: "float", nullable: false),
+                    Price = table.Column<float>(type: "real", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     InsertUser = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -267,6 +287,8 @@ namespace DigitalStore.Data.Migrations
                     ProductId = table.Column<long>(type: "bigint", nullable: false),
                     ShoppingCartId = table.Column<long>(type: "bigint", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<float>(type: "real", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     InsertUser = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     InsertDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -326,9 +348,10 @@ namespace DigitalStore.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<long>(type: "bigint", nullable: false),
                     OrderId = table.Column<long>(type: "bigint", nullable: false),
-                    Stock = table.Column<int>(type: "int", nullable: false),
-                    UnitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Stock = table.Column<short>(type: "smallint", nullable: false),
+                    Quantity = table.Column<short>(type: "smallint", nullable: false),
+                    UnitPrice = table.Column<double>(type: "float", nullable: false),
+                    TotalPrice = table.Column<double>(type: "float", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     InsertUser = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     InsertDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -356,17 +379,17 @@ namespace DigitalStore.Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "3e508b91-d22e-42b1-8469-eec160242bdf", null, "Customer", null },
-                    { "d291eeca-ed50-4fc0-9a6a-6341714406f8", null, "Admin", null }
+                    { "1a36af47-d141-4d1b-a096-4818462e1049", null, "Customer", null },
+                    { "40180e9d-bdd6-49d1-8eb7-63881502372b", null, "Admin", null }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "Address", "City", "ConcurrencyStamp", "DateOfBirth", "Email", "EmailConfirmed", "FirstName", "Gender", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "Occupation", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                columns: new[] { "Id", "AccessFailedCount", "Address", "City", "ConcurrencyStamp", "DateOfBirth", "Email", "EmailConfirmed", "FirstName", "Gender", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "Occupation", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PointsWallet", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "46410a68-6610-4d1c-9ed0-db0b62e22b5f", 0, "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2", "İstanbul", "5cef0949-eaa3-4225-82c5-73c9c72f51de", new DateTime(1999, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "enes@gmail.com", true, "Enes", "Erkek", "Yalçın", false, null, "ENES@GMAIL.COM", "ENES", "Software Dev.", "AQAAAAIAAYagAAAAEKixhGkgDi9cT23qpXHvtLlYwQ+AKlT1LL4Hvdxv6yJG90k0/EgHj/icj+ZF4jEa7Q==", "05387654321", false, "696c56ea-f855-49a0-a272-8e0f46f3e4e5", false, "Enes" },
-                    { "850bf6b8-1fce-49a6-a208-17752ccb7519", 0, "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2", "İstanbul", "07d5f9ff-e003-4612-b332-2a4691c3c63e", new DateTime(1998, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "customer@gmail.com", true, "customer", "Unisex", "customer", false, null, "CUSTOMER@GMAIL.COM", "CUSTOMER", "Customer", "AQAAAAIAAYagAAAAEBkso21e6adQYSO2n13e8QUVTQT/NhlHSSsXPgxr/ndqqFQvGFxDjPz3o2glz+zgEQ==", "05687654321", false, "18261330-8406-4ffc-8bda-5c30022fc190", false, "customer" }
+                    { "4879afb6-1809-4a3c-b5b6-61c8b6c7f6c5", 0, "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2", "İstanbul", "edaaaaf6-ca39-4ee8-88b3-161479e19cc3", new DateTime(1998, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "customer@gmail.com", true, "customer", "Unisex", "customer", false, null, "CUSTOMER@GMAIL.COM", "CUSTOMER", "Customer", "AQAAAAIAAYagAAAAEFct7+dckNu9Rtw2p965/OnafowL/hqaFURfL+uFlwGmFSKspn35/3VzylOmcAa4Vw==", "05687654321", false, null, "0403fa7c-b145-4494-adae-9e3574970c2a", false, "customer" },
+                    { "61193c9c-01b2-41d7-854c-6b7e1dce2589", 0, "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2", "İstanbul", "818c978e-6954-41af-8e78-b675412ae4d3", new DateTime(1999, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "enes@gmail.com", true, "Enes", "Erkek", "Yalçın", false, null, "ENES@GMAIL.COM", "ENES", "Software Dev.", "AQAAAAIAAYagAAAAEFFFr2NGCWQpqjn2U7SHUvFKEbwyB6TFE+ahpJ5UZU9MV84cpciDq3NYxIVOq8RT8A==", "05387654321", false, null, "d96293f4-939c-4666-b93d-970fa124887d", false, "Enes" }
                 });
 
             migrationBuilder.InsertData(
@@ -374,8 +397,8 @@ namespace DigitalStore.Data.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "d291eeca-ed50-4fc0-9a6a-6341714406f8", "46410a68-6610-4d1c-9ed0-db0b62e22b5f" },
-                    { "3e508b91-d22e-42b1-8469-eec160242bdf", "850bf6b8-1fce-49a6-a208-17752ccb7519" }
+                    { "1a36af47-d141-4d1b-a096-4818462e1049", "4879afb6-1809-4a3c-b5b6-61c8b6c7f6c5" },
+                    { "40180e9d-bdd6-49d1-8eb7-63881502372b", "61193c9c-01b2-41d7-854c-6b7e1dce2589" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -428,6 +451,12 @@ namespace DigitalStore.Data.Migrations
                 column: "ShoppingCartId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Categories_Name",
+                table: "Categories",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_OrderDetails_OrderId",
                 table: "OrderDetails",
                 column: "OrderId");
@@ -468,6 +497,9 @@ namespace DigitalStore.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "CartItems");
+
+            migrationBuilder.DropTable(
+                name: "Coupons");
 
             migrationBuilder.DropTable(
                 name: "OrderDetails");

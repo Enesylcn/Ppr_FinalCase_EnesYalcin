@@ -19,9 +19,8 @@ namespace DigitalStore.Data.Configurations
             builder.Property(c => c.Name).IsRequired().HasMaxLength(100);
             builder.Property(c => c.InsertUser).IsRequired().HasMaxLength(50);
             builder.Property(o => o.UserId).IsRequired(true);
-            builder.Property(p => p.CartAmount).HasColumnType("decimal(5,2)");
-            builder.Property(p => p.CouponAmount).HasColumnType("decimal(5,2)");
-            builder.Property(p => p.PointsAmount).HasColumnType("int");
+            builder.Property(p => p.CartAmount).HasColumnType("float");
+            builder.Property(p => p.PointsAmount).HasColumnType("float");
             builder.Property(p => p.CouponCode).HasMaxLength(50);
 
             // Configure relationships

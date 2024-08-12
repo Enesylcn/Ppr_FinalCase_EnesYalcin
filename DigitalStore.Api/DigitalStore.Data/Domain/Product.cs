@@ -6,9 +6,9 @@ namespace DigitalStore.Data.Domain
     {
         public string Features { get; set; }
         public string Description { get; set; }
-        public decimal PointsEarningPercentage { get; set; }
-        public decimal MaxPointsAmount { get; set; }
-        public decimal Price { get; set; }
+        public float PointsEarningPercentage { get; set; }
+        public float MaxPointsAmount { get; set; }
+        public float Price { get; set; }
 
         public int Stock { get; set; }
         

@@ -11,6 +11,7 @@ namespace DigitalStore.Schema
     public class ShoppingCartRequest : BaseRequest
     {
         public List<long> ProductIds { get; set; } // Birden fazla ürün ID'si
+        public int Quantity { get; set; }
         public string CouponCode { get; set; }
     }
 
@@ -20,10 +21,9 @@ namespace DigitalStore.Schema
         public string Name { get; set; }
 
         public string UserId { get; set; }
-        public decimal CartAmount { get; set; }
-        public decimal CouponAmount { get; set; }
+        public float CartAmount { get; set; }
         public string CouponCode { get; set; }
-        public decimal PointsAmount { get; set; }
+        public float PointsAmount { get; set; }
 
         public List<ShoppingCartItem> ShoppingCartItems { get; set; }
     }

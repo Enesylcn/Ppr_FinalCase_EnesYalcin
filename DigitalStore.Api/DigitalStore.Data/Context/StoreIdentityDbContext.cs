@@ -28,6 +28,7 @@ namespace DigitalStore.Data.Context
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<ShoppingCart> Carts { get; set; }
         public DbSet<ShoppingCartItem> CartItems { get; set; }
+        public DbSet<Coupon> Coupons { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -41,6 +42,7 @@ namespace DigitalStore.Data.Context
             modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
             modelBuilder.ApplyConfiguration(new ShoppingCartConfiguration());
             modelBuilder.ApplyConfiguration(new ShoppingCartItemConfiguration());
+            modelBuilder.ApplyConfiguration(new CouponConfiguration());
 
             base.OnModelCreating(modelBuilder);
 

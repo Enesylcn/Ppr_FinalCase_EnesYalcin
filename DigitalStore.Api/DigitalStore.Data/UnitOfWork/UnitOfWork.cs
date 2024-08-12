@@ -18,6 +18,7 @@ namespace DigitalStore.Data.UnitOfWork
         public IGenericRepository<ProductCategory> ProductCategoryRepository { get; }
         public IGenericRepository<ShoppingCart> ShoppingCartRepository { get; }
         public IGenericRepository<ShoppingCartItem> ShoppingCartItemRepository { get; }
+        public IGenericRepository<Coupon> CouponRepository { get; }
 
         public UnitOfWork(StoreIdentityDbContext dbContext, ISessionContext sessionContext)
         {
@@ -31,6 +32,7 @@ namespace DigitalStore.Data.UnitOfWork
             ProductCategoryRepository = new GenericRepository<ProductCategory>(this.dbContext, this.sessionContext);
             ShoppingCartRepository = new GenericRepository<ShoppingCart>(this.dbContext, this.sessionContext);
             ShoppingCartItemRepository = new GenericRepository<ShoppingCartItem>(this.dbContext, this.sessionContext);
+            CouponRepository = new GenericRepository<Coupon>(this.dbContext, this.sessionContext);
         }
 
         public void Dispose()

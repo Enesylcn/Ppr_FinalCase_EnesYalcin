@@ -27,8 +27,6 @@ namespace DigitalStore.Business.Application.CategoryOperations.Queries.GetCatego
 
         public async Task<ApiResponse<List<CategoryResponse>>> Handle(GetAllCategoryQuery request, CancellationToken cancellationToken)
         {
-            //List<Category> entityList = await unitOfWork.CategoryRepository.GetAll("CategoryDetail", "CategoryAddresses", "CategoryPhones"); Tırnak içinde yazılan alarlar ile o modele ait responsa ilgiler eklenir.
-
             List<Category> entityList = await unitOfWork.CategoryRepository.GetAll("ProductCategories");
             var mappedList = mapper.Map<List<CategoryResponse>>(entityList);
             return new ApiResponse<List<CategoryResponse>>(mappedList);

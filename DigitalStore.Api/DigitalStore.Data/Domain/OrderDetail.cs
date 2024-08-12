@@ -15,7 +15,7 @@ namespace DigitalStore.Data.Domain
         public Order Order { get; set; }
         public int Stock { get; set; }
         public int Quantity { get; set; }
-        public decimal UnitPrice { get; set; }
-        public decimal TotalPrice { get; set; }
+        public float UnitPrice { get; set; }
+        public float TotalPrice { get; set; }
     }
 }

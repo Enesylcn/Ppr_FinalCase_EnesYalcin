@@ -32,6 +32,7 @@ namespace DigitalStore.Schema
         [Required(ErrorMessage = "CVC is required.")]
         [StringLength(4, MinimumLength = 3, ErrorMessage = "CVC must be 3 or 4 digits.")]
         public string Cvc { get; set; }
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }

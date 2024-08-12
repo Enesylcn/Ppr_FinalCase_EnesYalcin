@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DigitalStore.Data.Migrations
 {
     [DbContext(typeof(StoreIdentityDbContext))]
-    [Migration("20240810203551_OrderTableUpdate")]
-    partial class OrderTableUpdate
+    [Migration("20240812120135_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,7 +61,53 @@ namespace DigitalStore.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("Categories", (string)null);
+                });
+
+            modelBuilder.Entity("DigitalStore.Data.Domain.Coupon", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<float>("DiscountPercentage")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("InsertUser")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("ValidFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ValidUntil")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Coupons", (string)null);
                 });
 
             modelBuilder.Entity("DigitalStore.Data.Domain.Order", b =>
@@ -178,11 +224,11 @@ namespace DigitalStore.Data.Migrations
                     b.Property<short>("Stock")
                         .HasColumnType("smallint");
 
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("UnitPrice")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -222,19 +268,19 @@ namespace DigitalStore.Data.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<decimal>("MaxPointsAmount")
-                        .HasColumnType("decimal(5,2)");
+                    b.Property<double>("MaxPointsAmount")
+                        .HasColumnType("float");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<decimal>("PointsEarningPercentage")
-                        .HasColumnType("decimal(5,2)");
+                    b.Property<double>("PointsEarningPercentage")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");
@@ -284,11 +330,8 @@ namespace DigitalStore.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<decimal>("CartAmount")
-                        .HasColumnType("decimal(5,2)");
-
-                    b.Property<decimal>("CouponAmount")
-                        .HasColumnType("decimal(5,2)");
+                    b.Property<double>("CartAmount")
+                        .HasColumnType("float");
 
                     b.Property<string>("CouponCode")
                         .IsRequired()
@@ -311,8 +354,8 @@ namespace DigitalStore.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("PointsAmount")
-                        .HasColumnType("int");
+                    b.Property<double>("PointsAmount")
+                        .HasColumnType("float");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -347,8 +390,14 @@ namespace DigitalStore.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
                     b.Property<long>("ProductId")
                         .HasColumnType("bigint");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
                     b.Property<long>("ShoppingCartId")
                         .HasColumnType("bigint");
@@ -441,6 +490,9 @@ namespace DigitalStore.Data.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<float?>("PointsWallet")
+                        .HasColumnType("real");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -466,11 +518,11 @@ namespace DigitalStore.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
+                            Id = "61193c9c-01b2-41d7-854c-6b7e1dce2589",
                             AccessFailedCount = 0,
                             Address = "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2",
                             City = "İstanbul",
-                            ConcurrencyStamp = "4064ef65-9dab-4ad6-9ad0-b2f55244e390",
+                            ConcurrencyStamp = "818c978e-6954-41af-8e78-b675412ae4d3",
                             DateOfBirth = new DateTime(1999, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "enes@gmail.com",
                             EmailConfirmed = true,
@@ -481,20 +533,20 @@ namespace DigitalStore.Data.Migrations
                             NormalizedEmail = "ENES@GMAIL.COM",
                             NormalizedUserName = "ENES",
                             Occupation = "Software Dev.",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEX/4WJXy3UgV1pfnRRs9FIQQOptw1q2G+yndUO53HgSoIbo3CbQeZON9gHxvlQNDg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFFFr2NGCWQpqjn2U7SHUvFKEbwyB6TFE+ahpJ5UZU9MV84cpciDq3NYxIVOq8RT8A==",
                             PhoneNumber = "05387654321",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e4a29951-f536-4f01-aa3a-31d8a922b597",
+                            SecurityStamp = "d96293f4-939c-4666-b93d-970fa124887d",
                             TwoFactorEnabled = false,
                             UserName = "Enes"
                         },
                         new
                         {
-                            Id = "905f14fe-1e47-4c7e-8851-e1f0c1d0f380",
+                            Id = "4879afb6-1809-4a3c-b5b6-61c8b6c7f6c5",
                             AccessFailedCount = 0,
                             Address = "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2",
                             City = "İstanbul",
-                            ConcurrencyStamp = "8c8ee37b-250a-4200-9527-b496cb24afb1",
+                            ConcurrencyStamp = "edaaaaf6-ca39-4ee8-88b3-161479e19cc3",
                             DateOfBirth = new DateTime(1998, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "customer@gmail.com",
                             EmailConfirmed = true,
@@ -505,10 +557,10 @@ namespace DigitalStore.Data.Migrations
                             NormalizedEmail = "CUSTOMER@GMAIL.COM",
                             NormalizedUserName = "CUSTOMER",
                             Occupation = "Customer",
-                            PasswordHash = "AQAAAAIAAYagAAAAELzBt3EgvMHeR8Ek/GVRbNUyvmUPFll68xvQe85aTOkuYQbVuVFM+Z+q6SH5DLQKHg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFct7+dckNu9Rtw2p965/OnafowL/hqaFURfL+uFlwGmFSKspn35/3VzylOmcAa4Vw==",
                             PhoneNumber = "05687654321",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7bb3f853-ab34-47a4-8b70-b7a740ec94e7",
+                            SecurityStamp = "0403fa7c-b145-4494-adae-9e3574970c2a",
                             TwoFactorEnabled = false,
                             UserName = "customer"
                         });
@@ -543,12 +595,12 @@ namespace DigitalStore.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "49208790-a4ee-4282-a4a2-cf9a831fc963",
+                            Id = "40180e9d-bdd6-49d1-8eb7-63881502372b",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "b1b3568a-7a9f-4200-8562-a86ee279c17d",
+                            Id = "1a36af47-d141-4d1b-a096-4818462e1049",
                             Name = "Customer"
                         });
                 });
@@ -642,13 +694,13 @@ namespace DigitalStore.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "9b8072be-6cb7-4d7c-b595-43a23bcd44db",
-                            RoleId = "49208790-a4ee-4282-a4a2-cf9a831fc963"
+                            UserId = "61193c9c-01b2-41d7-854c-6b7e1dce2589",
+                            RoleId = "40180e9d-bdd6-49d1-8eb7-63881502372b"
                         },
                         new
                         {
-                            UserId = "905f14fe-1e47-4c7e-8851-e1f0c1d0f380",
-                            RoleId = "b1b3568a-7a9f-4200-8562-a86ee279c17d"
+                            UserId = "4879afb6-1809-4a3c-b5b6-61c8b6c7f6c5",
+                            RoleId = "1a36af47-d141-4d1b-a096-4818462e1049"
                         });
                 });
 

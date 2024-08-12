@@ -11,6 +11,7 @@ namespace DigitalStore.Schema
         public string Gender { get; set; }
         public string Occupation { get; set; }
         public DateTime? DateOfBirth { get; set; }
+
     }
 
 
@@ -25,5 +26,6 @@ namespace DigitalStore.Schema
         public string Gender { get; set; }
         public string Occupation { get; set; }
         public DateTime? DateOfBirth { get; set; }
+        public decimal? PointsWallet { get; set; }
     }
 }

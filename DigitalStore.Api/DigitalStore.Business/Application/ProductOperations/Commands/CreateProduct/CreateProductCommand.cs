@@ -46,7 +46,7 @@ namespace DigitalStore.Business.Application.ProductOperations.Commands.CreatePro
                     ProductId = product.Id,
                     CategoryId = c.Id,
                     InsertUser = sessionContext.Session.UserName,
-                    Name = c.Name,
+                    Name = c.Name
 
                 }).ToList();
             }

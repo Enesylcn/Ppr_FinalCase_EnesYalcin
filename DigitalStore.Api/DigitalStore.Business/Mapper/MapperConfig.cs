@@ -39,6 +39,8 @@ namespace DigitalStore.Business.Mapper
             CreateMap<ShoppingCartItem, ShoppingCartItemResponse>();
             CreateMap<ShoppingCartItemRequest, ShoppingCartItem>();
 
+            CreateMap<Coupon, CouponResponse>();
+            CreateMap<CouponRequest, Coupon>();
 
             //CreateMap<CustomerAddress, CustomerAddressResponse>()
             //    .ForMember(dest => dest.CustomerIdentityNumber, opt => opt.MapFrom(src => src.Customer.IdentityNumber))
