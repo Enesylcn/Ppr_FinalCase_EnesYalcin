@@ -34,6 +34,7 @@ namespace DigitalStore.Data.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     Address = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
                     City = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
@@ -48,7 +49,6 @@ namespace DigitalStore.Data.Migrations
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
@@ -380,8 +380,8 @@ namespace DigitalStore.Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "89448201-5eed-4ce7-9960-bca6c285f537", null, "Customer", null },
-                    { "a815313e-1b52-427d-a4cc-3240c6ce6208", null, "Admin", null }
+                    { "93bf4b7d-f23e-4ed4-a5e3-c11c3b100ee2", null, "Admin", null },
+                    { "a669eb5a-ca35-4ac7-ad82-d871526839ab", null, "Customer", null }
                 });
 
             migrationBuilder.InsertData(
@@ -389,8 +389,8 @@ namespace DigitalStore.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Address", "City", "ConcurrencyStamp", "DateOfBirth", "Email", "EmailConfirmed", "FirstName", "Gender", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "Occupation", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PointsWallet", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "3f2f8047-5bac-43fd-814a-cb541cc25d13", 0, "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2", "İstanbul", "f2054938-7f26-4548-a674-b39e0bf692d8", new DateTime(1999, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "enes@gmail.com", true, "Enes", "Erkek", "Yalçın", false, null, "ENES@GMAIL.COM", "ENES", "Software Dev.", "AQAAAAIAAYagAAAAEPjVyaatAXILHEfRmmiUiZe6Iu9EKNmdFdcnT3og8ZC++j4RbCLQ2qvuAwus5G1KIQ==", "05387654321", false, 0f, "988dd9b5-f4d6-429c-864f-1add1684ec75", false, "Enes" },
-                    { "fea3bdfc-b2d5-4413-8875-c1ccee766b25", 0, "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2", "İstanbul", "504d74f5-4b43-472c-bf84-986d117a3ac0", new DateTime(1998, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "customer@gmail.com", true, "customer", "Unisex", "customer", false, null, "CUSTOMER@GMAIL.COM", "CUSTOMER", "Customer", "AQAAAAIAAYagAAAAEJUkf2zRSWSohwZ283w2oyyiQDli1ukGfPuCAYjoqiHTqHJnzoy/T//a0hVcReR+Ag==", "05687654321", false, 0f, "340d691d-3cdc-4c1f-a016-c89b2516c4a4", false, "customer" }
+                    { "8055aa09-22c7-437c-83ad-2a23ccb77c6e", 0, "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2", "İstanbul", "e3f1d34e-2244-47ff-b6ac-6ca614e7331d", new DateTime(1999, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "enes@gmail.com", true, "Enes", "Erkek", "Yalçın", false, null, "ENES@GMAIL.COM", "ENES", "Software Dev.", "AQAAAAIAAYagAAAAEPRCsJe2+Cxf9pi0og6MzH3OD0GkG1pcs2BVhE3VodUehzwVR62fstK95EeC9es+OA==", "05387654321", false, 0f, "a3aefcf6-7fe5-44e2-b250-c246baa16e0e", false, "Enes" },
+                    { "9d41b25b-4ac4-4771-b97c-d95e53c40273", 0, "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2", "İstanbul", "b888c0b5-e1f0-497d-bf61-8b31aa235bc3", new DateTime(1998, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "customer@gmail.com", true, "customer", "Unisex", "customer", false, null, "CUSTOMER@GMAIL.COM", "CUSTOMER", "Customer", "AQAAAAIAAYagAAAAEKSi4/fPmTyyqwa5mamZqi+qyG+TWwCydZcjXlj27fhPiEWXd2/slYmW/58/fq2GOQ==", "05687654321", false, 0f, "340d3d09-fd86-4e0d-bbd6-cf8cd287c285", false, "customer" }
                 });
 
             migrationBuilder.InsertData(
@@ -398,8 +398,8 @@ namespace DigitalStore.Data.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "a815313e-1b52-427d-a4cc-3240c6ce6208", "3f2f8047-5bac-43fd-814a-cb541cc25d13" },
-                    { "89448201-5eed-4ce7-9960-bca6c285f537", "fea3bdfc-b2d5-4413-8875-c1ccee766b25" }
+                    { "93bf4b7d-f23e-4ed4-a5e3-c11c3b100ee2", "8055aa09-22c7-437c-83ad-2a23ccb77c6e" },
+                    { "a669eb5a-ca35-4ac7-ad82-d871526839ab", "9d41b25b-4ac4-4771-b97c-d95e53c40273" }
                 });
 
             migrationBuilder.CreateIndex(

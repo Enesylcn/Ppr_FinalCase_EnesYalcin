@@ -33,7 +33,8 @@ namespace DigitalStore.Business.Application.OrderOperations.Commands.CreateOrder
         public async Task<ApiResponse> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
             var userId = sessionContext.Session.UserId;
-            var shoppingCart = await unitOfWork.ShoppingCartRepository.FirstOrDefault(sc => sc.UserId == userId, "ShoppingCartItem");
+            var userAd = sessionContext.Session.UserName;
+            var shoppingCart = await unitOfWork.ShoppingCartRepository.FirstOrDefaultAsync(sc => sc.UserId == userId, "ShoppingCartItems");
 
             //ÖDEME İŞLEMİ BAŞLIYOR--IYZICO
 
@@ -102,8 +103,8 @@ namespace DigitalStore.Business.Application.OrderOperations.Commands.CreateOrder
                 basketItem = new BasketItem();
                 basketItem.Id = item.ProductId.ToString();
                 basketItem.Name = item.Name;
-                basketItem.Category1 = item.Product.ProductCategories.ToString();
-                basketItem.Category2 = item.Product.Name;
+                basketItem.Category1 = item.Name;
+                basketItem.Category2 = item.Name;
                 basketItem.ItemType = BasketItemType.PHYSICAL.ToString();
                 float price = 0;
                 var coupon = await unitOfWork.CouponRepository.FirstOrDefaultAsync(x => x.IsActive && x.Code == shoppingCart.CouponCode);
@@ -112,7 +113,8 @@ namespace DigitalStore.Business.Application.OrderOperations.Commands.CreateOrder
                 {
                     price = coupon.DiscountPercentage / 100 * item.Price;
                 }
-                var user = await unitOfWork.UserRepository.FirstOrDefaultAsync(x=> x.Id == userId);
+                var user = await userManager.FindByNameAsync(userAd);
+                //var user = await unitOfWork.UserRepository.FirstOrDefaultAsync(x=> x.Id == userId);
 
 
                 basketItem.Price = price.ToString().Replace(",", ".");
@@ -152,5 +154,7 @@ namespace DigitalStore.Business.Application.OrderOperations.Commands.CreateOrder
 
             return new ApiResponse(payment.Status);
         }
+
+
     }
 }

@@ -15,9 +15,9 @@ namespace DigitalStore.Business.Validation
             RuleFor(x => x.Name).NotEmpty().MinimumLength(2).MaximumLength(100);
             RuleFor(x => x.Features).NotEmpty().MinimumLength(2).MaximumLength(200);
             RuleFor(x => x.Description).NotEmpty().MinimumLength(2).MaximumLength(400);
-            RuleFor(x => x.PointsEarningPercentage).NotEmpty().LessThan(1);
-            RuleFor(x => x.Price).NotEmpty();
-            RuleFor(x => x.Stock).NotEmpty();
+            RuleFor(x => x.PointsEarningPercentage).GreaterThanOrEqualTo(0);
+            RuleFor(x => x.Price).GreaterThanOrEqualTo(0);
+            RuleFor(x => x.Stock).GreaterThanOrEqualTo(0);
 
         }
     }

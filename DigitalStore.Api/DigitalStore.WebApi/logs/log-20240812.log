@@ -6064,3 +6064,1831 @@ Object name: 'The stream with Id 8bc7779c-ce18-40db-b6f1-4685d27406e6 and Tag  i
    at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
    at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
    at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-12 20:43:14.934 [INF] Application is starting...
+2024-08-12 20:43:33.841 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:43:34.683 [INF] -------------Request-Begin------------
+2024-08-12 20:43:34.684 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "Enes",
+  "Password": "Qwe123."
+}
+2024-08-12 20:43:34.684 [INF] 
+
+2024-08-12 20:43:34.684 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "ExpireTime": "2024-08-12T22:13:34.6560849+03:00",
+    "AccessToken": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkVuZXMiLCJVc2VySWQiOiIzZjJmODA0Ny01YmFjLTQzZmQtODE0YS1jYjU0MWNjMjVkMTMiLCJFbWFpbCI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzZjJmODA0Ny01YmFjLTQzZmQtODE0YS1jYjU0MWNjMjVkMTMiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRW5lcyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MjM0OTAwMTQsImlzcyI6IkVuZXMiLCJhdWQiOiJQYXRpa2EifQ.B0yQwvav1mU6Y1stJvZo7Yk32_htwXow04wZ_bryavg",
+    "UserName": "Enes"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T17:43:34.6562135Z",
+  "ReferenceNumber": "27e903d9-0880-4ba7-8e1d-fed31dc3dd5c",
+  "Errors": []
+}
+2024-08-12 20:43:34.684 [INF] -------------Request-End------------
+2024-08-12 20:45:16.013 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:45:40.225 [FTL] Path=/api/identity/Authorization/GetAllUsersAsync || Method=POST || Exception=Data is Null. This method or property cannot be called on Null values.
+2024-08-12 20:45:40.296 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id a74aa17a-987e-41c4-8ff0-94729afcb6d9 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 20:45:40.327 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id a74aa17a-987e-41c4-8ff0-94729afcb6d9 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 20:45:40.331 [ERR] Connection ID "18014398544647028797", Request ID "4000003e-0008-fa00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id a74aa17a-987e-41c4-8ff0-94729afcb6d9 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-12 20:46:02.232 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:46:10.918 [FTL] Path=/api/identity/Authorization/GetAllUsersAsync || Method=POST || Exception=Data is Null. This method or property cannot be called on Null values.
+2024-08-12 20:46:10.966 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 13f72a26-33fd-4f0a-848e-c4de65e36991 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 20:46:10.968 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 13f72a26-33fd-4f0a-848e-c4de65e36991 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 20:46:10.970 [ERR] Connection ID "18014398544647028799", Request ID "40000040-0008-fa00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 13f72a26-33fd-4f0a-848e-c4de65e36991 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-12 20:46:15.646 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:47:07.551 [FTL] Path=/api/identity/Authorization/GetAllUsersAsync || Method=POST || Exception=Data is Null. This method or property cannot be called on Null values.
+2024-08-12 20:47:07.600 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 1f056691-251d-4e0d-a002-8588726f12bf and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 20:47:07.602 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 1f056691-251d-4e0d-a002-8588726f12bf and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 20:47:07.604 [ERR] Connection ID "18014398527467159723", Request ID "400000ac-0004-fa00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 1f056691-251d-4e0d-a002-8588726f12bf and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-12 20:52:18.494 [INF] Application is starting...
+2024-08-12 20:52:28.335 [INF] Application is starting...
+2024-08-12 20:52:51.389 [INF] Application is starting...
+2024-08-12 20:53:47.248 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:53:48.195 [INF] -------------Request-Begin------------
+2024-08-12 20:53:48.195 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "Enes",
+  "Password": "Qwe123."
+}
+2024-08-12 20:53:48.195 [INF] 
+
+2024-08-12 20:53:48.195 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "ExpireTime": "2024-08-12T22:23:48.1719287+03:00",
+    "AccessToken": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkVuZXMiLCJVc2VySWQiOiI4MDU1YWEwOS0yMmM3LTQzN2MtODNhZC0yYTIzY2NiNzdjNmUiLCJFbWFpbCI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiI4MDU1YWEwOS0yMmM3LTQzN2MtODNhZC0yYTIzY2NiNzdjNmUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRW5lcyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MjM0OTA2MjgsImlzcyI6IkVuZXMiLCJhdWQiOiJQYXRpa2EifQ.59IuaE3VAKmupAvpZmT42nrvyux5MFneXp-6qA5RV7I",
+    "UserName": "Enes"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T17:53:48.1720637Z",
+  "ReferenceNumber": "ddb3c31a-6fc8-4849-a251-959849d60cc3",
+  "Errors": []
+}
+2024-08-12 20:53:48.195 [INF] -------------Request-End------------
+2024-08-12 20:54:42.478 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:54:42.726 [INF] -------------Request-Begin------------
+2024-08-12 20:54:42.727 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+Request Body: {
+    "Name": "Smartphones",
+    "Url": "smartphones",
+    "Tags": "mobile, phone, tech"
+  }
+2024-08-12 20:54:42.727 [INF] 
+
+2024-08-12 20:54:42.727 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 1,
+    "Name": "Smartphones",
+    "Url": "smartphones",
+    "Tags": "mobile, phone, tech"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T17:54:42.7221382Z",
+  "ReferenceNumber": "a985fac3-8764-4fe6-9fc8-61e1da5397e5",
+  "Errors": []
+}
+2024-08-12 20:54:42.727 [INF] -------------Request-End------------
+2024-08-12 20:54:51.355 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:54:51.384 [INF] -------------Request-Begin------------
+2024-08-12 20:54:51.385 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+Request Body:   {
+    "Name": "Laptops",
+    "Url": "laptops",
+    "Tags": "computer, tech, portable"
+  }
+2024-08-12 20:54:51.385 [INF] 
+
+2024-08-12 20:54:51.385 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 2,
+    "Name": "Laptops",
+    "Url": "laptops",
+    "Tags": "computer, tech, portable"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T17:54:51.384281Z",
+  "ReferenceNumber": "f0f79f59-980f-4bee-b9b8-da16dbbee40a",
+  "Errors": []
+}
+2024-08-12 20:54:51.385 [INF] -------------Request-End------------
+2024-08-12 20:54:59.137 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:54:59.221 [INF] -------------Request-Begin------------
+2024-08-12 20:54:59.221 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+Request Body: 
+2024-08-12 20:54:59.221 [INF] 
+
+2024-08-12 20:54:59.221 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 1,
+      "Name": "Smartphones",
+      "Url": "smartphones",
+      "Tags": "mobile, phone, tech"
+    },
+    {
+      "Id": 2,
+      "Name": "Laptops",
+      "Url": "laptops",
+      "Tags": "computer, tech, portable"
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T17:54:59.2195313Z",
+  "ReferenceNumber": "07318773-6b50-46b9-8c97-7f2681190d71",
+  "Errors": []
+}
+2024-08-12 20:54:59.221 [INF] -------------Request-End------------
+2024-08-12 20:55:06.250 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:55:06.262 [INF] -------------Request-Begin------------
+2024-08-12 20:55:06.263 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/%7BCategoryId%7D 
+QueryString:  
+Request Body: 
+2024-08-12 20:55:06.263 [INF] 
+
+2024-08-12 20:55:06.263 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/%7BCategoryId%7D 
+QueryString:  
+StatusCode: 400 
+Response Body: {
+  "Data": null,
+  "Message": null,
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T17:55:06.2611496Z",
+  "ReferenceNumber": "718a4e3d-4cd0-4b68-9e28-b87afaf99d21",
+  "Errors": [
+    "The value '{CategoryId}' is not valid."
+  ]
+}
+2024-08-12 20:55:06.263 [INF] -------------Request-End------------
+2024-08-12 20:55:22.499 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:55:22.502 [INF] -------------Request-Begin------------
+2024-08-12 20:55:22.502 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/%7BCategoryId%7D 
+QueryString:  
+Request Body: 
+2024-08-12 20:55:22.502 [INF] 
+
+2024-08-12 20:55:22.503 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/%7BCategoryId%7D 
+QueryString:  
+StatusCode: 400 
+Response Body: {
+  "Data": null,
+  "Message": null,
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T17:55:22.5020757Z",
+  "ReferenceNumber": "e43223e5-b3f9-41eb-b5e2-deab290a1bb0",
+  "Errors": [
+    "The value '{CategoryId}' is not valid."
+  ]
+}
+2024-08-12 20:55:22.503 [INF] -------------Request-End------------
+2024-08-12 20:55:49.580 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:55:49.587 [INF] -------------Request-Begin------------
+2024-08-12 20:55:49.587 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/%7BCategoryId%7D 
+QueryString:  
+Request Body: 
+2024-08-12 20:55:49.587 [INF] 
+
+2024-08-12 20:55:49.587 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/%7BCategoryId%7D 
+QueryString:  
+StatusCode: 400 
+Response Body: {
+  "Data": null,
+  "Message": null,
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T17:55:49.5864061Z",
+  "ReferenceNumber": "a4aa9150-073a-491b-b276-f206268e79ab",
+  "Errors": [
+    "The value '{CategoryId}' is not valid."
+  ]
+}
+2024-08-12 20:55:49.587 [INF] -------------Request-End------------
+2024-08-12 20:57:51.364 [INF] Application is starting...
+2024-08-12 20:58:06.677 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:58:07.535 [INF] -------------Request-Begin------------
+2024-08-12 20:58:07.536 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+Request Body: {
+  "UserName": "Enes",
+  "Password": "Qwe123."
+}
+2024-08-12 20:58:07.536 [INF] 
+
+2024-08-12 20:58:07.536 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Login 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "ExpireTime": "2024-08-12T22:28:07.5086925+03:00",
+    "AccessToken": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkVuZXMiLCJVc2VySWQiOiI4MDU1YWEwOS0yMmM3LTQzN2MtODNhZC0yYTIzY2NiNzdjNmUiLCJFbWFpbCI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiI4MDU1YWEwOS0yMmM3LTQzN2MtODNhZC0yYTIzY2NiNzdjNmUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRW5lcyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImVuZXNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MjM0OTA4ODcsImlzcyI6IkVuZXMiLCJhdWQiOiJQYXRpa2EifQ.aav1mfWcYuFwLw_HDnlh6jm6uJxAAgLEzpclFpqzTMw",
+    "UserName": "Enes"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T17:58:07.5088453Z",
+  "ReferenceNumber": "bedd6d54-78d6-419c-a16c-291732a1c33d",
+  "Errors": []
+}
+2024-08-12 20:58:07.536 [INF] -------------Request-End------------
+2024-08-12 20:58:34.177 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:58:34.361 [INF] -------------Request-Begin------------
+2024-08-12 20:58:34.361 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/1 
+QueryString:  
+Request Body: 
+2024-08-12 20:58:34.361 [INF] 
+
+2024-08-12 20:58:34.361 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/1 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 1,
+    "Name": "Smartphones",
+    "Url": "smartphones",
+    "Tags": "mobile, phone, tech"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T17:58:34.3562931Z",
+  "ReferenceNumber": "cdf178f4-0692-4ac5-8545-f302e566ea92",
+  "Errors": []
+}
+2024-08-12 20:58:34.361 [INF] -------------Request-End------------
+2024-08-12 20:58:59.173 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:58:59.338 [INF] -------------Request-Begin------------
+2024-08-12 20:58:59.339 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/2 
+QueryString:  
+Request Body: {
+  "Name": "string",
+  "Url": "string",
+  "Tags": "string"
+}
+2024-08-12 20:58:59.339 [INF] 
+
+2024-08-12 20:58:59.339 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/2 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": null,
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T17:58:59.3352989Z",
+  "ReferenceNumber": "5605b0d0-f7c6-4b51-82ab-4d304b0567f6"
+}
+2024-08-12 20:58:59.339 [INF] -------------Request-End------------
+2024-08-12 20:59:04.125 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:59:04.236 [INF] -------------Request-Begin------------
+2024-08-12 20:59:04.236 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+Request Body: 
+2024-08-12 20:59:04.236 [INF] 
+
+2024-08-12 20:59:04.236 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 1,
+      "Name": "Smartphones",
+      "Url": "smartphones",
+      "Tags": "mobile, phone, tech"
+    },
+    {
+      "Id": 2,
+      "Name": "string",
+      "Url": "string",
+      "Tags": "string"
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T17:59:04.2323969Z",
+  "ReferenceNumber": "ee76176b-94b9-4d6f-a776-99fe6e66b346",
+  "Errors": []
+}
+2024-08-12 20:59:04.236 [INF] -------------Request-End------------
+2024-08-12 20:59:13.588 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:59:13.645 [INF] -------------Request-Begin------------
+2024-08-12 20:59:13.645 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/2 
+QueryString:  
+Request Body: 
+2024-08-12 20:59:13.645 [INF] 
+
+2024-08-12 20:59:13.645 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/2 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": null,
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T17:59:13.6449143Z",
+  "ReferenceNumber": "c8a0cec5-0433-41b7-aa05-fbafc30141d9"
+}
+2024-08-12 20:59:13.645 [INF] -------------Request-End------------
+2024-08-12 20:59:25.202 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:59:25.240 [INF] -------------Request-Begin------------
+2024-08-12 20:59:25.240 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons 
+QueryString:  
+Request Body: 
+2024-08-12 20:59:25.240 [INF] 
+
+2024-08-12 20:59:25.240 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T17:59:25.2375286Z",
+  "ReferenceNumber": "e3dd3dc1-0445-4eae-8790-9f0c8f7a3e98",
+  "Errors": []
+}
+2024-08-12 20:59:25.240 [INF] -------------Request-End------------
+2024-08-12 20:59:41.390 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:59:41.475 [INF] -------------Request-Begin------------
+2024-08-12 20:59:41.475 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons 
+QueryString:  
+Request Body: {
+  "Code": "FREE10",
+  "DiscountPercentage": 10,
+  "ValidFrom": "2024-08-12T17:59:30.077Z",
+  "ValidUntil": "2024-09-12T17:59:30.077Z"
+}
+2024-08-12 20:59:41.475 [INF] 
+
+2024-08-12 20:59:41.475 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 1,
+    "Code": "FREE10",
+    "ValidFrom": "2024-08-12T17:59:30.077Z",
+    "ValidUntil": "2024-09-12T17:59:30.077Z",
+    "DiscountPercentage": 10
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T17:59:41.4707455Z",
+  "ReferenceNumber": "e75df46e-5a1b-42e7-b758-a5b13e728899",
+  "Errors": []
+}
+2024-08-12 20:59:41.475 [INF] -------------Request-End------------
+2024-08-12 20:59:45.114 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 20:59:45.139 [INF] -------------Request-Begin------------
+2024-08-12 20:59:45.139 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons 
+QueryString:  
+Request Body: 
+2024-08-12 20:59:45.139 [INF] 
+
+2024-08-12 20:59:45.139 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 1,
+      "Code": "FREE10",
+      "ValidFrom": "2024-08-12T17:59:30.077",
+      "ValidUntil": "2024-09-12T17:59:30.077",
+      "DiscountPercentage": 10
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T17:59:45.1385485Z",
+  "ReferenceNumber": "a533304d-93b0-422c-bf53-6bce176fd3ed",
+  "Errors": []
+}
+2024-08-12 20:59:45.139 [INF] -------------Request-End------------
+2024-08-12 21:00:06.532 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:00:06.604 [INF] -------------Request-Begin------------
+2024-08-12 21:00:06.605 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons/1 
+QueryString:  
+Request Body: {
+  "Code": "FREE15",
+  "DiscountPercentage": 15,
+  "ValidFrom": "2024-08-12T17:59:50.046Z",
+  "ValidUntil": "2024-10-12T17:59:50.046Z"
+}
+2024-08-12 21:00:06.605 [INF] 
+
+2024-08-12 21:00:06.605 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons/1 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": null,
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:00:06.6039917Z",
+  "ReferenceNumber": "62cbf528-3bf4-4cb5-8fe5-e2e837527738"
+}
+2024-08-12 21:00:06.605 [INF] -------------Request-End------------
+2024-08-12 21:00:11.024 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:00:11.060 [INF] -------------Request-Begin------------
+2024-08-12 21:00:11.061 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons 
+QueryString:  
+Request Body: 
+2024-08-12 21:00:11.061 [INF] 
+
+2024-08-12 21:00:11.061 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 1,
+      "Code": "FREE15",
+      "ValidFrom": "2024-08-12T17:59:50.046",
+      "ValidUntil": "2024-10-12T17:59:50.046",
+      "DiscountPercentage": 15
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:00:11.0514221Z",
+  "ReferenceNumber": "bc557164-48b4-4fd5-b0ff-7a552f13732a",
+  "Errors": []
+}
+2024-08-12 21:00:11.061 [INF] -------------Request-End------------
+2024-08-12 21:00:21.257 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:00:24.963 [FTL] Path=/api/OrderDetails || Method=GET || Exception=An error was generated for warning 'Microsoft.EntityFrameworkCore.Query.InvalidIncludePathError': Unable to find navigation 'OrderDetail' specified in string based include path 'OrderDetail'. This exception can be suppressed or logged by passing event ID 'CoreEventId.InvalidIncludePathError' to the 'ConfigureWarnings' method in 'DbContext.OnConfiguring' or 'AddDbContext'.
+2024-08-12 21:00:24.991 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 4f2fbb59-afd6-4cd9-b530-0071aed64eca and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 21:00:25.024 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 4f2fbb59-afd6-4cd9-b530-0071aed64eca and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 21:00:25.028 [ERR] Connection ID "18302628959453446252", Request ID "4000006d-0011-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 4f2fbb59-afd6-4cd9-b530-0071aed64eca and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-12 21:00:48.323 [INF] Application is starting...
+2024-08-12 21:01:25.938 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:01:26.228 [INF] -------------Request-Begin------------
+2024-08-12 21:01:26.228 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+Request Body: {
+  "Name": "iPhone 14",
+    "Features": "6.1-inch display, A15 Bionic chip, Dual-camera",
+    "Description": "Latest iPhone with advanced features",
+    "PointsEarningPercentage": 0.02,
+    "MaxPointsAmount": 50,
+    "Stock": 100,
+  "CategoryIds": [
+    1
+  ]
+}
+2024-08-12 21:01:26.228 [INF] 
+
+2024-08-12 21:01:26.229 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+StatusCode: 400 
+Response Body: {
+  "Data": null,
+  "Message": null,
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:01:26.2088132Z",
+  "ReferenceNumber": "9c3a9b2b-ab9b-46a5-89ea-073402db8a81",
+  "Errors": [
+    "'Price' boş olmamalı."
+  ]
+}
+2024-08-12 21:01:26.229 [INF] -------------Request-End------------
+2024-08-12 21:01:46.756 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:01:47.395 [INF] -------------Request-Begin------------
+2024-08-12 21:01:47.395 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+Request Body: {
+ "Name": "iPhone 14",
+    "Features": "6.1-inch display, A15 Bionic chip, Dual-camera",
+    "Description": "Latest iPhone with advanced features",
+    "PointsEarningPercentage": 0.02,
+    "MaxPointsAmount": 50,
+    "Stock": 100,
+    "Price": 999.99,
+  "CategoryIds": [
+    1
+  ]
+}
+2024-08-12 21:01:47.395 [INF] 
+
+2024-08-12 21:01:47.395 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 1,
+    "Name": "iPhone 14",
+    "Features": "6.1-inch display, A15 Bionic chip, Dual-camera",
+    "Description": "Latest iPhone with advanced features",
+    "PointsEarningPercentage": 0.02,
+    "MaxPointsAmount": 50,
+    "Price": 999.99,
+    "Stock": 100,
+    "Categories": [
+      {
+        "Id": 1,
+        "Name": "Smartphones",
+        "Url": "smartphones",
+        "Tags": "mobile, phone, tech"
+      }
+    ]
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:01:47.3851372Z",
+  "ReferenceNumber": "372a65e5-6e83-4ce3-9ba8-d62e8310546e",
+  "Errors": []
+}
+2024-08-12 21:01:47.395 [INF] -------------Request-End------------
+2024-08-12 21:01:52.817 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:01:53.028 [INF] -------------Request-Begin------------
+2024-08-12 21:01:53.028 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+Request Body: 
+2024-08-12 21:01:53.028 [INF] 
+
+2024-08-12 21:01:53.028 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 1,
+      "Name": "iPhone 14",
+      "Features": "6.1-inch display, A15 Bionic chip, Dual-camera",
+      "Description": "Latest iPhone with advanced features",
+      "PointsEarningPercentage": 0.02,
+      "MaxPointsAmount": 50,
+      "Price": 999.99,
+      "Stock": 100,
+      "Categories": [
+        {
+          "Id": 1,
+          "Name": "Smartphones",
+          "Url": "smartphones",
+          "Tags": "mobile, phone, tech"
+        }
+      ]
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:01:53.0254907Z",
+  "ReferenceNumber": "91981988-325e-40a5-819a-65443af46c10",
+  "Errors": []
+}
+2024-08-12 21:01:53.028 [INF] -------------Request-End------------
+2024-08-12 21:02:02.726 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:02:02.781 [INF] -------------Request-Begin------------
+2024-08-12 21:02:02.781 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products/1 
+QueryString:  
+Request Body: 
+2024-08-12 21:02:02.781 [INF] 
+
+2024-08-12 21:02:02.781 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products/1 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 1,
+    "Name": "iPhone 14",
+    "Features": "6.1-inch display, A15 Bionic chip, Dual-camera",
+    "Description": "Latest iPhone with advanced features",
+    "PointsEarningPercentage": 0.02,
+    "MaxPointsAmount": 50,
+    "Price": 999.99,
+    "Stock": 100,
+    "Categories": [
+      {
+        "Id": 1,
+        "Name": "Smartphones",
+        "Url": "smartphones",
+        "Tags": "mobile, phone, tech"
+      }
+    ]
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:02:02.7804698Z",
+  "ReferenceNumber": "97411ffe-1e92-478f-8c01-8b1c5afde4f6",
+  "Errors": []
+}
+2024-08-12 21:02:02.781 [INF] -------------Request-End------------
+2024-08-12 21:02:08.189 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:02:08.242 [INF] -------------Request-Begin------------
+2024-08-12 21:02:08.242 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products/onsale/true 
+QueryString:  
+Request Body: 
+2024-08-12 21:02:08.242 [INF] 
+
+2024-08-12 21:02:08.242 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products/onsale/true 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 1,
+      "Name": "iPhone 14",
+      "Features": "6.1-inch display, A15 Bionic chip, Dual-camera",
+      "Description": "Latest iPhone with advanced features",
+      "PointsEarningPercentage": 0.02,
+      "MaxPointsAmount": 50,
+      "Price": 999.99,
+      "Stock": 100,
+      "Categories": [
+        {
+          "Id": 1,
+          "Name": "Smartphones",
+          "Url": "smartphones",
+          "Tags": "mobile, phone, tech"
+        }
+      ]
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:02:08.2412457Z",
+  "ReferenceNumber": "32505186-10a0-474b-849a-19a7bf256b0e",
+  "Errors": []
+}
+2024-08-12 21:02:08.242 [INF] -------------Request-End------------
+2024-08-12 21:02:11.869 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:02:11.901 [INF] -------------Request-Begin------------
+2024-08-12 21:02:11.901 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products/onsale/false 
+QueryString:  
+Request Body: 
+2024-08-12 21:02:11.901 [INF] 
+
+2024-08-12 21:02:11.901 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products/onsale/false 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:02:11.9004328Z",
+  "ReferenceNumber": "32871606-ca5d-4447-8ffc-0bbacb36986e",
+  "Errors": []
+}
+2024-08-12 21:02:11.901 [INF] -------------Request-End------------
+2024-08-12 21:02:22.186 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:02:22.193 [INF] -------------Request-Begin------------
+2024-08-12 21:02:22.193 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products/1 
+QueryString:  
+Request Body: {
+  "Name": "string",
+  "Features": "string",
+  "Description": "string",
+  "PointsEarningPercentage": 0,
+  "MaxPointsAmount": 0,
+  "Price": 0,
+  "Stock": 0,
+  "CategoryIds": [
+    0
+  ]
+}
+2024-08-12 21:02:22.194 [INF] 
+
+2024-08-12 21:02:22.194 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products/1 
+QueryString:  
+StatusCode: 400 
+Response Body: {
+  "Data": null,
+  "Message": null,
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:02:22.1929997Z",
+  "ReferenceNumber": "b12c0998-21f2-40eb-881e-4d9962f5c89b",
+  "Errors": [
+    "'Price' boş olmamalı.",
+    "'Stock' boş olmamalı.",
+    "'Points Earning Percentage' boş olmamalı."
+  ]
+}
+2024-08-12 21:02:22.194 [INF] -------------Request-End------------
+2024-08-12 21:06:24.275 [INF] Application is starting...
+2024-08-12 21:07:54.958 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:07:55.245 [INF] -------------Request-Begin------------
+2024-08-12 21:07:55.245 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Logout 
+QueryString:  
+Request Body: 
+2024-08-12 21:07:55.245 [INF] 
+
+2024-08-12 21:07:55.245 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/Logout 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": null,
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:07:55.2294474Z",
+  "ReferenceNumber": "b59277c6-da92-4218-8574-ca3bc8c508eb"
+}
+2024-08-12 21:07:55.246 [INF] -------------Request-End------------
+2024-08-12 21:10:41.019 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:10:41.467 [INF] -------------Request-Begin------------
+2024-08-12 21:10:41.467 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+Request Body: 
+2024-08-12 21:10:41.467 [INF] 
+
+2024-08-12 21:10:41.467 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 1,
+      "Name": "Smartphones",
+      "Url": "smartphones",
+      "Tags": "mobile, phone, tech"
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:10:41.4574554Z",
+  "ReferenceNumber": "39776316-08e6-440c-b896-62f752b1de23",
+  "Errors": []
+}
+2024-08-12 21:10:41.467 [INF] -------------Request-End------------
+2024-08-12 21:10:56.464 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:11:04.443 [INF] -------------Request-Begin------------
+2024-08-12 21:11:04.444 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/GetAllUsersAsync 
+QueryString:  
+Request Body: 
+2024-08-12 21:11:04.444 [INF] 
+
+2024-08-12 21:11:04.444 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/identity/Authorization/GetAllUsersAsync 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": "8055aa09-22c7-437c-83ad-2a23ccb77c6e",
+      "Role": "Admin",
+      "FirstName": "Enes",
+      "LastName": "Yalçın",
+      "Address": "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2",
+      "City": "İstanbul",
+      "Gender": "Erkek",
+      "Occupation": "Software Dev.",
+      "DateOfBirth": "1999-10-29T00:00:00",
+      "PointsWallet": 0
+    },
+    {
+      "Id": "9d41b25b-4ac4-4771-b97c-d95e53c40273",
+      "Role": "Customer",
+      "FirstName": "customer",
+      "LastName": "customer",
+      "Address": "Nokta Mah. Virgül Caddesi Ünlem Sokak no:1 daire:2",
+      "City": "İstanbul",
+      "Gender": "Unisex",
+      "Occupation": "Customer",
+      "DateOfBirth": "1998-04-20T00:00:00",
+      "PointsWallet": 0
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:11:04.4330788Z",
+  "ReferenceNumber": "73766f06-238a-4741-b900-0713d3d5549f",
+  "Errors": []
+}
+2024-08-12 21:11:04.444 [INF] -------------Request-End------------
+2024-08-12 21:11:26.572 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:11:26.647 [INF] -------------Request-Begin------------
+2024-08-12 21:11:26.647 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/1 
+QueryString:  
+Request Body: 
+2024-08-12 21:11:26.647 [INF] 
+
+2024-08-12 21:11:26.647 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Categories/1 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 1,
+    "Name": "Smartphones",
+    "Url": "smartphones",
+    "Tags": "mobile, phone, tech"
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:11:26.6460085Z",
+  "ReferenceNumber": "9cd2fc69-f94c-4b11-af13-b51147543ff6",
+  "Errors": []
+}
+2024-08-12 21:11:26.647 [INF] -------------Request-End------------
+2024-08-12 21:11:59.558 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:11:59.669 [INF] -------------Request-Begin------------
+2024-08-12 21:11:59.669 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons 
+QueryString:  
+Request Body: 
+2024-08-12 21:11:59.669 [INF] 
+
+2024-08-12 21:11:59.669 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 1,
+      "Code": "FREE15",
+      "ValidFrom": "2024-08-12T17:59:50.046",
+      "ValidUntil": "2024-10-12T17:59:50.046",
+      "DiscountPercentage": 15
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:11:59.6642647Z",
+  "ReferenceNumber": "ecea077f-80a4-4776-818d-36c340cff88b",
+  "Errors": []
+}
+2024-08-12 21:11:59.669 [INF] -------------Request-End------------
+2024-08-12 21:12:37.448 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:12:37.601 [INF] -------------Request-Begin------------
+2024-08-12 21:12:37.601 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons 
+QueryString:  
+Request Body: {
+  "Code": "FEE20",
+  "DiscountPercentage": 20,
+  "ValidFrom": "2024-08-12T18:12:23.807Z",
+  "ValidUntil": "2025-08-12T18:12:23.807Z"
+}
+2024-08-12 21:12:37.601 [INF] 
+
+2024-08-12 21:12:37.601 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Coupons 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 2,
+    "Code": "FEE20",
+    "ValidFrom": "2024-08-12T18:12:23.807Z",
+    "ValidUntil": "2025-08-12T18:12:23.807Z",
+    "DiscountPercentage": 20
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:12:37.5998134Z",
+  "ReferenceNumber": "15851532-a144-471f-bf37-989f1c3beecf",
+  "Errors": []
+}
+2024-08-12 21:12:37.601 [INF] -------------Request-End------------
+2024-08-12 21:13:13.881 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:13:13.978 [INF] -------------Request-Begin------------
+2024-08-12 21:13:13.978 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+Request Body: 
+2024-08-12 21:13:13.978 [INF] 
+
+2024-08-12 21:13:13.978 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [
+    {
+      "Id": 1,
+      "Name": "iPhone 14",
+      "Features": "6.1-inch display, A15 Bionic chip, Dual-camera",
+      "Description": "Latest iPhone with advanced features",
+      "PointsEarningPercentage": 0.02,
+      "MaxPointsAmount": 50,
+      "Price": 999.99,
+      "Stock": 100,
+      "Categories": [
+        {
+          "Id": 1,
+          "Name": "Smartphones",
+          "Url": "smartphones",
+          "Tags": "mobile, phone, tech"
+        }
+      ]
+    }
+  ],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:13:13.9745543Z",
+  "ReferenceNumber": "4fe92aeb-363c-4669-98e8-81657020c55f",
+  "Errors": []
+}
+2024-08-12 21:13:13.978 [INF] -------------Request-End------------
+2024-08-12 21:14:08.839 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:14:08.853 [INF] -------------Request-Begin------------
+2024-08-12 21:14:08.853 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+Request Body: {
+ {
+    "Name": "iPad Air",
+    "Features": "10.9-inch Liquid Retina display, A14 Bionic chip",
+    "Description": "Powerful tablet with great portability",
+    "PointsEarningPercentage": 0.025,
+    "MaxPointsAmount": 75,
+    "Stock": 75,
+    "Price": 599.99
+  },
+  "CategoryIds": [
+    1
+  ]
+}
+2024-08-12 21:14:08.853 [INF] 
+
+2024-08-12 21:14:08.853 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+StatusCode: 400 
+Response Body: {
+  "Data": null,
+  "Message": null,
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:14:08.8515726Z",
+  "ReferenceNumber": "53181d1b-9336-4f87-b0b8-5c16e3d37933",
+  "Errors": [
+    "'{' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 1 | BytePositionInLine: 1."
+  ]
+}
+2024-08-12 21:14:08.853 [INF] -------------Request-End------------
+2024-08-12 21:14:23.379 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:14:23.383 [INF] -------------Request-Begin------------
+2024-08-12 21:14:23.383 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+Request Body: {
+ {
+    "Name": "iPad Air",
+    "Features": "10.9-inch Liquid Retina display, A14 Bionic chip",
+    "Description": "Powerful tablet with great portability",
+    "PointsEarningPercentage": 0.025,
+    "MaxPointsAmount": 75,
+    
+    "Price": 599.99,
+  "CategoryIds": [
+    1
+  ]
+}
+2024-08-12 21:14:23.383 [INF] 
+
+2024-08-12 21:14:23.383 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+StatusCode: 400 
+Response Body: {
+  "Data": null,
+  "Message": null,
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:14:23.3826371Z",
+  "ReferenceNumber": "6237a965-9623-4058-ae00-0dbefd7c7f85",
+  "Errors": [
+    "'{' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 1 | BytePositionInLine: 1."
+  ]
+}
+2024-08-12 21:14:23.383 [INF] -------------Request-End------------
+2024-08-12 21:14:42.859 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:14:42.862 [INF] -------------Request-Begin------------
+2024-08-12 21:14:42.862 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+Request Body: {
+ {
+    "Name": "iPad Air",
+    "Features": "10.9-inch Liquid Retina display, A14 Bionic chip",
+    "Description": "Powerful tablet with great portability",
+    "PointsEarningPercentage": 0.025,
+    "MaxPointsAmount": 75,
+    "Stock": 75,
+    "Price": 599.99,
+  "CategoryIds": [
+    1
+  ]
+}
+2024-08-12 21:14:42.863 [INF] 
+
+2024-08-12 21:14:42.863 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+StatusCode: 400 
+Response Body: {
+  "Data": null,
+  "Message": null,
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:14:42.8622883Z",
+  "ReferenceNumber": "a5b157f5-5285-4508-908d-12a8ef30e2b6",
+  "Errors": [
+    "'{' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 1 | BytePositionInLine: 1."
+  ]
+}
+2024-08-12 21:14:42.863 [INF] -------------Request-End------------
+2024-08-12 21:14:47.088 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:14:47.091 [INF] -------------Request-Begin------------
+2024-08-12 21:14:47.091 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+Request Body: {
+ {
+    "Name": "iPad Air",
+    "Features": "10.9-inch Liquid Retina display, A14 Bionic chip",
+    "Description": "Powerful tablet with great portability",
+    "PointsEarningPercentage": 0.025,
+    "MaxPointsAmount": 75,
+    "Stock": 75,
+    "Price": 599.99,
+  "CategoryIds": [
+    1
+  ]
+}
+2024-08-12 21:14:47.091 [INF] 
+
+2024-08-12 21:14:47.091 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+StatusCode: 400 
+Response Body: {
+  "Data": null,
+  "Message": null,
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:14:47.0907965Z",
+  "ReferenceNumber": "037cd97c-b555-4c12-83f7-25a49e1b2750",
+  "Errors": [
+    "'{' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 1 | BytePositionInLine: 1."
+  ]
+}
+2024-08-12 21:14:47.091 [INF] -------------Request-End------------
+2024-08-12 21:14:54.343 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:14:54.548 [INF] -------------Request-Begin------------
+2024-08-12 21:14:54.548 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+Request Body: {
+ 
+    "Name": "iPad Air",
+    "Features": "10.9-inch Liquid Retina display, A14 Bionic chip",
+    "Description": "Powerful tablet with great portability",
+    "PointsEarningPercentage": 0.025,
+    "MaxPointsAmount": 75,
+    "Stock": 75,
+    "Price": 599.99,
+  "CategoryIds": [
+    1
+  ]
+}
+2024-08-12 21:14:54.548 [INF] 
+
+2024-08-12 21:14:54.548 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Products 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 2,
+    "Name": "iPad Air",
+    "Features": "10.9-inch Liquid Retina display, A14 Bionic chip",
+    "Description": "Powerful tablet with great portability",
+    "PointsEarningPercentage": 0.025,
+    "MaxPointsAmount": 75,
+    "Price": 599.99,
+    "Stock": 75,
+    "Categories": [
+      {
+        "Id": 1,
+        "Name": "Smartphones",
+        "Url": "smartphones",
+        "Tags": "mobile, phone, tech"
+      }
+    ]
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:14:54.5468358Z",
+  "ReferenceNumber": "53b89555-a329-4875-803f-43fb1d8f8657",
+  "Errors": []
+}
+2024-08-12 21:14:54.548 [INF] -------------Request-End------------
+2024-08-12 21:15:20.735 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:15:20.784 [INF] -------------Request-Begin------------
+2024-08-12 21:15:20.784 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/ShoppingCart 
+QueryString:  
+Request Body: 
+2024-08-12 21:15:20.784 [INF] 
+
+2024-08-12 21:15:20.784 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/ShoppingCart 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:15:20.7816157Z",
+  "ReferenceNumber": "94c80d0e-770b-4c53-a2ad-e40158141a44",
+  "Errors": []
+}
+2024-08-12 21:15:20.784 [INF] -------------Request-End------------
+2024-08-12 21:15:41.418 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:15:41.623 [INF] -------------Request-Begin------------
+2024-08-12 21:15:41.623 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/ShoppingCart 
+QueryString:  
+Request Body: {
+  "ProductIds": [
+    1
+  ],
+  "Quantity": 1,
+  "CouponCode": "FREE20"
+}
+2024-08-12 21:15:41.623 [INF] 
+
+2024-08-12 21:15:41.623 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/ShoppingCart 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": {
+    "Id": 1,
+    "Name": "8055aa09-22c7-437c-83ad-2a23ccb77c6e_12.08.2024 21:15:41",
+    "UserId": "8055aa09-22c7-437c-83ad-2a23ccb77c6e",
+    "TotalAmount": 999.99,
+    "CartAmount": 999.99,
+    "CouponCode": "FREE20",
+    "PointsAmount": 0,
+    "ShoppingCartItems": [
+      {
+        "ProductId": 1,
+        "Product": {
+          "Features": "6.1-inch display, A15 Bionic chip, Dual-camera",
+          "Description": "Latest iPhone with advanced features",
+          "PointsEarningPercentage": 0.02,
+          "MaxPointsAmount": 50,
+          "Price": 999.99,
+          "Stock": 100,
+          "ProductCategories": null,
+          "Id": 1,
+          "Name": "iPhone 14",
+          "InsertUser": "Enes",
+          "InsertDate": "2024-08-12T18:01:47.189548",
+          "IsActive": true
+        },
+        "ShoppingCartId": 1,
+        "ShoppingCart": {
+          "UserId": "8055aa09-22c7-437c-83ad-2a23ccb77c6e",
+          "TotalAmount": 999.99,
+          "CartAmount": 999.99,
+          "CouponCode": "FREE20",
+          "PointsAmount": 0,
+          "ShoppingCartItems": [
+            null
+          ],
+          "Id": 1,
+          "Name": "8055aa09-22c7-437c-83ad-2a23ccb77c6e_12.08.2024 21:15:41",
+          "InsertUser": "Enes",
+          "InsertDate": "2024-08-12T18:15:41.4952489Z",
+          "IsActive": true
+        },
+        "Stock": 0,
+        "Quantity": 1,
+        "Price": 999.99,
+        "Id": 1,
+        "Name": "iPhone 14-8055aa09-22c7-437c-83ad-2a23ccb77c6e-12.08.2024 21:15:41",
+        "InsertUser": "Enes",
+        "InsertDate": "2024-08-12T21:15:41.4635941+03:00",
+        "IsActive": true
+      }
+    ]
+  },
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:15:41.6205127Z",
+  "ReferenceNumber": "26ac7ecd-05ae-4e58-afb3-086c0e695dd8",
+  "Errors": []
+}
+2024-08-12 21:15:41.623 [INF] -------------Request-End------------
+2024-08-12 21:16:23.918 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:16:23.975 [INF] -------------Request-Begin------------
+2024-08-12 21:16:23.975 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: 
+2024-08-12 21:16:23.975 [INF] 
+
+2024-08-12 21:16:23.975 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Data": [],
+  "Message": "Success",
+  "IsSuccess": true,
+  "ServerDate": "2024-08-12T18:16:23.9678382Z",
+  "ReferenceNumber": "77103a8e-6027-4822-ac7c-749fd23ebc05",
+  "Errors": []
+}
+2024-08-12 21:16:23.975 [INF] -------------Request-End------------
+2024-08-12 21:17:23.264 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:17:48.635 [FTL] Path=/api/Orders || Method=POST || Exception=An error was generated for warning 'Microsoft.EntityFrameworkCore.Query.InvalidIncludePathError': Unable to find navigation 'ShoppingCartItem' specified in string based include path 'ShoppingCartItem'. This exception can be suppressed or logged by passing event ID 'CoreEventId.InvalidIncludePathError' to the 'ConfigureWarnings' method in 'DbContext.OnConfiguring' or 'AddDbContext'.
+2024-08-12 21:17:48.666 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id caa9c5b4-b1db-4107-862c-4887d2504b75 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 21:17:48.702 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id caa9c5b4-b1db-4107-862c-4887d2504b75 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 21:17:48.706 [ERR] Connection ID "18302628916503773285", Request ID "40000066-0007-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id caa9c5b4-b1db-4107-862c-4887d2504b75 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-12 21:23:47.717 [INF] Application is starting...
+2024-08-12 21:25:41.411 [INF] Application is starting...
+2024-08-12 21:26:11.340 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:27:55.334 [INF] Application is starting...
+2024-08-12 21:28:17.034 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:29:31.739 [INF] Application is starting...
+2024-08-12 21:29:58.483 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:30:21.283 [FTL] Path=/api/Orders || Method=POST || Exception=Object reference not set to an instance of an object.
+2024-08-12 21:30:21.337 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id f253281d-9364-4c3a-a9db-e3b620f5aef6 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 21:30:21.358 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id f253281d-9364-4c3a-a9db-e3b620f5aef6 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 21:30:21.361 [ERR] Connection ID "18302628933683642467", Request ID "40000064-000b-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id f253281d-9364-4c3a-a9db-e3b620f5aef6 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-12 21:31:06.524 [INF] Application is starting...
+2024-08-12 21:31:21.168 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:31:42.689 [FTL] Path=/api/Orders || Method=POST || Exception=Object reference not set to an instance of an object.
+2024-08-12 21:31:42.750 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 50ea1be0-bad1-4f25-a4e9-e1cc36d48204 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 21:31:42.778 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 50ea1be0-bad1-4f25-a4e9-e1cc36d48204 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-12 21:31:42.783 [ERR] Connection ID "18086456121505087565", Request ID "4000004e-0004-fb00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 50ea1be0-bad1-4f25-a4e9-e1cc36d48204 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1352
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 931
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at DigitalStore.WebApi.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\enesyalcin\Desktop\PaparaDoc\FinalCase\Ppr_FinalCase_EnesYalcin\DigitalStore.Api\DigitalStore.WebApi\Middleware\ErrorHandlerMiddleware.cs:line 34
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-08-12 21:31:44.937 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:34:58.006 [INF] Application is starting...
+2024-08-12 21:35:17.330 [INF] LogRequestLoggingMiddleware.Invoke
+2024-08-12 21:35:24.312 [INF] -------------Request-Begin------------
+2024-08-12 21:35:24.312 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+Request Body: {
+  "CardOwnerName": "Enes Yalçın",
+  "CardNumber": "4987490000000002",
+  "ExpirationMonth": "8",
+  "ExpirationYear": "2028",
+  "Cvc": "343",
+  "FirstName": "Enes",
+  "LastName": "Yalçın",
+  "Address": "qweqweqwe",
+  "City": "qweqweqw",
+  "PhoneNumber": "5555555555",
+  "Email": "enes@gmail.com",
+  "Note": "qweqweqweqweqwe"
+}
+
+2024-08-12 21:35:24.312 [INF] 
+
+2024-08-12 21:35:24.312 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:44311 
+Path: /api/Orders 
+QueryString:  
+StatusCode: 200 
+Response Body: {
+  "Message": "failure",
+  "IsSuccess": false,
+  "ServerDate": "2024-08-12T18:35:24.2930146Z",
+  "ReferenceNumber": "5068f22c-5dca-4a58-8b73-294ecef3d115"
+}
+2024-08-12 21:35:24.312 [INF] -------------Request-End------------

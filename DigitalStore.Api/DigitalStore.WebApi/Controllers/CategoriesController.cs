@@ -34,7 +34,7 @@ namespace DigitalStore.WebApi.Controllers
             return result;
         }
 
-        [HttpGet("{CategoryId}")]
+        [HttpGet("{categoryId}")]
         public async Task<ApiResponse<CategoryResponse>> Get([FromRoute] long categoryId)
         {
             var operation = new GetCategoryByIdQuery(categoryId);

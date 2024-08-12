@@ -12,7 +12,6 @@ namespace DigitalStore.Business.Validation
     {
         public CategoryValidator()
         {
-
             RuleFor(x => x.Name).NotEmpty().MinimumLength(2).MaximumLength(50);
             RuleFor(x => x.Url).NotEmpty().MinimumLength(2).MaximumLength(50);
             RuleFor(x => x.Tags).NotEmpty().MinimumLength(2).MaximumLength(150);
